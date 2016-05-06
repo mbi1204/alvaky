@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="demoapp_spring">
+    <wb-module deploy-name="alvaky">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
@@ -93,7 +93,7 @@
         <dependent-module archiveName="spring-asm-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-asm-3.0.0.RELEASE/spring-asm-3.0.0.RELEASE">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="demoapp_spring"/>
-        <property name="java-output-path" value="/demoapp_spring/build/classes"/>
+        <property name="java-output-path" value="/alvaky/build/classes"/>
+        <property name="context-root" value="alvaky"/>
     </wb-module>
 </project-modules>
