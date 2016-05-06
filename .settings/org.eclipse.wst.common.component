@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="demoapp_spring">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
+        <dependent-module archiveName="spring-core-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-core-3.0.0.RELEASE/spring-core-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaplanner-1.5.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javaplanner-1.5/javaplanner-1.5">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-webmvc-3.0.0.RELEASE/spring-webmvc-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.5.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-api-1.7.5/slf4j-api-1.7.5">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-collections-3.1/commons-collections-3.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ehcache-core-2.2.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/ehcache-core-2.2.0/ehcache-core-2.2.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jta-1.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jta-1.1/jta-1.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-3.12.1.GA.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javassist-3.12.1.GA/javassist-3.12.1.GA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-orm-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-orm-3.0.0.RELEASE/spring-orm-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/dom4j-1.6.1/dom4j-1.6.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.23.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/mysql-connector-java-5.1.23/mysql-connector-java-5.1.23">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-core-3.6.0.Final.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/hibernate-core-3.6.0.Final/hibernate-core-3.6.0.Final">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.1.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-logging-1.1.1/commons-logging-1.1.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-oxm-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-oxm-3.0.0.RELEASE/spring-oxm-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jstl-1.2/jstl-1.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-web-3.0.0.RELEASE/spring-web-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-context-3.0.0.RELEASE/spring-context-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-beans-3.0.0.RELEASE/spring-beans-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-tx-3.0.0.RELEASE/spring-tx-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-jdbc-3.0.0.RELEASE/spring-jdbc-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-expression-3.0.0.RELEASE/spring-expression-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-portlet-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-webmvc-portlet-3.0.0.RELEASE/spring-webmvc-portlet-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-support-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-context-support-3.0.0.RELEASE/spring-context-support-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aopalliance-1.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/aopalliance-1.0/aopalliance-1.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.servlet-api-3.0.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javax.servlet-api-3.0.1/javax.servlet-api-3.0.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-aop-3.0.0.RELEASE/spring-aop-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/antlr-2.7.6/antlr-2.7.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-jpa-2.0-api-1.0.0.Final.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/hibernate-jpa-2.0-api-1.0.0.Final/hibernate-jpa-2.0-api-1.0.0.Final">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-commons-annotations-3.2.0.Final.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/hibernate-commons-annotations-3.2.0.Final/hibernate-commons-annotations-3.2.0.Final">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-asm-3.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/spring-asm-3.0.0.RELEASE/spring-asm-3.0.0.RELEASE">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="demoapp_spring"/>
+        <property name="java-output-path" value="/demoapp_spring/build/classes"/>
+    </wb-module>
+</project-modules>
