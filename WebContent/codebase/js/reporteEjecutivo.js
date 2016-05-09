@@ -103,3 +103,10 @@ function pdf(){
 	
 	window.open("downloadPDF?sucursal="+cSucursal.sucursal);
 }
+
+function excel(){
+	
+	var cSucursal = getGET();
+	
+	window.open("downloadExcel?sucursal="+cSucursal.sucursal);
+}

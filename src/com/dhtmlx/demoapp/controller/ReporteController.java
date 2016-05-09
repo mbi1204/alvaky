@@ -86,7 +86,7 @@ public class ReporteController {
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
         List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
         
-        listEjecutivo = valor.listaInforme("ALVAKY","06", "38285");
+        listEjecutivo = valor.listaInforme("ALVAKY","06", sucursal);
  
         // return a view which will be resolved by an excel view resolver
         return new ModelAndView("excelView", "listBooks", listEjecutivo);

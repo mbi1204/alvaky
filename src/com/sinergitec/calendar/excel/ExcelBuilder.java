@@ -25,10 +25,13 @@ public class ExcelBuilder extends AbstractExcelView {
             HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         // get data model which is passed by the Spring container
+    	
+    	System.out.println("Estoy en el que crea el excel");
+    	
         List<InfEjecutivo> listBooks = (List<InfEjecutivo>) model.get("listBooks");
          
         // create a new Excel sheet
-        HSSFSheet sheet = workbook.createSheet("Java Books");
+        HSSFSheet sheet = workbook.createSheet("Reporte Ejecutivo");
         sheet.setDefaultColumnWidth(30);
          
         // create style for header cells
@@ -44,20 +47,33 @@ public class ExcelBuilder extends AbstractExcelView {
         // create header row
         HSSFRow header = sheet.createRow(0);
          
-        header.createCell(0).setCellValue("Book Title");
+        header.createCell(0).setCellValue("Fecha de Visita");
         header.getCell(0).setCellStyle(style);
          
-        header.createCell(1).setCellValue("Author");
+        header.createCell(1).setCellValue("Agua Cruda");
         header.getCell(1).setCellStyle(style);
          
-        header.createCell(2).setCellValue("ISBN");
+        header.createCell(2).setCellValue("Agua Suavizada");
         header.getCell(2).setCellStyle(style);
          
-        header.createCell(3).setCellValue("Published Date");
+        header.createCell(3).setCellValue("Agua Filtrada");
         header.getCell(3).setCellStyle(style);
          
-        header.createCell(4).setCellValue("Price");
+        header.createCell(4).setCellValue("Consumibles");
         header.getCell(4).setCellStyle(style);
+        
+        header.createCell(5).setCellValue("Acciones Realizadas");
+        header.getCell(5).setCellStyle(style);
+        
+        header.createCell(6).setCellValue("Consumibles");
+        header.getCell(6).setCellStyle(style);
+        
+        header.createCell(7).setCellValue("Comentarios Realizados");
+        header.getCell(7).setCellStyle(style);
+        
+        header.createCell(8).setCellValue("Tiempos Reales de Trabajo");
+        header.getCell(8).setCellStyle(style);
+        
          
         // create data rows
         int rowCount = 1;
