@@ -76,4 +76,17 @@ public class ReporteController {
         // return a view which will be resolved by an excel view resolver
         return new ModelAndView("pdfView", "listBooks", listEjecutivo);
     }
+	
+	@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
+    public ModelAndView downloadExcel(@RequestParam("sucursal") String sucursal) throws Open4GLException, IOException {
+		
+        // create some sample data
+		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
+        List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
+        
+        listEjecutivo = valor.listaInforme("ALVAKY","06", sucursal);
+ 
+        // return a view which will be resolved by an excel view resolver
+        return new ModelAndView("pdfView", "listBooks", listEjecutivo);
+    }
 }
