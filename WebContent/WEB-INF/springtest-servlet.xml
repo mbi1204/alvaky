@@ -26,12 +26,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<!--   <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-	
-	PDF view          
-                <bean class="com.sinergitec.calendar.pdf.PDFBuilder">             
-                </bean> -->  
+		<property name="suffix" value=".jsp" /> -->  
 	
 	<bean id="viewResolver1" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
         <property name="order" value="1"/>

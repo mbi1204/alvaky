@@ -18,7 +18,7 @@
 	<div class = "menu" id = "menu">
 		<ul id = "listaMeses">
 			<li><a onclick="pdf();" target="_blank">Prueba de Exportación PDF</a></li>
-			<li><a href="#">Prueba de Exportación Excel</a></li>
+			<li><a href="downloadExcel">Prueba de Exportación Excel</a></li>
 		</ul>
 	</div>
 	<!-- Fin Menu -->

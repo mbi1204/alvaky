@@ -80,13 +80,15 @@ public class ReporteController {
 	@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
     public ModelAndView downloadExcel(@RequestParam("sucursal") String sucursal) throws Open4GLException, IOException {
 		
+		System.out.println("Estoy entrando al excel");
+		
         // create some sample data
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
         List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
         
-        listEjecutivo = valor.listaInforme("ALVAKY","06", sucursal);
+        listEjecutivo = valor.listaInforme("ALVAKY","06", "38285");
  
         // return a view which will be resolved by an excel view resolver
-        return new ModelAndView("pdfView", "listBooks", listEjecutivo);
+        return new ModelAndView("excelView", "listBooks", listEjecutivo);
     }
 }
