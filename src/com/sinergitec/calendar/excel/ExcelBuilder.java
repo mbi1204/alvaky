@@ -1,11 +1,8 @@
 package com.sinergitec.calendar.excel;
 
-import java.io.ByteArrayOutputStream;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,10 +13,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.LocalizedResourceHelper;
-import org.springframework.web.servlet.support.RequestContextUtils;
-import org.springframework.web.servlet.view.AbstractView;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
 import com.sinergitec.calendar.model.InfEjecutivo;
