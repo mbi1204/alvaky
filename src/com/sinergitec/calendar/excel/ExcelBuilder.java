@@ -11,8 +11,11 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
 import com.sinergitec.calendar.model.InfEjecutivo;
@@ -47,6 +50,12 @@ public class ExcelBuilder extends AbstractExcelView {
         // create header row
         HSSFRow header = sheet.createRow(0);
          
+        Row row = sheet.createRow((short) 1);
+        Cell cell = row.createCell((short) 1);
+        cell.setCellValue("Esto es una prueba");
+        
+        sheet.addMergedRegion(CellRangeAddress.valueOf("B7:C7"));
+        
         header.createCell(0).setCellValue("Fecha de Visita");
         header.getCell(0).setCellStyle(style);
          
