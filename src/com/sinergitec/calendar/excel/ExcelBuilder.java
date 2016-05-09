@@ -20,7 +20,8 @@ import com.sinergitec.calendar.model.InfEjecutivo;
 public class ExcelBuilder extends AbstractExcelView {
 	 
    
-    protected void buildExcelDocument(Map<String, Object> model,
+    @SuppressWarnings("unchecked")
+	protected void buildExcelDocument(Map<String, Object> model,
             HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         // get data model which is passed by the Spring container
