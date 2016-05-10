@@ -11,10 +11,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 
@@ -48,14 +46,17 @@ public class ExcelBuilder extends AbstractExcelView {
         // create header row
         HSSFRow header = sheet.createRow(0);
          
-        Row row = sheet.createRow((short) 1);
-        Cell cell = row.createCell((short) 1);
+        /*Row row = sheet.createRow((short) 1);
+        Cell cell = row.createCell((short) 1);*/
         
+        sheet.addMergedRegion(CellRangeAddress.valueOf("A1:A2"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("B1:E1"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("F1:I1"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("J1:N1"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("O1:R1"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("S1:T1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("U1:U2"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("V1:V2"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("W1:Y1"));
         
         header.createCell(0).setCellValue("Fecha de Visita");
@@ -70,7 +71,7 @@ public class ExcelBuilder extends AbstractExcelView {
         header.createCell(9).setCellValue("Agua Filtrada");
         header.getCell(9).setCellStyle(style);
          
-        /*header.createCell(14).setCellValue("Consumibles");
+        header.createCell(14).setCellValue("Consumibles");
         header.getCell(14).setCellStyle(style);
         
         header.createCell(18).setCellValue("Refacciones");
@@ -80,10 +81,10 @@ public class ExcelBuilder extends AbstractExcelView {
         header.getCell(20).setCellStyle(style);	
         
         header.createCell(21).setCellValue("Comentarios Realizados");
-        header.getCell(17).setCellStyle(style);
+        header.getCell(21).setCellStyle(style);
         
         header.createCell(22).setCellValue("Tiempos Reales de Trabajo");
-        header.getCell(22).setCellStyle(style);*/
+        header.getCell(22).setCellStyle(style);
         
          
         // create data rows
