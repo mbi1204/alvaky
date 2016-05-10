@@ -47,6 +47,7 @@ public class ExcelBuilder extends AbstractExcelView {
          
         // create header row
         HSSFRow header = sheet.createRow(0);
+        HSSFRow row1 = sheet.createRow(1);
         
         sheet.addMergedRegion(CellRangeAddress.valueOf("A1:A2"));
         sheet.addMergedRegion(CellRangeAddress.valueOf("B1:E1"));
@@ -63,39 +64,64 @@ public class ExcelBuilder extends AbstractExcelView {
          
         header.createCell(1).setCellValue("Agua Cruda");
         header.getCell(1).setCellStyle(style);
-        sheet.createRow(1).createCell(1).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
-        sheet.createRow(1).createCell(2).setCellValue("pH 6.5 - 8.5");
-        sheet.createRow(1).createCell(3).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
-        sheet.createRow(1).createCell(4).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        
+        row1.createCell(1).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
+        row1.getCell(1).setCellStyle(style);
+        row1.createCell(2).setCellValue("pH 6.5 - 8.5");
+        row1.getCell(2).setCellStyle(style);
+        row1.createCell(3).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
+        row1.getCell(3).setCellStyle(style);
+        row1.createCell(4).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.getCell(4).setCellStyle(style);
          
         header.createCell(5).setCellValue("Agua Suavizada");
         header.getCell(5).setCellStyle(style);
-        sheet.createRow(1).createCell(5).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
-        sheet.createRow(1).createCell(6).setCellValue("pH 6.5 - 8.5");
-        sheet.createRow(1).createCell(7).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
-        sheet.createRow(1).createCell(8).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        
+        row1.createCell(5).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
+        row1.getCell(5).setCellStyle(style);
+        row1.createCell(6).setCellValue("pH 6.5 - 8.5");
+        row1.getCell(6).setCellStyle(style);
+        row1.createCell(7).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
+        row1.getCell(7).setCellStyle(style);
+        row1.createCell(8).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.getCell(8).setCellStyle(style);
+        
         
          
         header.createCell(9).setCellValue("Agua Filtrada");
         header.getCell(9).setCellStyle(style);
-        sheet.createRow(1).createCell(9).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
-        sheet.createRow(1).createCell(10).setCellValue("pH 6.5 - 8.5");
-        sheet.createRow(1).createCell(11).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
-        sheet.createRow(1).createCell(12).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
-        sheet.createRow(1).createCell(13).setCellValue("Alkalinity (Alcalinidad) ");
+        
+        row1.createCell(9).setCellValue("Chlorine (Cloro) 0.2 - 1.5 ppm");
+        row1.getCell(9).setCellStyle(style);
+        row1.createCell(10).setCellValue("pH 6.5 - 8.5");
+        row1.getCell(10).setCellStyle(style);
+        row1.createCell(11).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
+        row1.getCell(11).setCellStyle(style);
+        row1.createCell(12).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.getCell(12).setCellStyle(style);
+        row1.createCell(13).setCellValue("Alkalinity (Alcalinidad) ");
+        row1.getCell(13).setCellStyle(style);
         
          
         header.createCell(14).setCellValue("Consumibles");
         header.getCell(14).setCellStyle(style);
-        sheet.createRow(1).createCell(14).setCellValue("Sed.");
-        sheet.createRow(1).createCell(15).setCellValue("Sal");
-        sheet.createRow(1).createCell(16).setCellValue("Carbon");
-        sheet.createRow(1).createCell(17).setCellValue("Sal pellet");
+        
+        row1.createCell(14).setCellValue("Sed.");
+        row1.getCell(14).setCellStyle(style);
+        row1.createCell(15).setCellValue("Sal");
+        row1.getCell(15).setCellStyle(style);
+        row1.createCell(16).setCellValue("Carbon");
+        row1.getCell(16).setCellStyle(style);
+        row1.createCell(17).setCellValue("Sal pellet");
+        row1.getCell(17).setCellStyle(style);
         
         header.createCell(18).setCellValue("Refacciones");
         header.getCell(18).setCellStyle(style);
-        sheet.createRow(1).createCell(18).setCellValue("Otras");
-        sheet.createRow(1).createCell(19).setCellValue("Cantidad");
+        
+        row1.createCell(18).setCellValue("Otras");
+        row1.getCell(18).setCellStyle(style);
+        row1.createCell(19).setCellValue("Cantidad");
+        row1.getCell(19).setCellStyle(style);
         
         header.createCell(20).setCellValue("Acciones Realizadas");
         header.getCell(20).setCellStyle(style);	
@@ -105,9 +131,13 @@ public class ExcelBuilder extends AbstractExcelView {
         
         header.createCell(22).setCellValue("Tiempos Reales de Trabajo");
         header.getCell(22).setCellStyle(style);
-        sheet.createRow(1).createCell(22).setCellValue("Hora de Llegada");
-        sheet.createRow(1).createCell(23).setCellValue("Hora de Salida");
-        sheet.createRow(1).createCell(24).setCellValue("Tiempo Total");
+        
+        row1.createCell(22).setCellValue("Hora de Llegada");
+        row1.getCell(22).setCellStyle(style);
+        row1.createCell(23).setCellValue("Hora de Salida");
+        row1.getCell(23).setCellStyle(style);
+        row1.createCell(24).setCellValue("Tiempo Total");
+        row1.getCell(24).setCellStyle(style);
         
          
         // create data rows
