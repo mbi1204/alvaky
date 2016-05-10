@@ -46,18 +46,18 @@ public class ExcelBuilder extends AbstractExcelView {
         style.setAlignment(style.ALIGN_CENTER);
          
         // create header row
-        HSSFRow header = sheet.createRow(0);
-        HSSFRow row1 = sheet.createRow(1);
+        HSSFRow header = sheet.createRow(2);
+        HSSFRow row1 = sheet.createRow(3);
         
-        sheet.addMergedRegion(CellRangeAddress.valueOf("A1:A2"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("B1:E1"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("F1:I1"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("J1:N1"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("O1:R1"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("S1:T1"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("U1:U2"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("V1:V2"));
-        sheet.addMergedRegion(CellRangeAddress.valueOf("W1:Y1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("A3:A4"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("B3:E3"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("F3:I3"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("J3:N3"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("O3:R3"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("S3:T3"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("U3:U4"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("V3:V4"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("W3:Y3"));
         
         header.createCell(0).setCellValue("Fecha de Visita");
         header.getCell(0).setCellStyle(style);
@@ -73,6 +73,7 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.getCell(3).setCellStyle(style);
         row1.createCell(4).setCellValue("Total Dissolved Solid (STD) 0 - 1000 ppm");
         row1.getCell(4).setCellStyle(style);
+        
          
         header.createCell(5).setCellValue("Agua Suavizada");
         header.getCell(5).setCellStyle(style);
@@ -115,6 +116,7 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.createCell(17).setCellValue("Sal pellet");
         row1.getCell(17).setCellStyle(style);
         
+        
         header.createCell(18).setCellValue("Refacciones");
         header.getCell(18).setCellStyle(style);
         
@@ -123,11 +125,13 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.createCell(19).setCellValue("Cantidad");
         row1.getCell(19).setCellStyle(style);
         
+        
         header.createCell(20).setCellValue("Acciones Realizadas");
         header.getCell(20).setCellStyle(style);	
         
         header.createCell(21).setCellValue("Comentarios Realizados");
         header.getCell(21).setCellStyle(style);
+        
         
         header.createCell(22).setCellValue("Tiempos Reales de Trabajo");
         header.getCell(22).setCellStyle(style);
@@ -141,7 +145,7 @@ public class ExcelBuilder extends AbstractExcelView {
         
          
         // create data rows
-        int rowCount = 2;
+        int rowCount = 4;
          
         for (InfEjecutivo aBook : listBooks) {
             HSSFRow aRow = sheet.createRow(rowCount++);
