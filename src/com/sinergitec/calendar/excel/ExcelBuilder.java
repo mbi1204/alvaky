@@ -71,7 +71,7 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.getCell(2).setCellStyle(style);
         row1.createCell(3).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
         row1.getCell(3).setCellStyle(style);
-        row1.createCell(4).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.createCell(4).setCellValue("Total Dissolved Solid (STD) 0 - 1000 ppm");
         row1.getCell(4).setCellStyle(style);
          
         header.createCell(5).setCellValue("Agua Suavizada");
@@ -83,7 +83,7 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.getCell(6).setCellStyle(style);
         row1.createCell(7).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
         row1.getCell(7).setCellStyle(style);
-        row1.createCell(8).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.createCell(8).setCellValue("Total Dissolved Solid (STD) 0 - 1000 ppm");
         row1.getCell(8).setCellStyle(style);
         
         
@@ -97,7 +97,7 @@ public class ExcelBuilder extends AbstractExcelView {
         row1.getCell(10).setCellStyle(style);
         row1.createCell(11).setCellValue("Total Hardness (Dureza) 0 - 500 ppm");
         row1.getCell(11).setCellStyle(style);
-        row1.createCell(12).setCellValue("Total Dissolved Solid (STD) <br/>0 - 1000 ppm");
+        row1.createCell(12).setCellValue("Total Dissolved Solid (STD) 0 - 1000 ppm");
         row1.getCell(12).setCellStyle(style);
         row1.createCell(13).setCellValue("Alkalinity (Alcalinidad) ");
         row1.getCell(13).setCellStyle(style);
