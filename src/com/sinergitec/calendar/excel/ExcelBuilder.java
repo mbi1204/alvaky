@@ -145,7 +145,7 @@ public class ExcelBuilder extends AbstractExcelView {
          
         for (InfEjecutivo aBook : listBooks) {
             HSSFRow aRow = sheet.createRow(rowCount++);
-            aRow.createCell(0).setCellValue(aBook.getDtFechaV());
+            aRow.createCell(0).setCellValue(aBook.getDtFechaV().toString());
             aRow.createCell(1).setCellValue(aBook.getDeCloroEnt());
             aRow.createCell(2).setCellValue(aBook.getDePHEnt());
             aRow.createCell(3).setCellValue(aBook.getDeDurEnt());
