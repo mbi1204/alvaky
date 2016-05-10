@@ -29,8 +29,6 @@ public class ExcelBuilder extends AbstractExcelView {
             throws Exception {
         // get data model which is passed by the Spring container
     	
-    	System.out.println("Estoy en el que crea el excel");
-    	
         List<InfEjecutivo> listBooks = (List<InfEjecutivo>) model.get("listBooks");
          
         // create a new Excel sheet
@@ -50,11 +48,15 @@ public class ExcelBuilder extends AbstractExcelView {
         // create header row
         HSSFRow header = sheet.createRow(0);
          
-        Row row = sheet.createRow((short) 1);
-        Cell cell = row.createCell((short) 1);
-        cell.setCellValue("Esto es una prueba");
+        /*Row row = sheet.createRow((short) 1);
+        Cell cell = row.createCell((short) 1);*/
         
-        sheet.addMergedRegion(CellRangeAddress.valueOf("B7:C7"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("B1:E1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("F1:I1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("J1:N1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("O1:R1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("S1:T1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("W1:Y1"));
         
         header.createCell(0).setCellValue("Fecha de Visita");
         header.getCell(0).setCellStyle(style);
@@ -62,26 +64,26 @@ public class ExcelBuilder extends AbstractExcelView {
         header.createCell(1).setCellValue("Agua Cruda");
         header.getCell(1).setCellStyle(style);
          
-        header.createCell(2).setCellValue("Agua Suavizada");
-        header.getCell(2).setCellStyle(style);
-         
-        header.createCell(3).setCellValue("Agua Filtrada");
-        header.getCell(3).setCellStyle(style);
-         
-        header.createCell(4).setCellValue("Consumibles");
-        header.getCell(4).setCellStyle(style);
-        
-        header.createCell(5).setCellValue("Acciones Realizadas");
+        header.createCell(5).setCellValue("Agua Suavizada");
         header.getCell(5).setCellStyle(style);
+         
+        header.createCell(9).setCellValue("Agua Filtrada");
+        header.getCell(9).setCellStyle(style);
+         
+        header.createCell(14).setCellValue("Consumibles");
+        header.getCell(14).setCellStyle(style);
         
-        header.createCell(6).setCellValue("Consumibles");
-        header.getCell(6).setCellStyle(style);
+        header.createCell(18).setCellValue("Refacciones");
+        header.getCell(18).setCellStyle(style);
         
-        header.createCell(7).setCellValue("Comentarios Realizados");
-        header.getCell(7).setCellStyle(style);
+        header.createCell(20).setCellValue("Acciones Realizadas");
+        header.getCell(20).setCellStyle(style);	
         
-        header.createCell(8).setCellValue("Tiempos Reales de Trabajo");
-        header.getCell(8).setCellStyle(style);
+        header.createCell(21).setCellValue("Comentarios Realizados");
+        header.getCell(17).setCellStyle(style);
+        
+        header.createCell(22).setCellValue("Tiempos Reales de Trabajo");
+        header.getCell(22).setCellStyle(style);
         
          
         // create data rows
