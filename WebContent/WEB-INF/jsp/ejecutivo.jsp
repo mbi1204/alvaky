@@ -28,7 +28,7 @@
 	
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" >
-			<div class = "name" id = "name">Reporte de ${cSucursal}</div>
+			<div class = "name" id = "name"></div>
 			<div class = "dsc" id = "dsc"></div>
 			<div class = "clear" id = "clear"></div>
 		</div>

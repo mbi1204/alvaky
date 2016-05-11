@@ -58,8 +58,6 @@ public class ReporteController {
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		String lista = "";
 		
-		model.addAttribute("cSucursal", cSucursal);
-		
 		lista = new Gson().toJson(valor.listaInforme("ALVAKY","06", cSucursal));
 		return lista;
 	}

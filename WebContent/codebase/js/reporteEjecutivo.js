@@ -22,9 +22,11 @@ function abrir_Reporte(){
 		},
 		success : function(data) {
 			
+			var cNomSucursal;
 			if(data != ""){
 				$("#reporteEje > tbody").empty();
 				for ( var item in data) {
+					cNomSucursal = data[item].cNomSuc;
 					$('#reporteEje > tbody').append('<tr class="text-center">'    +
 							 '<td class="text-center">' + data[item].dtFechaV     +   '</td>' +
 							 '<td class="text-center">' + data[item].deCloroEnt   +   '</td>' + 
@@ -52,6 +54,7 @@ function abrir_Reporte(){
 							 '<td class="text-center">'	+ data[item].cHoraSalida  +   '</td>' +
 							 '<td class="text-center">'	+ data[item].cTiempoTot   +   '</td>' +'</tr>');
 					}
+				document.getElementById("name").innerHTML="Reporte de "+cNomSucursal;
 				}else{
 					swal("No Existen Registros");
 				}
