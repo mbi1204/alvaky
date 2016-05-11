@@ -55,6 +55,7 @@ function abrir_Reporte(){
 							 '<td class="text-center">'	+ data[item].cTiempoTot   +   '</td>' +'</tr>');
 					}
 				document.getElementById("name").innerHTML="Reporte de "+cNomSucursal;
+				
 				}else{
 					swal("No Existen Registros");
 				}

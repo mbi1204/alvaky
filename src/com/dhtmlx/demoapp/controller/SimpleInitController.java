@@ -23,7 +23,7 @@ public class SimpleInitController {
     	s.config.setScrollHour(8);
     	s.setWidth(1000);
     	s.templates.getEventText();
-    	s.config.setHourSizePx(50);
+    	s.config.setHourSizePx(25);
 
     	// sets events set
     	CustomEventsManager evs = new CustomEventsManager(request);
