@@ -246,6 +246,7 @@ div.dhx_modal_cover {
 	left:80px; cursor:pointer;
 }
 .dhx_cal_today_button{
+	display:none;
 	background-image:url(imgs/buttons.png);
 	background-position: -60px 0px;
 	width:75px; height:17px;
