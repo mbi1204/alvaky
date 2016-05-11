@@ -693,6 +693,7 @@ div.icon_delete{
     cursor:pointer;
 }
 .dhx_save_btn{
+	display: none;
     background-image:url('./imgs/controls.gif');
     background-position:-84px 0px;
     width:21px;
@@ -1922,6 +1923,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	margin-right: 20px;
 }
 .dhx_save_btn_set {
+	display:none;
 	border: 1px solid #22A1BC;
 	color: white;
 	text-shadow:0px -1px 0px #6F6F6F;

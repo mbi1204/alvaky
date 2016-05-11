@@ -693,6 +693,7 @@ div.icon_delete{
     cursor:pointer;
 }
 .dhx_save_btn{
+	display:none;
     background-image:url('./imgs/controls.gif');
     background-position:-84px 0px;
     width:21px;
