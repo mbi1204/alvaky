@@ -241,7 +241,7 @@ div.dhx_modal_cover {
 	left:80px; cursor:pointer;
 }
 .dhx_cal_today_button{
-	display:none;
+	
 	background-image:url(imgs/buttons.png);
 	background-position: -60px 0px;
 	width:75px; height:17px;
@@ -1604,7 +1604,7 @@ input.dhx_repeat_checkbox {
 	height:20px;
 }
 .dhx_cal_today_button{
-	display:none;
+	
 	padding-top:3px; 
 	background-image:url(imgs_glossy/buttons.gif);
 	width:67px;

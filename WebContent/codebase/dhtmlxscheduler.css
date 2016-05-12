@@ -241,7 +241,7 @@ div.dhx_modal_cover {
 	left:80px; cursor:pointer;
 }
 .dhx_cal_today_button{
-	display:none;
+	
 	background-image:url(imgs/buttons.png);
 	background-position: -60px 0px;
 	width:75px; height:17px;
@@ -1736,6 +1736,7 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	z-index: -1;
 }
 .dhx_cal_today_button {
+	/*Aqui cambiamos el campo de filtado*/
 	display:none;
 	color: #747473;
 	left: auto;
@@ -2281,3 +2282,5 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	color: #332C2F !important;
 }
 /*event_class end*/
+
+

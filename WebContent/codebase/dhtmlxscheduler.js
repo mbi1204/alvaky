@@ -1942,7 +1942,17 @@ if (window.jQuery){
 								comp.config[key] = config[key];
 
 						if (!this.getElementsByTagName("div").length){
-							this.innerHTML = '<div class="dhx_cal_navline"><div class="dhx_cal_prev_button">&nbsp;</div><div class="dhx_cal_next_button">&nbsp;</div><div class="dhx_cal_today_button"></div><div class="dhx_cal_date"></div><div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div><div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div><div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div></div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div>';
+							this.innerHTML = '<div class="dhx_cal_navline">'
+								                 +'<div class="dhx_cal_prev_button">&nbsp;</div>'
+								                 +'<div class="dhx_cal_next_button">&nbsp;</div>'
+								                 +'<div class="Filtrado"><form action="demo_form.asp">First name: <input type="text" name="fname"><br>Last name: <input type="text" name="lname"><br><input type="submit" value="Submit"></form></div>'
+								                 +'<div class="dhx_cal_today_button"></div>'
+								                 +'<div class="dhx_cal_date"></div>'
+								                 +'<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>'
+								                 +'<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>'
+								                 +'<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div></div>'
+								             +'<div class="dhx_cal_header"></div>'
+								             +'<div class="dhx_cal_data"></div>';
 							this.className += " dhx_cal_container";
 						}
 						comp.init(this, comp.config.date, comp.config.mode);
@@ -5686,7 +5696,7 @@ if (dhtmlx && dhtmlx.attaches) {
 		var tabs = tabs || '<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div><div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div><div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>';
 		var obj = document.createElement("DIV");
 		obj.id = "dhxSchedObj_"+this._genStr(12);
-		obj.innerHTML = '<div id="'+obj.id+'" class="dhx_cal_container" style="width:100%; height:100%;"><div class="dhx_cal_navline"><div class="dhx_cal_prev_button">&nbsp;</div><div class="dhx_cal_next_button">&nbsp;</div><div class="dhx_cal_today_button"></div><div class="dhx_cal_date"></div>'+tabs+'</div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div></div>';
+		obj.innerHTML = '<div id="'+obj.id+'" class="dhx_cal_container" style="width:100%; height:100%;"><div class="dhx_cal_navline"><div class="dhx_cal_prev_button">&nbsp;</div><div class="dhx_cal_next_button">&nbsp;</div><div class="Filtrado"><form action="demo_form.asp">First name: <input type="text" name="fname"><br>Last name: <input type="text" name="lname"><br><input type="submit" value="Submit"></form></div><div class="dhx_cal_today_button"></div><div class="dhx_cal_date"></div>'+tabs+'</div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div></div>';
 		document.body.appendChild(obj.firstChild);
 
 		this.attachObject(obj.id, false, true);

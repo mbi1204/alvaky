@@ -8,5 +8,7 @@
 		</div>
 		<div class="scheduler" id="scheduler">${body}</div>
 	</div>
+	
+	<script type="text/javascript" src = "codebase/js/validacion.js"></script>
 </body>
 </html>

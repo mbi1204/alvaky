@@ -39,6 +39,7 @@ public class ExcelBuilder extends AbstractExcelView {
         CellStyle aguaSuavizada = workbook.createCellStyle();
         CellStyle aguaFiltrada = workbook.createCellStyle();
         CellStyle textoAjustado = workbook.createCellStyle();
+        CellStyle sucursalStyle = workbook.createCellStyle();
         
         Font font = workbook.createFont();
         font.setFontName("Arial");
@@ -55,28 +56,33 @@ public class ExcelBuilder extends AbstractExcelView {
         style.setFont(font);
         style.setWrapText(true);
         style.setAlignment(style.ALIGN_CENTER);
+        
+        sucursalStyle.setFillForegroundColor(HSSFColor.DARK_YELLOW.index);
+        sucursalStyle.setFont(fontDos);
+        sucursalStyle.setWrapText(true);
+        sucursalStyle.setAlignment(sucursalStyle.ALIGN_CENTER);
          
         aguaCruda.setFillForegroundColor(HSSFColor.GREEN.index);
         aguaCruda.setFillPattern(CellStyle.SOLID_FOREGROUND);
         aguaCruda.setFont(font);
         aguaCruda.setWrapText(true);
-        aguaCruda.setAlignment(style.ALIGN_CENTER);
+        aguaCruda.setAlignment(aguaCruda.ALIGN_CENTER);
         
         aguaSuavizada.setFillForegroundColor(HSSFColor.OLIVE_GREEN.index);
         aguaSuavizada.setFillPattern(CellStyle.SOLID_FOREGROUND);
         aguaSuavizada.setFont(font);
         aguaSuavizada.setWrapText(true);
-        aguaSuavizada.setAlignment(style.ALIGN_CENTER);
+        aguaSuavizada.setAlignment(aguaSuavizada.ALIGN_CENTER);
         
         aguaFiltrada.setFillForegroundColor(HSSFColor.DARK_BLUE.index);
         aguaFiltrada.setFillPattern(CellStyle.SOLID_FOREGROUND);
         aguaFiltrada.setFont(font);
         aguaFiltrada.setWrapText(true);
-        aguaFiltrada.setAlignment(style.ALIGN_CENTER);
+        aguaFiltrada.setAlignment(aguaFiltrada.ALIGN_CENTER);
          
         textoAjustado.setFont(fontDos);
         textoAjustado.setWrapText(false);
-        textoAjustado.setAlignment(style.ALIGN_CENTER);
+        textoAjustado.setAlignment(textoAjustado.ALIGN_CENTER);
         
         //font.setFontHeight((short)24);
         /*
@@ -118,7 +124,7 @@ public class ExcelBuilder extends AbstractExcelView {
         sheet.addMergedRegion(CellRangeAddress.valueOf("W3:Y3"));
         
         sucursal.createCell(0).setCellValue("Sucursal: ");
-        sucursal.getCell(0).setCellStyle(style);
+        sucursal.getCell(0).setCellStyle(sucursalStyle);
         
         header.createCell(0).setCellValue("Fecha de Visita");
         header.getCell(0).setCellStyle(style);
@@ -291,6 +297,7 @@ public class ExcelBuilder extends AbstractExcelView {
         }
         
         sucursal.createCell(2).setCellValue(cNomSucursal);
-        
+        sucursal.getCell(2).setCellStyle(sucursalStyle);
+        sucursal.getSheet().autoSizeColumn(2);
     }
 }

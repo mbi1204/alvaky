@@ -54,7 +54,7 @@ function abrir_Reporte(){
 							 '<td class="text-center">'	+ data[item].cHoraSalida  +   '</td>' +
 							 '<td class="text-center">'	+ data[item].cTiempoTot   +   '</td>' +'</tr>');
 					}
-				document.getElementById("name").innerHTML="Reporte de "+cNomSucursal;
+				document.getElementById("name").innerHTML="Historico de Visitas "+cNomSucursal+" Suc. "+cSucursal.sucursal;
 				
 				}else{
 					swal("No Existen Registros");
