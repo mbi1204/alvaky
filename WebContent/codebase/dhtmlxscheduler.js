@@ -3380,8 +3380,8 @@ scheduler.init_templates=function(){
 			return ev.text;
 		},
 		event_class:function(start,end,ev){
-			 if (ev.priority == 'high') return "priority_event";
-	           return "normal_event"; 
+			 /*if (ev.priority == 'high') return "priority_event";
+	           return "normal_event"; */
 			return "";
 		},
 		month_date_class:function(d){
