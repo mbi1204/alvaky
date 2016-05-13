@@ -10,5 +10,6 @@
 	</div>
 	
 	<script type="text/javascript" src = "codebase/js/validacion.js"></script>
+	<script type="text/javascript" src = "codebase/js/reporteEjecutivo.js"></script>
 </body>
 </html>

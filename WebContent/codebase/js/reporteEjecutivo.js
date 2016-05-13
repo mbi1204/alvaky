@@ -114,3 +114,17 @@ function excel(){
 	
 	window.open("downloadExcel?sucursal="+cSucursal.sucursal);
 }
+
+function buscarSucursal(){
+	
+	var cSucursal = document.getElementById("sucursal").value;
+	
+	if(cSucursal != ""){
+		location.href="?sucursal="+cSucursal;
+	}else{
+		//location.reload();
+		location.href="/alvaky/";
+		console.log("Hola no tengo valores");
+	}
+	
+} 

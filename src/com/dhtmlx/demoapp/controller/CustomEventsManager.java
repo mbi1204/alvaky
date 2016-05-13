@@ -31,66 +31,7 @@ public class CustomEventsManager extends DHXEventsManager {
 		super(request);
 	}
 
-	public Iterable<DHXEv> getEvents() {
-		List<DHXEv> evs = new ArrayList<DHXEv>();
-		
-		try {
-			
-			Connection conexion = new DBConexion().getConnection();
-			yacatmto app = new yacatmto(conexion);
-			
-			ResultSetHolder tt_opCalmnto  = new ResultSetHolder();
-			
-			StringHolder  texto  = new StringHolder();
-			BooleanHolder error  = new BooleanHolder();
-			
-			app.as_calendario_cargaV3("ALVAKY", "06", tt_opCalmnto, error, texto);
-			System.out.println(texto.getValue().toString());
-			
-			ResultSet rs_tt_opCalmnto = tt_opCalmnto.getResultSetValue();
-			
-			while (rs_tt_opCalmnto.next()) { 
-				
-				Event e = new Event();
-				StringBuilder fechaVisita = new StringBuilder();
-				
-				fechaVisita.append(rs_tt_opCalmnto.getDate("dtFecha"));
-				String ruta = ("Ruta: "+rs_tt_opCalmnto.getInt("iRutaID")+"\n");
-				String local = ("Local: "+rs_tt_opCalmnto.getInt("iLocalID")+"\n");
-				fechaVisita.append(" "+rs_tt_opCalmnto.getString("cHora")+":00");
-				String estatus = ("Estatus: "+rs_tt_opCalmnto.getString("cEstatus")+"\n");
-				String nombreL = ("Local: "+rs_tt_opCalmnto.getString("cDesLocal")+"\n");
-				String sucursal = (rs_tt_opCalmnto.getString("cSucursal")+"\n");
-				String nombreR = ("Ruta: "+rs_tt_opCalmnto.getString("cRuta")+"\n");
-				
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				Date valorD = formatter.parse(fechaVisita.toString());
-				
-				e.setStart_date(valorD);
-				e.setEnd_date(valorD);
-				e.setText(sucursal+nombreR+nombreL+estatus);
-		        evs.add(e);
-		        
-		        }
-			app._release();
-			conexion.finalize();
-		} catch (Open4GLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return evs;
-	}
-	
+	@SuppressWarnings("static-access")
 	public Iterable<DHXEv> getEvents(String cSucursal) {
 		List<DHXEv> evs = new ArrayList<DHXEv>();
 		
@@ -120,19 +61,28 @@ public class CustomEventsManager extends DHXEventsManager {
 				fechaVisita.append(" "+rs_tt_opCalmnto.getString("cHora")+":00");
 				String estatus = ("Estatus: "+rs_tt_opCalmnto.getString("cEstatus")+"\n");
 				String nombreL = ("Local: "+rs_tt_opCalmnto.getString("cDesLocal")+"\n");
-				String sucursal = (rs_tt_opCalmnto.getString("cSucursal")+"\n");
+				String sucursal = (rs_tt_opCalmnto.getString("cSucursal"));
 				String nombreR = ("Ruta: "+rs_tt_opCalmnto.getString("cRuta")+"\n");
 				
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Date valorD = formatter.parse(fechaVisita.toString());
 				
-				e.setStart_date(valorD);
-				e.setEnd_date(valorD);
-				e.setText(sucursal+nombreR+nombreL+estatus);
-				if(sucursal.equals(cSucursal)){
+				if(cSucursal != ""){
+					if(cSucursal.equals(sucursal)){
+						sucursal = sucursal + "\n";
+						e.setStart_date(valorD);
+						e.setEnd_date(valorD);
+						e.setText(sucursal+nombreR+nombreL+estatus);
+						evs.add(e);
+					}
+				}else{
+					sucursal = sucursal + "\n";
+					e.setStart_date(valorD);
+					e.setEnd_date(valorD);
+					e.setText(sucursal+nombreR+nombreL+estatus);
 					evs.add(e);
 					}
-		        }
+				}
 			app._release();
 			conexion.finalize();
 		} catch (Open4GLException e1) {
