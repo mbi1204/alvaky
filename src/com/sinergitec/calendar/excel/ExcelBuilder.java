@@ -1,5 +1,6 @@
 package com.sinergitec.calendar.excel;
 
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,13 @@ public class ExcelBuilder extends AbstractExcelView {
 	protected void buildExcelDocument(Map<String, Object> model,
             HSSFWorkbook workbook, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        // get data model which is passed by the Spring container
+        
+    	// carga de archivo template
+    	
+    	FileInputStream inputStream = new FileInputStream(new File(templateFile));
+    	Workbook workbook = new HSSFWorkbook(inputStream);
+    	
+    	// get data model which is passed by the Spring container
     	
         List<InfEjecutivo> listBooks = (List<InfEjecutivo>) model.get("listBooks");
          
