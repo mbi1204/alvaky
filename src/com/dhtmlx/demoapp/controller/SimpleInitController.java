@@ -27,6 +27,8 @@ public class SimpleInitController {
 		
     	DHXPlanner s = new DHXPlanner("./codebase/", DHXSkin.TERRACE);
     	
+    	
+    	
     	s.localizations.set("es");
     	s.config.setScrollHour(8);
     	s.setWidth(1000);
