@@ -124,7 +124,6 @@ function buscarSucursal(){
 	}else{
 		//location.reload();
 		location.href="/alvaky/";
-		console.log("Hola no tengo valores");
 	}
 	
 } 
