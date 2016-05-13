@@ -2254,12 +2254,11 @@ div.dhx_menu_head, div.dhx_menu_icon {
 /*css classes for events in the Day and Week view*/
 .dhx_cal_event.priority_event div{
 	background-color: #F20765 !important;
-	color: #332C2F !important;
+    color: #332C2F !important;
 }
-
 .dhx_cal_event.normal_event div{
 	background-color: #6DABFC !important;
-	color: #332C2F !important;
+    color: #332C2F !important;
 }
  
 /*css classes for multi-day events in the Month view*/
@@ -2267,20 +2266,17 @@ div.dhx_menu_head, div.dhx_menu_icon {
 	background-color: #F20765 !important;
 	color: #332C2F !important;
 }
-        
 .dhx_cal_event_line.normal_event{
 	background-color: #6DABFC !important;
-	color: #332C2F !important;
+    color: #332C2F !important;
 }
  
 /*css classes for events with the fixed time in the Month view*/
 .dhx_cal_event_clear.priority_event{
 	color: #332C2F !important;
 }
-        
 .dhx_cal_event_clear.normal_event{
 	color: #332C2F !important;
 }
-/*event_class end*/
 
 
