@@ -214,7 +214,7 @@ public class ExcelBuilder extends AbstractExcelView {
         
          
         // create data rows
-        int rowCount = 7;
+        int rowCount = 4;
         
         String cNomSucursal = "";
          
