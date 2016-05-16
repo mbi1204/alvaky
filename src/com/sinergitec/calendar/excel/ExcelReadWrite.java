@@ -41,62 +41,62 @@ public class ExcelReadWrite extends AbstractExcelView {
         HSSFSheet sheet = workbookExcel.getSheetAt(0);
          
         // create data rows
-        int rowCount = 7;
+        int rowCount = 6;
         
         String cNomSucursal = "";
          
         for (InfEjecutivo aBook : listBooks) {
             HSSFRow aRow = sheet.getRow(rowCount++);
             cNomSucursal = aBook.getcNomSuc();
-            aRow.getCell(0).setCellValue(aBook.getDtFechaV().toString());
+            aRow.createCell(1).setCellValue(aBook.getDtFechaV().toString());
             
-            aRow.getCell(1).setCellValue(aBook.getDeCloroEnt());
+            aRow.createCell(2).setCellValue(aBook.getDeCloroEnt());
             
-            aRow.getCell(2).setCellValue(aBook.getDePHEnt());
+            aRow.createCell(3).setCellValue(aBook.getDePHEnt());
             
-            aRow.getCell(3).setCellValue(aBook.getDeDurEnt());
+            aRow.createCell(4).setCellValue(aBook.getDeDurEnt());
             
-            aRow.getCell(4).setCellValue(aBook.getDeSTDEnt());
+            aRow.createCell(5).setCellValue(aBook.getDeSTDEnt());
             
-            aRow.getCell(5).setCellValue(aBook.getDeCloroFilt());
+            aRow.createCell(6).setCellValue(aBook.getDeCloroFilt());
             
-            aRow.getCell(6).setCellValue(aBook.getDePHFilt());
+            aRow.createCell(7).setCellValue(aBook.getDePHFilt());
             
-            aRow.getCell(7).setCellValue(aBook.getDeDurFilt());
+            aRow.createCell(8).setCellValue(aBook.getDeDurFilt());
             
-            aRow.getCell(8).setCellValue(aBook.getDeSTDFilt());
+            aRow.createCell(9).setCellValue(aBook.getDeSTDFilt());
             
-            aRow.getCell(9).setCellValue(aBook.getDeCloroUV());
+            aRow.createCell(10).setCellValue(aBook.getDeCloroUV());
             
-            aRow.getCell(10).setCellValue(aBook.getDePHUV());
+            aRow.createCell(11).setCellValue(aBook.getDePHUV());
             
-            aRow.getCell(11).setCellValue(aBook.getDeDurUV());
+            aRow.createCell(12).setCellValue(aBook.getDeDurUV());
             
-            aRow.getCell(12).setCellValue(aBook.getDeSTDUV());
+            aRow.createCell(13).setCellValue(aBook.getDeSTDUV());
             
-            aRow.getCell(13).setCellValue(aBook.getDeAlcUV());
+            aRow.createCell(14).setCellValue(aBook.getDeAlcUV());
             
-            aRow.getCell(14).setCellValue(aBook.getDeConsSed());
+            aRow.createCell(15).setCellValue(aBook.getDeConsSed());
             
-            aRow.getCell(15).setCellValue(aBook.getDeConsSal());
+            aRow.createCell(16).setCellValue(aBook.getDeConsSal());
             
-            aRow.getCell(16).setCellValue(aBook.getDeConsCarb());
+            aRow.createCell(17).setCellValue(aBook.getDeConsCarb());
             
-            aRow.getCell(17).setCellValue(aBook.getDeConsSalP());
+            aRow.createCell(18).setCellValue(aBook.getDeConsSalP());
             
-            aRow.getCell(18).setCellValue(aBook.getcOtRefacc());
+            aRow.createCell(19).setCellValue(aBook.getcOtRefacc());
             
-            aRow.getCell(19).setCellValue(aBook.getDeORCant());
+            aRow.createCell(20).setCellValue(aBook.getDeORCant());
             
-            aRow.getCell(20).setCellValue(aBook.getcAcciones());
+            aRow.createCell(21).setCellValue(aBook.getcAcciones());
             
-            aRow.getCell(21).setCellValue(aBook.getcRecomienda());
+            aRow.createCell(22).setCellValue(aBook.getcRecomienda());
             
-            aRow.getCell(22).setCellValue(aBook.getcHoraEntrada());
+            aRow.createCell(23).setCellValue(aBook.getcHoraEntrada());
             
-            aRow.getCell(23).setCellValue(aBook.getcHoraSalida());
+            aRow.createCell(24).setCellValue(aBook.getcHoraSalida());
             
-            aRow.getCell(24).setCellValue(aBook.getcTiempoTot());
+            aRow.createCell(25).setCellValue(aBook.getcTiempoTot());
             
         }
         inputStream.close();

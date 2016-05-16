@@ -83,8 +83,13 @@ public class ReporteController {
         List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
         
         listEjecutivo = valor.listaInforme("ALVAKY","06", sucursal);
+        
+        // return a view which will be resolved by an excel view resolver
+        //Crea el excel de 0
+        // return new ModelAndView("excelView", "listBooks", listEjecutivo);
  
         // return a view which will be resolved by an excel view resolver
-        return new ModelAndView("excelView", "listBooks", listEjecutivo);
+        //Utiliza una plantilla y crea el excel
+        return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
     }
 }
