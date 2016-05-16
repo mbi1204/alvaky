@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ejecutivo</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
 <link type="text/css" rel="stylesheet" href="./codebase/dhtmlxscheduler3.css"/>
 <link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
