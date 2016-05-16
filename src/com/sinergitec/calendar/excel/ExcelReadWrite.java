@@ -27,7 +27,7 @@ public class ExcelReadWrite extends AbstractExcelView {
             throws Exception {
         
     	//Excel plantilla
-        String path = getServletContext().getRealPath("codebase/otros/template.xls");
+        String path = getServletContext().getRealPath("codebase/otros/reporte.xlt");
     	
     	// carga de archivo template
     	
