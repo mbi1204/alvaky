@@ -1,4 +1,4 @@
-package com.sinergitec.calendar.dao.impl;
+package com.sinergitec.calendar.dao;
 
 
 import java.io.IOException;

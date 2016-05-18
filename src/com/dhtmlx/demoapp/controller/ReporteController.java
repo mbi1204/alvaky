@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.progress.open4gl.Open4GLException;
-import com.sinergitec.calendar.dao.impl.ClienteDaoImpl;
-import com.sinergitec.calendar.dao.impl.InformeEjecutivoDaoImpl;
-import com.sinergitec.calendar.dao.impl.LocalDaoImpl;
+import com.sinergitec.calendar.dao.ClienteDaoImpl;
+import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
+import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.InfEjecutivo;
 
