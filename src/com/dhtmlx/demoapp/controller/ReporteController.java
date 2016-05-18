@@ -86,10 +86,10 @@ public class ReporteController {
         
         // return a view which will be resolved by an excel view resolver
         //Crea el excel de 0
-        // return new ModelAndView("excelView", "listBooks", listEjecutivo);
+        return new ModelAndView("excelView", "listBooks", listEjecutivo);
  
         // return a view which will be resolved by an excel view resolver
         //Utiliza una plantilla y crea el excel
-        return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
+        //return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
     }
 }
