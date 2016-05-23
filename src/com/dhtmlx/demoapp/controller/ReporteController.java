@@ -70,7 +70,7 @@ public class ReporteController {
         List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
         
         listEjecutivo = valor.listaInforme("ALVAKY","06", sucursal);
- 
+
         // return a view which will be resolved by an excel view resolver
         return new ModelAndView("pdfView", "listBooks", listEjecutivo);
     }
