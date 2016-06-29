@@ -26,7 +26,6 @@ public class PDFBuilder extends AbstractITextPdfView{
 	protected void buildPdfDocument(Map<String, Object> model, Document doc, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		// TODO Auto-generated method stub
 		/*PDF de reporete ejecutivo*/
 		
 		
