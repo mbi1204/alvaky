@@ -22,15 +22,28 @@ public class UsuarioDaoImpl {
 		yacatmto app = new yacatmto(conexion);
 		
 		//Variables para guardar errores
-		StringHolder  texto  = new StringHolder();
+		StringHolder texto  = new StringHolder();
 		BooleanHolder error  = new BooleanHolder();
 		
 		//Variables para compañia y cliente
-		StringHolder   compania  = new StringHolder();
-		StringHolder   cliente  = new StringHolder();
+		StringHolder compania  = new StringHolder();
+		StringHolder cliente  = new StringHolder();
+		
+		//Creando Objeto de ctUsuarioWeb
+		CtUsuarioWeb usuarioWeb = new CtUsuarioWeb();
+		CtUsuaCompWeb usuarioWebCompania = new CtUsuaCompWeb();
 		
 		try {
-			app.as_AccesoWeb_Carga(cUsuario, cPassword, compania, cliente, error, texto);
+			app.as_AccesoWeb_Carga(cUsuario, cUsuario, compania, cliente, error, texto);
+			
+			String companiaB = compania.getValue().toString();
+			String clienteB = cliente.getValue().toString();
+			Boolean errorB = Boolean.parseBoolean(error.getValue().toString());
+			
+			usuarioWebCompania.setcCveCia(companiaB);
+			usuarioWeb.setCtUsuaCompWeb(usuarioWebCompania);
+			usuarioWeb.setcCliente(clienteB);
+			usuarioWeb.setError(errorB);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -39,13 +52,6 @@ public class UsuarioDaoImpl {
 			app._release();
 			conexion.finalize();
 		}
-		
-		//Creando Objeto de ctUsuarioWeb
-		CtUsuarioWeb usuarioWeb = new CtUsuarioWeb();
-		CtUsuaCompWeb usuarioWebCompania = new CtUsuaCompWeb();
-		usuarioWebCompania.setcCveCia(compania.getStringValue());
-		usuarioWeb.setCtUsuaCompWeb(usuarioWebCompania);
-		usuarioWeb.setcCliente(cliente.getStringValue());
 		
 		return usuarioWeb;
 	}

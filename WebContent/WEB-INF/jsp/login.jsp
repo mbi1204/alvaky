@@ -21,7 +21,7 @@
 	
 	    <fieldset>
 	
-	      <form action="" method="post" >
+	      <form id="form_Login" action="Login" method="post" >
 	      
 	      	
 	      	<input id="cUsuario" name="cUsuario" type="text" required value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''">

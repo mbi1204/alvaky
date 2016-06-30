@@ -13,23 +13,7 @@ function validarUsuario(){
 	var cPassword = $('#cPassword').val();
 	
 	if((cUsuario != "Usuario" & cUsuario != "") & (cPassword != "Password" & cPassword != "")){
-		$.ajax({
-			type : "GET",
-			url : "Login",
-			dataType : "json",
-			contentType : "application/json",
-			data : {
-				cUsuario : cUsuario,
-				cPassword: cPassword
-			},
-			success : function(data) {
-				
-			},
-			error : function(data,status,error) {
-				sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
-			}
-
-		});
+		$('#form_Login').submit();
 	}else{
 		sweetAlert("Oops...","Verifica que hayas llenado Usuario y Password","error");
 	}

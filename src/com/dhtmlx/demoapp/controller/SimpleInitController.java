@@ -1,6 +1,7 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,9 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dhtmlx.planner.DHXPlanner;
 import com.dhtmlx.planner.DHXSkin;
 import com.progress.open4gl.Open4GLException;
+import com.sinergitec.calendar.dao.UsuarioDaoImpl;
+import com.sinergitec.calendar.model.CtUsuarioWeb;
 
 @Controller
 public class SimpleInitController {
+	
+	private CtUsuarioWeb usuarioWebCompania;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
@@ -24,13 +29,20 @@ public class SimpleInitController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/Login", method = RequestMethod.GET)
+	@RequestMapping(value = "/Login", method = RequestMethod.POST)
 	String Login(@RequestParam("cUsuario") String cUsuario, @RequestParam("cPassword") String cPassword) throws Open4GLException, IOException{
 		
 		System.out.println("Llego al controlador");
 		
+		UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl();
+		usuarioWebCompania = usuarioDao.Valida(cUsuario, cPassword);
 		
-		return "";
+		if(!usuarioWebCompania.getError()){
+			System.out.println("No hay error");
+			return"redirect:index"; 
+		}
+		
+		return"redirect:/";
 	}
 
 	@RequestMapping({"/01_simple_init.html", "/index"})

@@ -11,6 +11,7 @@ public class CtUsuarioWeb {
 	private String cUsuario;
 	private String cNombre;
 	private CtUsuaCompWeb ctUsuaCompWeb;
+	private Boolean error;
 	
 	public String getcUsuarioWeb() {
 		return cUsuarioWeb;
@@ -65,6 +66,12 @@ public class CtUsuarioWeb {
 	}
 	public void setCtUsuaCompWeb(CtUsuaCompWeb ctUsuaCompWeb) {
 		this.ctUsuaCompWeb = ctUsuaCompWeb;
+	}
+	public Boolean getError() {
+		return error;
+	}
+	public void setError(Boolean error) {
+		this.error = error;
 	}
 	
 }
