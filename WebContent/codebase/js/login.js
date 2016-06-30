@@ -14,7 +14,7 @@ function validarUsuario(){
 	
 	if((cUsuario != "Usuario" & cUsuario != "") & (cPassword != "Password" & cPassword != "")){
 		$.ajax({
-			type : "POST",
+			type : "GET",
 			url : "Login",
 			dataType : "json",
 			contentType : "application/json",

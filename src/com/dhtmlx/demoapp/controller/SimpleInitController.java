@@ -24,11 +24,11 @@ public class SimpleInitController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	String Login(@RequestParam("cUsuario") String cUsuario) throws Open4GLException, IOException{
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
+	String Login(@RequestParam("cUsuario") String cUsuario, @RequestParam("cPassword") String cPassword) throws Open4GLException, IOException{
 		
 		System.out.println("Llego al controlador");
-		System.out.println(cUsuario);
+		
 		
 		return "";
 	}
