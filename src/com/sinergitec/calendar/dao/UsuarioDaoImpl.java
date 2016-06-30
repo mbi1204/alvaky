@@ -36,14 +36,10 @@ public class UsuarioDaoImpl {
 		try {
 			app.as_AccesoWeb_Carga(cUsuario, cUsuario, compania, cliente, error, texto);
 			
-			String companiaB = compania.getValue().toString();
-			String clienteB = cliente.getValue().toString();
-			Boolean errorB = Boolean.parseBoolean(error.getValue().toString());
-			
-			usuarioWebCompania.setcCveCia(companiaB);
+			usuarioWebCompania.setcCveCia(compania.getValue().toString());
 			usuarioWeb.setCtUsuaCompWeb(usuarioWebCompania);
-			usuarioWeb.setcCliente(clienteB);
-			usuarioWeb.setError(errorB);
+			usuarioWeb.setcCliente(cliente.getValue().toString());
+			usuarioWeb.setError(Boolean.parseBoolean(error.getValue().toString()));
 			
 		} catch (Exception e) {
 			// TODO: handle exception
