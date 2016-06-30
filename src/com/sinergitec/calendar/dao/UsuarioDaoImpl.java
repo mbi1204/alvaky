@@ -28,18 +28,9 @@ public class UsuarioDaoImpl {
 		//Variables para compañia y cliente
 		StringHolder compania  = new StringHolder();
 		StringHolder cliente  = new StringHolder();
-		
-		//Creando Objeto de ctUsuarioWeb
-		CtUsuarioWeb usuarioWeb = new CtUsuarioWeb();
-		CtUsuaCompWeb usuarioWebCompania = new CtUsuaCompWeb();
-		
+
 		try {
-			app.as_AccesoWeb_Carga(cUsuario, cUsuario, compania, cliente, error, texto);
-			
-			usuarioWebCompania.setcCveCia(compania.getValue().toString());
-			usuarioWeb.setCtUsuaCompWeb(usuarioWebCompania);
-			usuarioWeb.setcCliente(cliente.getValue().toString());
-			usuarioWeb.setError(Boolean.parseBoolean(error.getValue().toString()));
+			app.as_AccesoWeb_Carga(cUsuario, cPassword, compania, cliente, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -48,6 +39,16 @@ public class UsuarioDaoImpl {
 			app._release();
 			conexion.finalize();
 		}
+		
+		//Creando Objeto de ctUsuarioWeb
+		CtUsuarioWeb usuarioWeb = new CtUsuarioWeb();
+		CtUsuaCompWeb usuarioWebCompania = new CtUsuaCompWeb();
+		
+		usuarioWebCompania.setcCveCia(compania.getStringValue());
+		usuarioWeb.setCtUsuaCompWeb(usuarioWebCompania);
+		usuarioWeb.setcCliente(cliente.getStringValue());
+		usuarioWeb.setError(Boolean.parseBoolean(error.getValue().toString()));
+		usuarioWeb.setErrorTexto(texto.getStringValue());
 		
 		return usuarioWeb;
 	}

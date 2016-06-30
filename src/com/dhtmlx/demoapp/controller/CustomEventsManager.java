@@ -32,7 +32,7 @@ public class CustomEventsManager extends DHXEventsManager {
 	}
 
 	@SuppressWarnings("static-access")
-	public Iterable<DHXEv> getEvents(String cSucursal) {
+	public Iterable<DHXEv> getEvents(String cCveCia, String cCliente,String cSucursal) {
 		List<DHXEv> evs = new ArrayList<DHXEv>();
 		
 		try {
@@ -45,7 +45,7 @@ public class CustomEventsManager extends DHXEventsManager {
 			StringHolder  texto  = new StringHolder();
 			BooleanHolder error  = new BooleanHolder();
 			
-			app.as_calendario_cargaV3("ALVAKY", "06", tt_opCalmnto, error, texto);
+			app.as_calendario_cargaV3(cCveCia, cCliente, tt_opCalmnto, error, texto);
 			System.out.println(texto.getValue().toString());
 			
 			ResultSet rs_tt_opCalmnto = tt_opCalmnto.getResultSetValue();

@@ -12,6 +12,7 @@ public class CtUsuarioWeb {
 	private String cNombre;
 	private CtUsuaCompWeb ctUsuaCompWeb;
 	private Boolean error;
+	private String errorTexto;
 	
 	public String getcUsuarioWeb() {
 		return cUsuarioWeb;
@@ -72,6 +73,12 @@ public class CtUsuarioWeb {
 	}
 	public void setError(Boolean error) {
 		this.error = error;
+	}
+	public String getErrorTexto() {
+		return errorTexto;
+	}
+	public void setErrorTexto(String errorTexto) {
+		this.errorTexto = errorTexto;
 	}
 	
 }

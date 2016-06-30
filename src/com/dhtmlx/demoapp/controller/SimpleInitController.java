@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,19 +31,16 @@ public class SimpleInitController {
 	}
 	
 	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	String Login(@RequestParam("cUsuario") String cUsuario, @RequestParam("cPassword") String cPassword) throws Open4GLException, IOException{
-		
-		System.out.println("Llego al controlador");
+	String Login(@RequestParam("cUsuario") String cUsuario, @RequestParam("cPassword") String cPassword, ModelMap mm) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl();
 		usuarioWebCompania = usuarioDao.Valida(cUsuario, cPassword);
 		
-		if(!usuarioWebCompania.getError()){
-			System.out.println("No hay error");
+		if(!usuarioWebCompania.getError() & usuarioWebCompania.getErrorTexto().equals("")){
 			return"redirect:index"; 
 		}
-		
-		return"redirect:/";
+		mm.put("mensaje", "Usuario y/o Contraseña Inválidos");
+		return"login";
 	}
 
 	@RequestMapping({"/01_simple_init.html", "/index"})
@@ -65,7 +63,7 @@ public class SimpleInitController {
 
     	// sets events set
     	CustomEventsManager evs = new CustomEventsManager(request);
-    	s.parse(evs.getEvents(cSucursal));
+    	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),usuarioWebCompania.getcCliente(),cSucursal));
 
     	ModelAndView mnv = new ModelAndView("article");
     	mnv.addObject("title", "Calendario de Alvaky");

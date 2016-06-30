@@ -24,15 +24,15 @@
 	      <form id="form_Login" action="Login" method="post" >
 	      
 	      	
-	      	<input id="cUsuario" name="cUsuario" type="text" required value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''">
-	      	<input id="cPassword" name="cPassword" type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''">
+	      	<input id="cUsuario" name="cUsuario" type="text"  value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''" required>
+	      	<input id="cPassword" name="cPassword" type="password" value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''" required>
 	        
 	        <input type="button" value="Ingresar" onclick="validarUsuario();">
 	        
 	
 	        <footer class="clearfix">
 	
-	          <!--  <p><span class="info">?</span><a href="http://localhost:8080/cachorros/">Registrate aquí</a></p> -->
+	          <p>${mensaje}</p>
 	
 	        </footer>
 	
@@ -46,7 +46,8 @@
 	<script type="text/javascript" src="codebase/js/login.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.min.js"></script>
-	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
+	<script type="text/javascript" src="codebase/js/notificacion-error.js"></script>
 </body>
 </html>
