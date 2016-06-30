@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./codebase/alertify.core.css">
 <link rel="stylesheet" href="./codebase/alertify.default.css">
 <link rel="stylesheet" href="./codebase/alertify.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
 </head>
 <body>
 
@@ -20,13 +21,13 @@
 	
 	    <fieldset>
 	
-	      <form action="itgam/login" method="post" >
+	      <form action="" method="post" >
 	      
 	      	
-	      	<input name="cUsuario" type="text" required value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''">
-	      	<input name="cPassword" type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''">
+	      	<input id="cUsuario" name="cUsuario" type="text" required value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''">
+	      	<input id="cPassword" name="cPassword" type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''">
 	        
-	        <input type="submit" value="Ingresar" onclick="error();">
+	        <input type="button" value="Ingresar" onclick="validarUsuario();">
 	        
 	
 	        <footer class="clearfix">
@@ -42,9 +43,10 @@
 	  </div> <!-- end login-form -->
 	
 	</div>
-	<script type="text/javascript" src="codebase/js/lib/jquery-1.9.0.min.js"></script>
-	<script type="text/javascript" src="codebase/js/lib/notificacion-error.js"></script>
+	<script type="text/javascript" src="codebase/js/login.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.min.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
 </body>
 </html>
