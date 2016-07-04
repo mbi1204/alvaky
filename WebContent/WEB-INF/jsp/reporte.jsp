@@ -37,15 +37,15 @@
 		<div class = "scheduler" id = "scheduler">
 			<div class = "dhx_cal_container" id = "scheduler_her">
 				<div class = "dhx_cal_navline" id = "dhx_cal_navline">
-					<div class = "dhx_cal_date" id = "dhx_cal_date">Seleccione un cliente:
-						<!--  <div class = "caja">-->
+					<div class = "dhx_cal_date" id = "dhx_cal_date">
+						<!--  <div class = "caja">
 							<select id="cCliente" name="cCliente" onchange="carga_Sucursal();">
 						  		<option selected="selected">Seleccione una opción:</option>
 								<c:forEach items="${lista_ctCliente}" var="ctCliente">
 									<option value="${ctCliente.cCliente}">${ctCliente.cRazonS}</option>
 								</c:forEach>
 							</select>
-						<!--  </div>-->
+						</div>-->
 					</div>
 				</div>
 				
