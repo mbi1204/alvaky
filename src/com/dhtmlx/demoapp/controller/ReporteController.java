@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +23,7 @@ import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.InfEjecutivo;
+import com.sinergitec.calendar.model.OpOSDocs;
 
 @Controller
 public class ReporteController {
@@ -92,4 +97,31 @@ public class ReporteController {
         //Utiliza una plantilla y crea el excel
         //return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
     }
+	
+	/*@RequestMapping(value = "GeneraCfdi/getPDF/{viFolio}&{viSerie}")
+	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie) {
+
+			OpOSDocs obj = new OpOSDocs();
+
+			obj = service.getCFDI(viSerie, viFolio, "pdf");
+			
+			System.out.println("entro");
+
+			if (obj.getPDF() != null) {
+				byte[] contents = obj.getPDF();
+
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.parseMediaType("application/pdf"));
+				String filename = obj.getUUID() + ".pdf";
+				headers.setContentDispositionFormData(filename, filename);
+				headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+				ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+				return response;
+
+			} else {
+				
+				return null;
+			}
+
+	}*/
 }
