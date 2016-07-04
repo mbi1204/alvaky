@@ -17,32 +17,38 @@ import alvaky.sinergitec.appserver.yacatmto;
 
 public class OpOSDocsDaoImpl {
 
-	public OpOSDocs getOpOSDocs() throws ConnectException, SystemErrorException, Open4GLException, IOException{
+	public OpOSDocs getOpOSDocs(String cCveCia, Integer iOServID, Integer iPartida) throws ConnectException, SystemErrorException, Open4GLException, IOException{
 		
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
 		ResultSetHolder tt_OpOsDocsBlob = new ResultSetHolder();
 		
-		OpOSDocs opOSDocs = new OpOSDocs();
+		OpOSDocs obj = new OpOSDocs();
 		
 		Connection conexion = DBConexion.getConnection();
 		yacatmto app = new yacatmto(conexion);
 		
 		try {
-			app.as_opOSDocsBlob_Carga(ipcCveCia, ipiOServID, ipiPartida, tt_OpOsDocsBlob, oplError, opcError);
+			app.as_opOSDocsBlob_Carga(cCveCia, iOServID, iPartida, tt_OpOsDocsBlob, oplError, opcError);
 			ResultSet rs_tt_OpOsDocsBlob = (ResultSet) tt_OpOsDocsBlob.getResultSetValue();
 			
 			while(rs_tt_OpOsDocsBlob.next()){
-				
+				obj.setcCveCia(rs_tt_OpOsDocsBlob.getString("cCveCia"));
+				obj.setiOServID(rs_tt_OpOsDocsBlob.getInt("iOServID"));
+				obj.setiPartida(rs_tt_OpOsDocsBlob.getInt("iPartida"));
+				obj.setcDescripcion(rs_tt_OpOsDocsBlob.getString("cDescripcion"));
+				obj.setcNombre(rs_tt_OpOsDocsBlob.getString("cNombre"));
+				obj.setbImagen(rs_tt_OpOsDocsBlob.getByte("bImagen"));
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e);
 		} finally {
-			
+			app._release();
+			DBConexion.closeConnection(conexion);
 		}
 
-		
-		return null;
+		return obj;
 	}
 }
