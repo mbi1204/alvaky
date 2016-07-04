@@ -38,7 +38,7 @@ public class OpOSDocsDaoImpl {
 				obj.setiPartida(rs_tt_OpOsDocsBlob.getInt("iPartida"));
 				obj.setcDescripcion(rs_tt_OpOsDocsBlob.getString("cDescripcion"));
 				obj.setcNombre(rs_tt_OpOsDocsBlob.getString("cNombre"));
-				obj.setbImagen(rs_tt_OpOsDocsBlob.getByte("bImagen"));
+				obj.setbImagen(rs_tt_OpOsDocsBlob.getBytes("bImagen"));
 			}
 			
 		} catch (Exception e) {

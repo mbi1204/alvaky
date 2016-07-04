@@ -9,18 +9,24 @@ import com.google.gson.Gson;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.progress.open4gl.ConnectException;
 import com.progress.open4gl.Open4GLException;
+import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
+import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
 import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.OpOSDocs;
@@ -99,21 +105,22 @@ public class ReporteController {
     }
 	
 	/*@RequestMapping(value = "GeneraCfdi/getPDF/{viFolio}&{viSerie}")
-	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie) {
+	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie) throws ConnectException, SystemErrorException, Open4GLException, IOException {
 
 			OpOSDocs obj = new OpOSDocs();
+			OpOSDocsDaoImpl PDF = new OpOSDocsDaoImpl(); 
 
-			obj = service.getCFDI(viSerie, viFolio, "pdf");
+			obj = PDF.getOpOSDocs("ALVAKY", 1, 1);
 			
 			System.out.println("entro");
 
-			if (obj.getPDF() != null) {
-				byte[] contents = obj.getPDF();
+			if (obj.getbImagen() != null) {
+				byte[] contents = obj.getbImagen();
 
 				HttpHeaders headers = new HttpHeaders();
 				headers.setContentType(MediaType.parseMediaType("application/pdf"));
-				String filename = obj.getUUID() + ".pdf";
-				headers.setContentDispositionFormData(filename, filename);
+				String filename = obj.getcNombre() + ".pdf";
+				//headers.setContentDispositionFormData(filename, filename);
 				headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
 				ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
 				return response;

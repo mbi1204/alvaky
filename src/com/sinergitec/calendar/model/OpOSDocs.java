@@ -7,7 +7,7 @@ public class OpOSDocs {
 	private Integer iPartida;
 	private String cDescripcion;
 	private String cNombre;
-	private byte bImagen;
+	private byte [] bImagen;
 	private String dtCreado;
 	private String dtModificado;
 	private String cUsuario;
@@ -42,10 +42,10 @@ public class OpOSDocs {
 	public void setcNombre(String cNombre) {
 		this.cNombre = cNombre;
 	}
-	public byte getbImagen() {
+	public byte[] getbImagen() {
 		return bImagen;
 	}
-	public void setbImagen(byte bImagen) {
+	public void setbImagen(byte[] bImagen) {
 		this.bImagen = bImagen;
 	}
 	public String getDtCreado() {
@@ -66,4 +66,5 @@ public class OpOSDocs {
 	public void setcUsuario(String cUsuario) {
 		this.cUsuario = cUsuario;
 	}
+	
 }
