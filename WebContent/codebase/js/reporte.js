@@ -7,7 +7,9 @@
  */
 function carga_Sucursal() {
 
-	var cCliente = $('#cCliente').val();
+	//var cCliente = $('#cCliente').val();
+	
+	var cCliente = "06";
 
 	$.ajax({
 		type : "GET",
@@ -56,3 +58,7 @@ function abrir_VenReporte(sucursal, nombre){
 	window.open('ejecutivo?sucursal='+tmpSucursal/*+'&nombre='+tmpNombre*/);
 
 }
+
+$(document).ready(function(){
+    carga_Sucursal();
+});

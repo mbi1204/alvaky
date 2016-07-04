@@ -123,7 +123,7 @@ function buscarSucursal(){
 		location.href="?sucursal="+cSucursal;
 	}else{
 		//location.reload();
-		location.href="/alvaky/";
+		location.href="/alvaky/index";
 	}
 	
 } 
