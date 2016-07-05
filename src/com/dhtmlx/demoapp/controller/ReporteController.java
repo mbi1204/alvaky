@@ -1,25 +1,34 @@
 package com.dhtmlx.demoapp.controller;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.progress.open4gl.ConnectException;
 import com.progress.open4gl.Open4GLException;
+import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
+import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
 import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.InfEjecutivo;
+import com.sinergitec.calendar.model.OpOSDocs;
 
 @Controller
 public class ReporteController {
@@ -94,29 +103,25 @@ public class ReporteController {
 		// return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
 	}
 
-	/*@RequestMapping(value = "/getPDF/{viFolio}&{viSerie}")
-	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie)
-			throws Open4GLException, IOException {
+	@RequestMapping(value = "/archivo/{iOServID}&{iPartida}", method = RequestMethod.GET)
+	public void getFile(@PathVariable("iOServID") Integer iOServID, @PathVariable("iPartida") Integer iPartida,
+			HttpServletResponse response) throws ConnectException, SystemErrorException, Open4GLException {
+		try {
 
-		OpOSDocs obj = new OpOSDocs();
-		OpOSDocsDaoImpl PDF = new OpOSDocsDaoImpl();
+			// Instancia del modelo y del dao
+			OpOSDocs documento = new OpOSDocs();
+			OpOSDocsDaoImpl traerDocumento = new OpOSDocsDaoImpl();
+			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, iPartida);
 
-		obj = PDF.getOpOSDocs("ALVAKY", 1, 1);
+			// get your file as InputStream
+			InputStream pdf = new ByteArrayInputStream(documento.getbImagen());
 
-		System.out.println("entro");
+			// copy it to response's OutputStream
+			org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
+			response.flushBuffer();
 
-		if (obj.getbImagen() != null) {
-			byte[] contents = obj.getbImagen();
-
-			HttpHeaders headers = new HttpHeaders();
-			headers.setContentType(MediaType.parseMediaType("application/pdf"));
-			String filename = obj.getcNombre() + ".pdf";
-			headers.setContentDispositionFormData(filename, filename);
-			headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-			ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-			return response;
-		} else {
-			return null;
+		} catch (IOException ex) {
+			System.out.println(ex);
 		}
-	}*/
+	}
 }
