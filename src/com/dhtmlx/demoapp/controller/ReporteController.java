@@ -113,7 +113,7 @@ public class ReporteController {
 			// Instancia del modelo y del dao
 			OpOSDocs documento = new OpOSDocs();
 			OpOSDocsDaoImpl traerDocumento = new OpOSDocsDaoImpl();
-			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, 7);
+			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, 1);
 			
 			if(documento.getbImagen() != null){
 				// get your file as InputStream
