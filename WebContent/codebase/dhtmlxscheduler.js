@@ -5097,19 +5097,25 @@ scheduler._init_lightbox_events=function(){
 		if (src && src.className)
 			switch(src.className){
 				case "dhx_save_btn":
-					scheduler.save_lightbox();
+					/*Utiliza este boton para descargar el pdf*/
+					var tmpSucursal = document.getElementById("myTextarea").value;
+					var tmp = tmpSucursal.split('\n');
+					
+					tmpSucursal = tmp[4];
+					
+					window.open("archivo/"+tmpSucursal);
+					//window.open("archivo/"+2630);
 					break;
 				case "dhx_delete_btn":
 					
 					/*Utilizo el boton de elminacion para meter la funcion que enviar a reporte
-					 * Se separa la el contenido del text area y llego hasta el valor de la 
+					 * Se separa el contenido del text area y llego hasta el valor de la 
 					 * sucursal*/
 					
 					var tmpSucursal = document.getElementById("myTextarea").value;
 					var tmp = tmpSucursal.split('?');
 					
 					tmpSucursal = tmp[0].split("\n");
-					console.log(tmpSucursal[0]);
 					
 					window.open('ejecutivo?sucursal='+tmpSucursal[0]/*+'&nombre='+tmpNombre*/);
 						

@@ -34,12 +34,15 @@ public class OpOSDocsDaoImpl {
 			
 			while(rs_tt_OpOsDocsBlob.next()){
 				obj.setcCveCia(rs_tt_OpOsDocsBlob.getString("cCveCia"));
+				System.out.println(obj.getcCveCia());
 				obj.setiOServID(rs_tt_OpOsDocsBlob.getInt("iOServID"));
 				obj.setiPartida(rs_tt_OpOsDocsBlob.getInt("iPartida"));
 				obj.setcDescripcion(rs_tt_OpOsDocsBlob.getString("cDescripcion"));
 				obj.setcNombre(rs_tt_OpOsDocsBlob.getString("cNombre"));
 				obj.setbImagen(rs_tt_OpOsDocsBlob.getBytes("bImagen"));
 			}
+			
+			System.out.println("Error que marca el appserver: "+opcError.getStringValue());
 			
 		} catch (Exception e) {
 			// TODO: handle exception

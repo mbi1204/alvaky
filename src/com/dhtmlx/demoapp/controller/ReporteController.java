@@ -103,24 +103,29 @@ public class ReporteController {
 		// return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
 	}
 
-	@RequestMapping(value = "/archivo/{iOServID}&{iPartida}", method = RequestMethod.GET)
-	public void getFile(@PathVariable("iOServID") Integer iOServID, @PathVariable("iPartida") Integer iPartida,
+	@RequestMapping(value = "/archivo/{iOServID}", method = RequestMethod.GET)
+	public void getFile(@PathVariable("iOServID") Integer iOServID,
 			HttpServletResponse response) throws ConnectException, SystemErrorException, Open4GLException {
 		try {
+			
+			System.out.println("Entra al controller de los archivos");
 
 			// Instancia del modelo y del dao
 			OpOSDocs documento = new OpOSDocs();
 			OpOSDocsDaoImpl traerDocumento = new OpOSDocsDaoImpl();
-			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, iPartida);
+			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, 7);
+			
+			if(documento.getbImagen() != null){
+				// get your file as InputStream
+				InputStream pdf = new ByteArrayInputStream(documento.getbImagen());
 
-			// get your file as InputStream
-			InputStream pdf = new ByteArrayInputStream(documento.getbImagen());
-
-			// copy it to response's OutputStream
-			org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
-			response.flushBuffer();
-
-		} catch (IOException ex) {
+				// copy it to response's OutputStream
+				org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
+				response.flushBuffer();
+				}else{
+					
+				}
+			} catch (IOException ex) {
 			System.out.println(ex);
 		}
 	}

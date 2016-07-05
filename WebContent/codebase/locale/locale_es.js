@@ -14,7 +14,7 @@ scheduler.locale = {
 		week_tab: "Semana",
 		month_tab: "Mes",
 		new_event: "Nuevo evento",
-		icon_save: "Guardar",
+		icon_save: "PDF",
 		icon_cancel: "Cancelar",
 		icon_details: "Detalles",
 		icon_edit: "Editar",

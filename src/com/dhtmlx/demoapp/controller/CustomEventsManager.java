@@ -60,9 +60,11 @@ public class CustomEventsManager extends DHXEventsManager {
 				String local = ("Local: "+rs_tt_opCalmnto.getInt("iLocalID")+"\n");
 				fechaVisita.append(" "+rs_tt_opCalmnto.getString("cHora")+":00");
 				String estatus = ("Estatus: "+rs_tt_opCalmnto.getString("cEstatus")+"\n");
+				String oSID = String.valueOf(rs_tt_opCalmnto.getInt("iOServID"));
 				String nombreL = ("Local: "+rs_tt_opCalmnto.getString("cDesLocal")+"\n");
 				String sucursal = (rs_tt_opCalmnto.getString("cSucursal"));
 				String nombreR = ("Ruta: "+rs_tt_opCalmnto.getString("cRuta")+"\n");
+				
 				
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Date valorD = formatter.parse(fechaVisita.toString());
@@ -72,14 +74,14 @@ public class CustomEventsManager extends DHXEventsManager {
 						sucursal = sucursal + "\n";
 						e.setStart_date(valorD);
 						e.setEnd_date(valorD);
-						e.setText(sucursal+nombreR+nombreL+estatus);
+						e.setText(sucursal+nombreR+nombreL+estatus+oSID);
 						evs.add(e);
 					}
 				}else{
 					sucursal = sucursal + "\n";
 					e.setStart_date(valorD);
 					e.setEnd_date(valorD);
-					e.setText(sucursal+nombreR+nombreL+estatus);
+					e.setText(sucursal+nombreR+nombreL+estatus+oSID);
 					evs.add(e);
 					}
 				}
