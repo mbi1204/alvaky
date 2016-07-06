@@ -3,6 +3,7 @@ package com.dhtmlx.demoapp.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +31,15 @@ public class SimpleInitController {
 	}
 	
 	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	String Login(@RequestParam("cUsuario") String cUsuario, @RequestParam("cPassword") String cPassword, ModelMap mm) throws Open4GLException, IOException{
+	String Login(@RequestParam("cUsuario") String cUsuario,
+			@RequestParam("cPassword") String cPassword, ModelMap mm, HttpSession session) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl();
 		usuarioWebCompania = usuarioDao.Valida(cUsuario, cPassword);
 		
 		if(!usuarioWebCompania.getError() & usuarioWebCompania.getErrorTexto().equals("")){
+			//Sesion :V
+			session.setAttribute("usuarioIniciado", usuarioWebCompania);
 			return"redirect:index"; 
 		}
 		mm.put("mensaje", "Usuario y/o Contraseña Inválidos");
