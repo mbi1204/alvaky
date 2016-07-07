@@ -6,17 +6,20 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.progress.open4gl.ConnectException;
@@ -27,17 +30,28 @@ import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
 import com.sinergitec.calendar.model.CtCliente;
+import com.sinergitec.calendar.model.CtUsuarioWeb;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.OpOSDocs;
 
 @Controller
+@SessionAttributes("usuarioIniciado")
 public class ReporteController {
 
 	@RequestMapping(value = "/reporte", method = RequestMethod.GET)
-	String Inicio(Model model) throws Open4GLException, IOException {
+	String Inicio(Model model, 
+			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania, 
+			HttpServletResponse response) throws Open4GLException, IOException {
 
+		//Datos traidos de la session
+		System.out.println("Este es un valor traido de la sesion: "
+		+usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
+		
 		ClienteDaoImpl valor = new ClienteDaoImpl();
-		List<CtCliente> cliente = valor.listaCliente("ALVAKY");
+		List<CtCliente> cliente = valor.listaCliente(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
+		
+		Cookie cookie = new Cookie("cliente", usuarioWebCompania.getcCliente());
+		response.addCookie(cookie);
 
 		model.addAttribute("ctCliente", new CtCliente());
 		model.addAttribute("lista_ctCliente", cliente);

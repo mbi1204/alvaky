@@ -6,10 +6,9 @@
  * de reportes ejecutivos de 6 meses atras dependiendo de la fecha actual
  */
 function carga_Sucursal() {
-
-	//var cCliente = $('#cCliente').val();
 	
-	var cCliente = "06";
+	var cCliente = leerCookies(document.cookie); 
+	console.log(cCliente);
 
 	$.ajax({
 		type : "GET",
@@ -57,6 +56,11 @@ function abrir_VenReporte(sucursal, nombre){
 	var tmpNombre = nombre;
 	window.open('ejecutivo?sucursal='+tmpSucursal/*+'&nombre='+tmpNombre*/);
 
+}
+
+function leerCookies(galleta){
+	var lista = galleta.split("=");
+    return lista[1];
 }
 
 $(document).ready(function(){
