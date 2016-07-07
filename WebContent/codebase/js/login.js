@@ -18,3 +18,9 @@ function validarUsuario(){
 		sweetAlert("Oops...","Verifica que hayas llenado Usuario y Password","error");
 	}
 }
+
+function validarUsuarioEnter(e){
+	if (e.keyCode == 13) {
+        validarUsuario();
+    }
+}

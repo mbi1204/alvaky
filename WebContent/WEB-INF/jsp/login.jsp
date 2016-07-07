@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./codebase/alertify.core.css">
 <link rel="stylesheet" href="./codebase/alertify.default.css">
 <link rel="stylesheet" href="./codebase/alertify.bootstrap.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
 </head>
 <body>
@@ -25,7 +26,8 @@
 	      
 	      	
 	      	<input id="cUsuario" name="cUsuario" type="text"  value="Usuario" onBlur="if(this.value=='')this.value='Usuario'" onFocus="if(this.value=='Usuario')this.value=''" required>
-	      	<input id="cPassword" name="cPassword" type="password" value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''" required>
+	      	<input id="cPassword" name="cPassword" type="password" 
+	      			value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value=''" onkeypress="return validarUsuarioEnter(event)" required>
 	        
 	        <input type="button" value="Ingresar" onclick="validarUsuario();">
 	        
@@ -48,6 +50,6 @@
 	<script type="text/javascript" src="codebase/js/lib/alertify.min.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
-	<script type="text/javascript" src="codebase/js/notificacion-error.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/notificacion-error.js"></script>
 </body>
 </html>

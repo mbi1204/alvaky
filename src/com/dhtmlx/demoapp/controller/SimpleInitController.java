@@ -3,14 +3,15 @@ package com.dhtmlx.demoapp.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dhtmlx.planner.DHXPlanner;
@@ -20,9 +21,8 @@ import com.sinergitec.calendar.dao.UsuarioDaoImpl;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 
 @Controller
+@SessionAttributes("usuarioIniciado")
 public class SimpleInitController {
-	
-	private CtUsuarioWeb usuarioWebCompania;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
@@ -32,14 +32,18 @@ public class SimpleInitController {
 	
 	@RequestMapping(value = "/Login", method = RequestMethod.POST)
 	String Login(@RequestParam("cUsuario") String cUsuario,
-			@RequestParam("cPassword") String cPassword, ModelMap mm, HttpSession session) throws Open4GLException, IOException{
+			@RequestParam("cPassword") String cPassword, ModelMap mm, Model model) 
+					throws Open4GLException, IOException{
 		
+		//Instancia del Dao y ctUsuarioWeb
 		UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl();
+		CtUsuarioWeb usuarioWebCompania = new CtUsuarioWeb();
+		
 		usuarioWebCompania = usuarioDao.Valida(cUsuario, cPassword);
 		
 		if(!usuarioWebCompania.getError() & usuarioWebCompania.getErrorTexto().equals("")){
 			//Sesion :V
-			session.setAttribute("usuarioIniciado", usuarioWebCompania);
+			model.addAttribute("usuarioIniciado",usuarioWebCompania);
 			return"redirect:index"; 
 		}
 		mm.put("mensaje", "Usuario y/o Contraseña Inválidos");
@@ -47,7 +51,9 @@ public class SimpleInitController {
 	}
 
 	@RequestMapping({"/01_simple_init.html", "/index"})
-    public ModelAndView scheduler_01( HttpServletRequest request) throws Exception {
+    public ModelAndView scheduler_01( HttpServletRequest request, 
+    		@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
+    				throws Exception {
     	// creates and configures scheduler instance
 		
 		String cSucursal = ""; 
@@ -66,7 +72,8 @@ public class SimpleInitController {
 
     	// sets events set
     	CustomEventsManager evs = new CustomEventsManager(request);
-    	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),usuarioWebCompania.getcCliente(),cSucursal));
+    	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
+    			usuarioWebCompania.getcCliente(),cSucursal));
 
     	ModelAndView mnv = new ModelAndView("article");
     	mnv.addObject("title", "Calendario de Alvaky");
