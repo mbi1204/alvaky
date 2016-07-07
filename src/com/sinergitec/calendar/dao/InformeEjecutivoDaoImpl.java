@@ -140,16 +140,6 @@ public class InformeEjecutivoDaoImpl {
 		
 		try {
 			
-			/*//Transformar de String a Gregorian Calendar
-			DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-			Date date = df.parse("02/01/2016");
-			GregorianCalendar cal = (GregorianCalendar) Calendar.getInstance();
-			cal.setTime(date);
-			
-			Date fin = df.parse("02/29/2016");
-			GregorianCalendar fin2 = (GregorianCalendar) Calendar.getInstance();
-			fin2.setTime(fin);*/
-			
 			app.as_InfEjecutivo_repV3(cCveCia, cCliente, cSucursal, ttReporte);
 			//System.out.println(texto.getValue().toString());
 

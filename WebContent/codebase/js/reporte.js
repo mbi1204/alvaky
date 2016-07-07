@@ -7,24 +7,28 @@
  */
 function carga_Sucursal() {
 	
-	var cCliente = leerCookies(document.cookie); 
-
+	var arreglo = leerCookies(document.cookie);
+	var cCveCia  = arreglo[0][1];
+	var cCliente = arreglo[1][1];
+	
+	
 	$.ajax({
 		type : "GET",
 		url : "BuscaSucursal",
 		dataType : "json",
 		contentType : "application/json",
 		data : {
+			cCveCia  : cCveCia,
 			cCliente : cCliente
 		},
 		success : function(data) {
 			
-			if(data != ""){
+			if(data !== ""){
 				$("#mytable > tbody").empty();
 				for ( var item in data) {
-					$('#mytable > tbody').append(
+					$("#mytable > tbody").append(
 							'<tr ondblclick="abrir_VenReporte('+data[item].cSucursal+');">' + 
-								'<td>' + data[item].cSucursal + '</td>' + 
+								'<td>' + data[item].cSucursal +   '</td>' + 
 								'<td>' + data[item].cNombre   +   '</td>' + 
 									 /*'<td><nobr>'
 
@@ -52,13 +56,18 @@ function carga_Sucursal() {
 function abrir_VenReporte(sucursal){
 	
 	var tmpSucursal = sucursal;
+	console.log(tmpSucursal);
 	window.open('ejecutivo?sucursal='+tmpSucursal/*+'&nombre='+tmpNombre*/);
 
 }
 
 function leerCookies(galleta){
-	var lista = galleta.split("=");
-    return lista[1];
+	var arreglo = galleta.split(";");
+	var final = [];
+	for(var i in arreglo){
+		final.push(arreglo[i].split("="));
+	}
+    return final;
 }
 
 $(document).ready(function(){

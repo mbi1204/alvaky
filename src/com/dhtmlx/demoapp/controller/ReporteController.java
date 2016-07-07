@@ -25,11 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.progress.open4gl.ConnectException;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
-import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.OpOSDocs;
@@ -45,25 +43,21 @@ public class ReporteController {
 
 		//Datos traidos de la session
 		
-		ClienteDaoImpl valor = new ClienteDaoImpl();
-		List<CtCliente> cliente = valor.listaCliente(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
-		
-		Cookie cookie = new Cookie("cliente", usuarioWebCompania.getcCliente());
-		response.addCookie(cookie);
-
-		model.addAttribute("ctCliente", new CtCliente());
-		model.addAttribute("lista_ctCliente", cliente);
+		Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
+		Cookie cliente = new Cookie("cliente", usuarioWebCompania.getcCliente());
+		response.addCookie(compania);
+		response.addCookie(cliente);
 
 		return "reporte";
 	}
 
 	@RequestMapping(value = "/BuscaSucursal", headers = "Accept=application/json")
-	public @ResponseBody String BuscaSucursal(String cCliente, Model model) throws Open4GLException, IOException {
+	public @ResponseBody String BuscaSucursal(String cCveCia, String cCliente) throws Open4GLException, IOException {
 
 		LocalDaoImpl valor = new LocalDaoImpl();
 		String lista = "";
 
-		lista = new Gson().toJson(valor.listaLocal("ALVAKY", cCliente));
+		lista = new Gson().toJson(valor.listaLocal(cCveCia, cCliente));
 
 		return lista;
 

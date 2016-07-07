@@ -55,7 +55,7 @@
 						<thead>
 							<tr>
 								<th onclick="TablaOrden.en('mytable',0)" class="text-left" width="20%">Sucursal</th>
-								<th colspan="2" class="text-center" width="60%">Nombre</th>
+								<th colspan="2" style="text-align: center" width="60%">Nombre</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
