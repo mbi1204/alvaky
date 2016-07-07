@@ -10,6 +10,7 @@
 
 function abrir_Reporte(){
 	
+	var arreglo = leerCookies(document.cookie);
 	var cCveCia = arreglo[0][1];
 	var cCliente = arreglo[1][1];
 	var cSucursal = getGET();

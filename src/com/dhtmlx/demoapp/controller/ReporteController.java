@@ -79,26 +79,30 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
-	public ModelAndView downloadPDF(@RequestParam("sucursal") String sucursal) throws Open4GLException, IOException {
-
+	public ModelAndView downloadPDF(@RequestParam("sucursal") String sucursal, 
+			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) throws Open4GLException, IOException {
+		
 		// create some sample data
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
 
-		listEjecutivo = valor.listaInforme("ALVAKY", "06", sucursal);
+		listEjecutivo = valor.listaInforme(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
+				usuarioWebCompania.getcCliente(), sucursal);
 
 		// return a view which will be resolved by an excel view resolver
 		return new ModelAndView("pdfView", "listBooks", listEjecutivo);
 	}
 
 	@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
-	public ModelAndView downloadExcel(@RequestParam("sucursal") String sucursal) throws Open4GLException, IOException {
+	public ModelAndView downloadExcel(@RequestParam("sucursal") String sucursal, 
+			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) throws Open4GLException, IOException {
 
 		// create some sample data
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		List<InfEjecutivo> listEjecutivo = new ArrayList<InfEjecutivo>();
 
-		listEjecutivo = valor.listaInforme("ALVAKY", "06", sucursal);
+		listEjecutivo = valor.listaInforme(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
+				usuarioWebCompania.getcCliente(), sucursal);
 
 		// return a view which will be resolved by an excel view resolver
 		// Crea el excel de 0
@@ -111,7 +115,8 @@ public class ReporteController {
 
 	@RequestMapping(value = "/archivo/{iOServID}", method = RequestMethod.GET)
 	public void getFile(@PathVariable("iOServID") Integer iOServID,
-			HttpServletResponse response) throws ConnectException, SystemErrorException, Open4GLException {
+			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
+					throws ConnectException, SystemErrorException, Open4GLException {
 		try {
 			
 			System.out.println("Entra al controller de los archivos");
@@ -119,7 +124,8 @@ public class ReporteController {
 			// Instancia del modelo y del dao
 			OpOSDocs documento = new OpOSDocs();
 			OpOSDocsDaoImpl traerDocumento = new OpOSDocsDaoImpl();
-			documento = traerDocumento.getOpOSDocs("ALVAKY", iOServID, 1);
+			documento = traerDocumento.getOpOSDocs(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(), 
+					iOServID, 1);
 			
 			if(documento.getbImagen() != null){
 				// get your file as InputStream
