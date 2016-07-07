@@ -69,12 +69,12 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/reporteEjecutivo", headers = "Accept=application/json")
-	public @ResponseBody String Reporte(String cSucursal, Model model) throws Open4GLException, IOException {
+	public @ResponseBody String Reporte(String cCveCia, String cCliente, String cSucursal, Model model) throws Open4GLException, IOException {
 
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		String lista = "";
 
-		lista = new Gson().toJson(valor.listaInforme("ALVAKY", "06", cSucursal));
+		lista = new Gson().toJson(valor.listaInforme(cCveCia, cCliente, cSucursal));
 		return lista;
 	}
 

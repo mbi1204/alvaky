@@ -10,6 +10,8 @@
 
 function abrir_Reporte(){
 	
+	var cCveCia = arreglo[0][1];
+	var cCliente = arreglo[1][1];
 	var cSucursal = getGET();
 	
 	$.ajax({
@@ -18,6 +20,8 @@ function abrir_Reporte(){
 		dataType : "json",
 		contentType : "application/json",
 		data : {
+			cCveCia   : cCveCia,
+			cCliente  : cCliente,
 			cSucursal : cSucursal.sucursal
 		},
 		success : function(data) {
@@ -126,4 +130,15 @@ function buscarSucursal(){
 		location.href="/alvaky/index";
 	}
 	
-} 
+}
+
+function leerCookies(galleta) {
+
+	var arreglo = galleta.split(";");
+	var final = [];
+	for ( var i in arreglo) {
+		final.push(arreglo[i].split("="));
+	}
+	return final;
+
+}
