@@ -8,7 +8,6 @@
 function carga_Sucursal() {
 	
 	var cCliente = leerCookies(document.cookie); 
-	console.log(cCliente);
 
 	$.ajax({
 		type : "GET",
@@ -50,10 +49,9 @@ function carga_Sucursal() {
 
 }
 
-function abrir_VenReporte(sucursal, nombre){
+function abrir_VenReporte(sucursal){
 	
 	var tmpSucursal = sucursal;
-	var tmpNombre = nombre;
 	window.open('ejecutivo?sucursal='+tmpSucursal/*+'&nombre='+tmpNombre*/);
 
 }

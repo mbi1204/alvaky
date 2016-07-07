@@ -44,8 +44,6 @@ public class ReporteController {
 			HttpServletResponse response) throws Open4GLException, IOException {
 
 		//Datos traidos de la session
-		System.out.println("Este es un valor traido de la sesion: "
-		+usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
 		
 		ClienteDaoImpl valor = new ClienteDaoImpl();
 		List<CtCliente> cliente = valor.listaCliente(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());

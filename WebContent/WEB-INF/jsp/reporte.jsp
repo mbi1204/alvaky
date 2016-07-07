@@ -54,7 +54,7 @@
 					<table id="mytable" class = "mytable">
 						<thead>
 							<tr>
-								<th class="text-left" width="20%">Sucursal</th>
+								<th onclick="TablaOrden.en('mytable',0)" class="text-left" width="20%">Sucursal</th>
 								<th colspan="2" class="text-center" width="60%">Nombre</th>
 							</tr>
 						</thead>
@@ -74,7 +74,8 @@
 	<script type="text/javascript" src = "codebase/js/lib/jquery-ui-1.10.4.custom.js"></script>
 	<script type="text/javascript" src = "codebase/js/lib/jquery.ui.datepicker.js"></script>
 	<script type="text/javascript" src = "codebase/js/reporte.js"></script>
-	<script src="codebase/js/lib/sweetalert.min.js"></script> 
+	<script src="codebase/js/lib/sweetalert.min.js"></script>
+	<script type="text/javascript" src = "codebase/js/lib/TablaOrden.js"></script>  
 	<!-- Fin Scripts -->
 </body>
 </html>
