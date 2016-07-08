@@ -50,7 +50,8 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/BuscaSucursal", headers = "Accept=application/json")
-	public @ResponseBody String BuscaSucursal(String cCveCia, String cCliente) throws Open4GLException, IOException {
+	public @ResponseBody String BuscaSucursal(String cCveCia, String cCliente) 
+			throws Open4GLException, IOException {
 
 		LocalDaoImpl valor = new LocalDaoImpl();
 		String lista = "";
@@ -67,8 +68,9 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/reporteEjecutivo", headers = "Accept=application/json")
-	public @ResponseBody String Reporte(String cCveCia, String cCliente, String cSucursal, Model model) 
-			throws Open4GLException, IOException {
+	public @ResponseBody String Reporte(String cCveCia, 
+			String cCliente, String cSucursal, Model model)	
+					throws Open4GLException, IOException {
 
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		String lista = "";
@@ -79,7 +81,8 @@ public class ReporteController {
 
 	@RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
 	public ModelAndView downloadPDF(@RequestParam("sucursal") String sucursal, 
-			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) throws Open4GLException, IOException {
+			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
+					throws Open4GLException, IOException {
 		
 		// create some sample data
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
@@ -94,7 +97,8 @@ public class ReporteController {
 
 	@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
 	public ModelAndView downloadExcel(@RequestParam("sucursal") String sucursal, 
-			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) throws Open4GLException, IOException {
+			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
+					throws Open4GLException, IOException {
 
 		// create some sample data
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
