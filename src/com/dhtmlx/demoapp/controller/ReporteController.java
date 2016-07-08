@@ -40,8 +40,6 @@ public class ReporteController {
 	String Inicio(Model model, 
 			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania, 
 			HttpServletResponse response) throws Open4GLException, IOException {
-
-		//Datos traidos de la session
 		
 		Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
 		Cookie cliente = new Cookie("cliente", usuarioWebCompania.getcCliente());
@@ -69,7 +67,8 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/reporteEjecutivo", headers = "Accept=application/json")
-	public @ResponseBody String Reporte(String cCveCia, String cCliente, String cSucursal, Model model) throws Open4GLException, IOException {
+	public @ResponseBody String Reporte(String cCveCia, String cCliente, String cSucursal, Model model) 
+			throws Open4GLException, IOException {
 
 		InformeEjecutivoDaoImpl valor = new InformeEjecutivoDaoImpl();
 		String lista = "";
@@ -118,8 +117,6 @@ public class ReporteController {
 			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
 					throws ConnectException, SystemErrorException, Open4GLException {
 		try {
-			
-			System.out.println("Entra al controller de los archivos");
 
 			// Instancia del modelo y del dao
 			OpOSDocs documento = new OpOSDocs();
