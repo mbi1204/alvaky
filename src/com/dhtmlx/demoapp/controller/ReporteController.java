@@ -136,7 +136,7 @@ public class ReporteController {
 				org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
 				response.flushBuffer();
 				}else{
-					
+					return ;
 				}
 			} catch (IOException ex) {
 			System.out.println(ex);
