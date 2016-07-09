@@ -5097,13 +5097,44 @@ scheduler._init_lightbox_events=function(){
 		if (src && src.className)
 			switch(src.className){
 				case "dhx_save_btn":
+					
 					/*Utiliza este boton para descargar el pdf*/
 					var tmpSucursal = document.getElementById("myTextarea").value;
 					var tmp = tmpSucursal.split('\n');
 					
 					tmpSucursal = tmp[4];
 					
-					window.open("archivo/"+tmpSucursal);
+					var arreglo = leerCookies(document.cookie);
+					var cCveCia = arreglo[0][1];
+					var cCliente = arreglo[1][1];
+					
+					$.ajax({
+						type : "GET",
+						url : "getFile",
+						dataType : "json",
+						contentType : "application/json",
+						data : {
+							cCveCia   : cCveCia,
+							cCliente  : cCliente,
+							cSucursal : tmpSucursal
+						},
+						success : function(data) {
+							
+							if(data != null){
+								
+								window.open("archivo/"+tmpSucursal);
+								
+								}else{
+									swal("No Existen Registros");
+								}
+						},
+						error : function(data,status,error) {
+							sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
+						}
+						
+					});
+					
+					//location.href="archivo/"+tmpSucursal;
 					//window.open("archivo/"+2630);
 					break;
 				case "dhx_delete_btn":
@@ -5717,4 +5748,15 @@ if (dhtmlx && dhtmlx.attaches) {
 
 		return this.vs[this._viewRestore()].sched;
 	};
+}
+
+function leerCookies(galleta) {
+
+	var arreglo = galleta.split(";");
+	var final = [];
+	for ( var i in arreglo) {
+		final.push(arreglo[i].split("="));
+	}
+	return final;
+
 }

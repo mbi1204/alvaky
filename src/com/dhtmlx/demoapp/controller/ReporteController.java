@@ -117,7 +117,7 @@ public class ReporteController {
 	}
 
 	@RequestMapping(value = "/archivo/{iOServID}", method = RequestMethod.GET)
-	public void getFile(@PathVariable("iOServID") Integer iOServID,
+	public @ResponseBody String  getFile(@PathVariable("iOServID") Integer iOServID,
 			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
 					throws ConnectException, SystemErrorException, Open4GLException {
 		try {
@@ -135,11 +135,11 @@ public class ReporteController {
 				// copy it to response's OutputStream
 				org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
 				response.flushBuffer();
-				}else{
-					return ;
 				}
+			
 			} catch (IOException ex) {
 			System.out.println(ex);
 		}
+		return "";
 	}
 }
