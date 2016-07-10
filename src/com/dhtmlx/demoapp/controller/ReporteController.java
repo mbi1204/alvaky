@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -116,10 +116,12 @@ public class ReporteController {
 		// return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
 	}
 
-	@RequestMapping(value = "/archivo/{iOServID}", method = RequestMethod.GET)
-	public @ResponseBody String  getFile(@PathVariable("iOServID") Integer iOServID,
+	@RequestMapping(value = "/getFile", headers = "Accept=application/json")
+	public @ResponseBody String  getFile(String cOServID,
 			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
 					throws ConnectException, SystemErrorException, Open4GLException {
+		String resultado = null;
+		Integer iOServID = Integer.parseInt(cOServID);
 		try {
 
 			// Instancia del modelo y del dao
@@ -129,17 +131,21 @@ public class ReporteController {
 					iOServID, 1);
 			
 			if(documento.getbImagen() != null){
+				
+				resultado = Base64.encodeBase64String(documento.getbImagen());
+				
+				/*resultado = "";
+				
 				// get your file as InputStream
 				InputStream pdf = new ByteArrayInputStream(documento.getbImagen());
 
 				// copy it to response's OutputStream
 				org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
-				response.flushBuffer();
+				response.flushBuffer();*/
 				}
-			
 			} catch (IOException ex) {
 			System.out.println(ex);
 		}
-		return "";
+		return new Gson().toJson(resultado);
 	}
 }

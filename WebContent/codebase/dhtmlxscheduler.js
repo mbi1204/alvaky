@@ -5104,28 +5104,28 @@ scheduler._init_lightbox_events=function(){
 					
 					tmpSucursal = tmp[4];
 					
-					var arreglo = leerCookies(document.cookie);
-					var cCveCia = arreglo[0][1];
-					var cCliente = arreglo[1][1];
-					
 					$.ajax({
 						type : "GET",
 						url : "getFile",
 						dataType : "json",
 						contentType : "application/json",
 						data : {
-							cCveCia   : cCveCia,
-							cCliente  : cCliente,
-							cSucursal : tmpSucursal
-						},
+							cOServID : tmpSucursal},
 						success : function(data) {
+							
+							console.log(data);
 							
 							if(data != null){
 								
-								window.open("archivo/"+tmpSucursal);
+								console.log("Entro en la condicion");
+								
+								var url = "data:application/pdf;base64,"+data.pdf;
+								//var _iFrame = document.createElement('iframe');
+								//_iFrame.setAttribute('src', url);
+								window.open(url);
 								
 								}else{
-									swal("No Existen Registros");
+									swal("No Existen PDF Asociado al Registo");
 								}
 						},
 						error : function(data,status,error) {
