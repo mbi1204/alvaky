@@ -15,6 +15,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -115,13 +116,37 @@ public class ReporteController {
 		// Utiliza una plantilla y crea el excel
 		// return new ModelAndView("excelViewRW", "listBooks", listEjecutivo);
 	}
-
-	@RequestMapping(value = "/getFile", headers = "Accept=application/json")
-	public @ResponseBody String  getFile(String cOServID,
+	
+	@RequestMapping(value = "/confirmaArchivo", headers = "Accept=application/json")
+	public @ResponseBody String  confirmaArchivo(String cOServID,
 			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
 					throws ConnectException, SystemErrorException, Open4GLException {
-		String resultado = null;
+		
 		Integer iOServID = Integer.parseInt(cOServID);
+		String resultado = null;
+		
+		try {
+
+			// Instancia del modelo y del dao
+			OpOSDocs documento = new OpOSDocs();
+			OpOSDocsDaoImpl traerDocumento = new OpOSDocsDaoImpl();
+			documento = traerDocumento.getOpOSDocs(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(), 
+					iOServID, 1);
+			
+			if(documento.getbImagen() != null){
+				resultado = "Si Existe Archivo Ligado";
+				}
+			} catch (IOException ex) {
+			System.out.println(ex);
+		}
+		
+		return new Gson().toJson(resultado);
+	}
+
+	@RequestMapping(value = "/getFile/{iOServID}", method=RequestMethod.GET)
+	public @ResponseBody void  getFile(@PathVariable Integer iOServID,
+			HttpServletResponse response, @ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
+					throws ConnectException, SystemErrorException, Open4GLException {
 		try {
 
 			// Instancia del modelo y del dao
@@ -132,20 +157,15 @@ public class ReporteController {
 			
 			if(documento.getbImagen() != null){
 				
-				resultado = Base64.encodeBase64String(documento.getbImagen());
-				
-				/*resultado = "";
-				
 				// get your file as InputStream
 				InputStream pdf = new ByteArrayInputStream(documento.getbImagen());
 
 				// copy it to response's OutputStream
 				org.apache.commons.io.IOUtils.copy(pdf, response.getOutputStream());
-				response.flushBuffer();*/
+				response.flushBuffer();
 				}
 			} catch (IOException ex) {
 			System.out.println(ex);
 		}
-		return new Gson().toJson(resultado);
 	}
 }
