@@ -1,6 +1,7 @@
 package com.sinergitec.calendar.dao;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
@@ -13,6 +14,73 @@ import com.sinergitec.calendar.util.DBConexion;
 import alvaky.sinergitec.appserver.yacatmto;
 
 public class UsuarioDaoImpl {
+	
+	@SuppressWarnings("static-access")
+	public String Inserta(CtUsuarioWeb obj_ctUsuarioWeb) throws Open4GLException, IOException{
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		
+		return "";
+	}
+	
+	@SuppressWarnings("static-access")
+	public String Actualiza(CtUsuarioWeb obj_ctUsuarioWeb) throws Open4GLException, IOException{
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+
+		return "";
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<CtUsuarioWeb> listaUsuarioWeb() throws Open4GLException, IOException{
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		return null;
+	}
+	
+	@SuppressWarnings("static-access")
+	public CtUsuarioWeb GetUsuarioWeb(String cUsuario) throws Open4GLException, IOException{
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		return null;
+	}
+	
+	@SuppressWarnings("static-access")
+	public String Borra(String cUsuario) throws Open4GLException, IOException{
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		return null;
+	}
 	
 	@SuppressWarnings("static-access")
 	public CtUsuarioWeb Valida(String cUsuario, String cPassword) throws Open4GLException, IOException{
