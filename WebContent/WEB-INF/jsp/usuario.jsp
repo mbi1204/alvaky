@@ -34,7 +34,6 @@
 		<div class="scheduler" id="scheduler">
 			<div class="dhx_cal_container" id="scheduler_her" style="border-style:none">
 				<div class="usuario">
-					<h1>Gestión de Usuarios</h1>
 					<table id="mytable" class = "mytable">
 						<thead>
 							<tr>
