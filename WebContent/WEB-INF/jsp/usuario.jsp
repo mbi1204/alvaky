@@ -38,7 +38,7 @@
 					<table id="mytable" class = "mytable">
 						<thead>
 							<tr>
-								<th>Nombre</th>
+								<th>Nombre </th>
 								<th>Usuario</th>
 								<th>Estatus</th>
 								<th>Seleccione</th>
