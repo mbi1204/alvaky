@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Usuarios</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
+<link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="./codebase/tabla.css">
 </head>
 <body>
 	<!-- Encabezado -->
@@ -28,9 +32,20 @@
 
 		<!-- Contenido Principal -->
 		<div class="scheduler" id="scheduler">
-			<div class="dhx_cal_container" id="scheduler_her">
-				<div class="dhx_cal_navline" id="dhx_cal_navline">
-					<div class="dhx_cal_date" id="dhx_cal_date"></div>
+			<div class="dhx_cal_container" id="scheduler_her" style="border-style:none">
+				<div class="usuario">
+					<h1>Gestión de Usuarios</h1>
+					<table id="mytable" class = "mytable">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Usuario</th>
+								<th>Estatus</th>
+								<th>Seleccione</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
 				</div>
 			</div>
 		</div>
