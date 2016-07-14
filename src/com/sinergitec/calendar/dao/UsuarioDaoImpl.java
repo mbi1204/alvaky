@@ -99,7 +99,7 @@ public class UsuarioDaoImpl {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<CtUsuarioWeb> ListaUsuarioWeb(Boolean lActivos) throws Open4GLException, IOException{
+	public List<CtUsuarioWeb> ListaUsuarioWeb(Boolean lActivo) throws Open4GLException, IOException{
 
 		// Variables para guardar errores
 		StringHolder texto = new StringHolder();
@@ -117,12 +117,10 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			app.as_ctUsuario_Carga(lActivos, tt_ctUsuario, error, texto);
+			app.as_ctUsuarioWeb_Carga(lActivo, tt_ctUsuario, error, texto);
 			ResultSet rs_tt_ctUsuarioWeb = tt_ctUsuario.getResultSetValue();
 			
 			while(rs_tt_ctUsuarioWeb.next()){
-				
-				System.out.println(rs_tt_ctUsuarioWeb.getString("cCliente"));
 				
 				CtUsuarioWeb obj = new CtUsuarioWeb();
 				obj.setcUsuarioWeb(rs_tt_ctUsuarioWeb.getString("cUsuarioWeb"));
@@ -137,14 +135,15 @@ public class UsuarioDaoImpl {
 				//Para llenar el objeto de ctUsuCompWeb
 				CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
 				objUsuaCompWeb.setcCveCia(rs_tt_ctUsuarioWeb.getString("cCveCia"));
-				objUsuaCompWeb.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
+				/*objUsuaCompWeb.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
 				objUsuaCompWeb.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado").toString());
 				objUsuaCompWeb.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
-				objUsuaCompWeb.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));
+				objUsuaCompWeb.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));*/
 				
 				obj.setCtUsuaCompWeb(objUsuaCompWeb);
 				obj.setError(error.getBooleanValue());
 				obj.setErrorTexto(texto.getStringValue());
+				obj.setId(rs_tt_ctUsuarioWeb.getBytes("id"));
 				
 				listaUsuarios.add(obj);
 				

@@ -15,6 +15,7 @@ public class CtUsuarioWeb {
 	private CtUsuaCompWeb ctUsuaCompWeb;
 	private Boolean error;
 	private String errorTexto;
+	private byte[] id;
 	
 	public String getcUsuarioWeb() {
 		return cUsuarioWeb;
@@ -83,6 +84,12 @@ public class CtUsuarioWeb {
 		this.errorTexto = errorTexto;
 	}
 	
+	public byte[] getId() {
+		return id;
+	}
+	public void setId(byte[] id) {
+		this.id = id;
+	}
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
 		Vector vector = new Vector();		
