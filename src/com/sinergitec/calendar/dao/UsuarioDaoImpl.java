@@ -99,7 +99,7 @@ public class UsuarioDaoImpl {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<CtUsuarioWeb> ListaUsuarioWeb(Boolean activos) throws Open4GLException, IOException{
+	public List<CtUsuarioWeb> ListaUsuarioWeb(Boolean lActivos) throws Open4GLException, IOException{
 
 		// Variables para guardar errores
 		StringHolder texto = new StringHolder();
@@ -117,10 +117,12 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			app.as_ctUsuario_Carga(activos, tt_ctUsuario, error, texto);
+			app.as_ctUsuario_Carga(lActivos, tt_ctUsuario, error, texto);
 			ResultSet rs_tt_ctUsuarioWeb = tt_ctUsuario.getResultSetValue();
 			
 			while(rs_tt_ctUsuarioWeb.next()){
+				
+				System.out.println(rs_tt_ctUsuarioWeb.getString("cCliente"));
 				
 				CtUsuarioWeb obj = new CtUsuarioWeb();
 				obj.setcUsuarioWeb(rs_tt_ctUsuarioWeb.getString("cUsuarioWeb"));
@@ -128,20 +130,37 @@ public class UsuarioDaoImpl {
 				obj.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
 				obj.setcCliente(rs_tt_ctUsuarioWeb.getString("cCliente"));
 				obj.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado").toString());
+				obj.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
+				obj.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));
+				obj.setcNombre(rs_tt_ctUsuarioWeb.getString("cNombre"));
+				
+				//Para llenar el objeto de ctUsuCompWeb
+				CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
+				objUsuaCompWeb.setcCveCia(rs_tt_ctUsuarioWeb.getString("cCveCia"));
+				objUsuaCompWeb.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
+				objUsuaCompWeb.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado").toString());
+				objUsuaCompWeb.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
+				objUsuaCompWeb.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));
+				
+				obj.setCtUsuaCompWeb(objUsuaCompWeb);
+				obj.setError(error.getBooleanValue());
+				obj.setErrorTexto(texto.getStringValue());
 				
 				listaUsuarios.add(obj);
 				
 			}
 			
+			System.out.println(texto.getStringValue());
+			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e);
+			System.out.println("Este error imprime: "+e);
 		} finally {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
 		
-		return null;
+		return listaUsuarios;
 	}
 	
 	@SuppressWarnings("static-access")

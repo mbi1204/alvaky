@@ -39,6 +39,8 @@
 							<tr>
 								<th>Nombre</th>
 								<th>Usuario</th>
+								<th>Compañia</th>
+								<th>Cliente</th>
 								<th>Estatus</th>
 								<th>Seleccione</th>
 							</tr>
@@ -51,5 +53,9 @@
 		<!-- Fin Contenido Principal -->
 	</div>
 	<!-- Fin Contenido -->
+	
+	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
+	<script type="text/javascript" src="codebase/js/usuario.js"></script>
 </body>
 </html>

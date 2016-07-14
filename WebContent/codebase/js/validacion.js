@@ -1,5 +1,6 @@
 /**
- * Se aceptan todo tipo de 
+ * Autor: Estrada Mares Alejandro Fecha: 4 de Julio de 2016 Programa: reporte
+ * Descripcion:Se aceptan todo tipo de 
  * validaciones numericas, texto, etc
  */
 
