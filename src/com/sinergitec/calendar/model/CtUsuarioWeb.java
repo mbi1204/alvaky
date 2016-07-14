@@ -1,5 +1,7 @@
 package com.sinergitec.calendar.model;
 
+import java.util.Vector;
+
 public class CtUsuarioWeb {
 	
 	private String cUsuarioWeb;
@@ -79,6 +81,22 @@ public class CtUsuarioWeb {
 	}
 	public void setErrorTexto(String errorTexto) {
 		this.errorTexto = errorTexto;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Vector getVectorDatos() {
+		Vector vector = new Vector();		
+
+		vector.add(this.getcUsuarioWeb());
+		vector.add(this.getcPassword());
+		vector.add(this.getlActivo());		
+		vector.add(this.getcCliente());
+		vector.add(this.getDtCreado());
+		vector.add(this.getDtModificado());
+		vector.add(this.getcUsuario());
+		vector.add(this.getcNombre());
+		vector.add(this.getCtUsuaCompWeb().getcCveCia());
+		return vector;
 	}
 	
 }
