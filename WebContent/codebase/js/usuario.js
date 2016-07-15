@@ -19,12 +19,12 @@ $.ajax({
 			if(data != ""){
 				$("#mytable > tbody").empty();
 				for ( var item in data) {
-					$('#mytable > tbody').append('<tr class="text-center">'                     +
-							 '<td class="text-center">' + data[item].cNombre                    +   '</td>' +
-							 '<td class="text-center">' + data[item].cUsuarioWeb                +   '</td>' + 
-							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia      +   '</td>' +
-							 '<td class="text-center">'	+ data[item].cCliente                   +   '</td>' +
-							 '<td class="text-center">'	+ data[item].lActivo                    +   '</td>' +'</tr>');
+					$('#mytable > tbody').append('<tr class="text-center">'                           +
+							 '<td class="text-center">' + data[item].cNombre                          +   '</td>' +
+							 '<td class="text-center">' + data[item].cUsuarioWeb                      +   '</td>' + 
+							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia            +   '</td>' +
+							 '<td class="text-center">'	+ data[item].cCliente                         +   '</td>' +
+							 '<td class="text-center">'	+ data[item].lActivo  ? "Activo":"Desactivo"  +   '</td>' +'</tr>');
 					}
 				
 				}else{
