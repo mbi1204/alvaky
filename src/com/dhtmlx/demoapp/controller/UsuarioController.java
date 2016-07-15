@@ -30,13 +30,13 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/ClienteListado", headers = "Accept=application/json")
-	public @ResponseBody String ClienteListado(String CCveCia)	
+	public @ResponseBody String ClienteListado(String cCveCia)	
 					throws Open4GLException, IOException {
 
 		ClienteDaoImpl valor = new ClienteDaoImpl();
 		String lista = "";
 
-		lista = new Gson().toJson(valor.listaCliente(CCveCia));
+		lista = new Gson().toJson(valor.listaCliente(cCveCia));
 		return lista;
 	}
 	
