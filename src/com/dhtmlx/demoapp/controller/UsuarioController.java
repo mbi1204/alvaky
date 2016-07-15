@@ -20,6 +20,8 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
 		
+		model.addAttribute("ctUsuarioWeb",new CtUsuarioWeb());
+		
 		return "usuario";
 	}
 	
@@ -37,7 +39,10 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuarioInsertar", method = RequestMethod.POST)
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
-		return "usuario";
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		valor.Inserta("SISAEM", obj);
+		
+		return "redirect:/usuario";
 	}
 
 }

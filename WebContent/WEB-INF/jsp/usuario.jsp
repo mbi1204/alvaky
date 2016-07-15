@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +9,11 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
 <link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
-<link rel="stylesheet" type="text/css" href="./codebase/tabla.css">
+
 <link rel="stylesheet" type="text/css" href="./codebase/boton.css">
+<link rel="stylesheet" type="text/css" href="./codebase/font-awesome-4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="./codebase/pure-0.4.2.css">
+<link rel="stylesheet" type="text/css" href="./codebase/jquery-ui-1.10.4.custom.css">
 </head>
 <body>
 	<!-- Encabezado -->
@@ -34,11 +38,14 @@
 		<!-- Contenido Principal -->
 		<div class="scheduler" id="scheduler">
 			<div class="dhx_cal_container" id="scheduler_her" style="border-style:none">
-				<a class="boton">Agregar Usuario <%@ include file="usuarioAdd.jsp"%></a>
+				<div id="AddCtUsuarioWeb_Dialog" style="display: none;">
+				<%@ include file="usuarioAdd.jsp"%>
+				</div>
+				<a class="boton" onclick="add_ctUsuarioWeb();">Agregar Usuario </a>
 				<a class="boton">Modificar Usuario</a>
 				<a class="boton">Borrar Usuario</a>
 				<div class="usuario">
-					<table id="mytable" class = "mytable">
+					<table id="mytable" class = "pure-table pure-table-bordered pure-table-striped">
 						<thead>
 							<tr>
 								<th>Nombre</th>
@@ -59,6 +66,8 @@
 	<!-- Fin Contenido -->
 	
 	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/jquery-ui-1.10.4.custom.js"></script>
+	<script type="text/javascript" src="codebase/js/lib/jquery.ui.datepicker.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
 	<script type="text/javascript" src="codebase/js/usuario.js"></script>
 </body>
