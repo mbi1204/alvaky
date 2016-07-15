@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
 <link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="./codebase/tabla.css">
+<link rel="stylesheet" type="text/css" href="./codebase/boton.css">
 </head>
 <body>
 	<!-- Encabezado -->
@@ -33,6 +34,9 @@
 		<!-- Contenido Principal -->
 		<div class="scheduler" id="scheduler">
 			<div class="dhx_cal_container" id="scheduler_her" style="border-style:none">
+				<a class="boton">Agregar Usuario</a>
+				<a class="boton">Modificar Usuario</a>
+				<a class="boton">Borrar Usuario</a>
 				<div class="usuario">
 					<table id="mytable" class = "mytable">
 						<thead>

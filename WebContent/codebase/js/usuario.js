@@ -4,8 +4,8 @@
  * la tabla de usuarios web
  */
 
-
-$.ajax({
+function listadoUsuarios(){
+	$.ajax({
 		type : "GET",
 		url : "UsuarioListado",
 		dataType : "json",
@@ -26,7 +26,8 @@ $.ajax({
 							 '<td class="text-center">' + data[item].cUsuarioWeb            +   '</td>' + 
 							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia  +   '</td>' +
 							 '<td class="text-center">'	+ data[item].cCliente               +   '</td>' +
-							 '<td class="text-center">'	+ activo                            +   '</td>' +'</tr>');
+							 '<td class="text-center">'	+ activo                            +   '</td>' +
+							 '<td class="text-center"><input type="checkbox" name="vehicle" value="Bike"/></td>' +'</tr>');
 					}	
 				
 				}else{
@@ -38,3 +39,8 @@ $.ajax({
 		}
 		
 	});
+}
+
+$(document).ready(function() {
+	listadoUsuarios();
+});
