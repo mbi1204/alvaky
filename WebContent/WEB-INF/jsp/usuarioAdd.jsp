@@ -33,6 +33,27 @@
 				<td><form:input path="cPassword" placeholder="Password "
 						type="password" size="10" maxlength="10" /></td>
 			</tr>
+			
+			<tr>
+				<td><form:label path="ctUsuaCompWeb.cCveCia">
+						<spring:message text="Compañia" />
+					</form:label></td>
+				<td><select id="cCompania" name="cCompania" onchange="busquedaCompania();">
+						  		<option selected="selected">Seleccione una compañia:</option>
+								<c:forEach items="${lista_ctCompania}" var="ctCompania">
+									<option value="${ctCompania.cCveCia}">${ctCompania.cRazonS}</option>
+								</c:forEach></select>
+				</td>
+			</tr>
+			
+			<tr id="cliente">
+				<td><form:label path="cCliente">
+						<spring:message text="Cliente" />
+					</form:label></td>
+				<td>
+				
+				</td>
+			</tr>
 
 		</table>
 	</fieldset>

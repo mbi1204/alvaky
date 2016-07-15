@@ -11,6 +11,8 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
+import com.sinergitec.calendar.model.CtCliente;
+import com.sinergitec.calendar.model.CtCompania;
 import com.sinergitec.calendar.model.CtUsuaCompWeb;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 import com.sinergitec.calendar.util.DBConexion;
@@ -233,5 +235,114 @@ public class UsuarioDaoImpl {
 		usuarioWeb.setErrorTexto(texto.getStringValue());
 		
 		return usuarioWeb;
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<CtCompania> ListaCompania(Boolean lActivo) throws Open4GLException, IOException{
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		
+		// Tabla Temporal
+		ResultSetHolder tt_ctCompania = new ResultSetHolder();
+		
+		//Lista
+		List<CtCompania> listaCompania = new ArrayList<CtCompania>();
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+		
+		try {
+			
+			app.as_ctCompania_Carga(lActivo, tt_ctCompania, error, texto);
+			ResultSet rs_tt_ctCompania = tt_ctCompania.getResultSetValue();
+			
+			while(rs_tt_ctCompania.next()){
+				
+				CtCompania obj = new CtCompania();
+				obj.setcCveCia(rs_tt_ctCompania.getString("cCveCia"));
+				obj.setcRazonS(rs_tt_ctCompania.getString("cRazonS"));
+				obj.setcRFC(rs_tt_ctCompania.getString("cRFC"));
+				obj.setcCalle(rs_tt_ctCompania.getString("cCalle"));
+				obj.setcNExterior(rs_tt_ctCompania.getString("cNExterior"));
+				obj.setcNInterior(rs_tt_ctCompania.getString("cNInterior"));
+				obj.setcColonia(rs_tt_ctCompania.getString("cColonia"));
+				obj.setcMpioDeleg(rs_tt_ctCompania.getString("cMpioDeleg"));
+				obj.setiCP(rs_tt_ctCompania.getInt("iCP"));
+				obj.setcCiudad(rs_tt_ctCompania.getString("cCiudad"));
+				obj.setcEstado(rs_tt_ctCompania.getString("cEstado"));
+				obj.setcTelefono(rs_tt_ctCompania.getString("cTelefono"));
+				obj.setcEmail(rs_tt_ctCompania.getString("cEmail"));
+				obj.setcContacto(rs_tt_ctCompania.getString("cContacto"));
+				obj.setcPais(rs_tt_ctCompania.getString("cPais"));
+				obj.setlActivo(rs_tt_ctCompania.getBoolean("lActivo"));
+				obj.setId(rs_tt_ctCompania.getBytes("Id"));
+				
+				
+				listaCompania.add(obj);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Este error imprime: "+e);
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
+		return listaCompania;
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<CtCliente> ListaCliente(String cCveCia) throws Open4GLException, IOException{
+
+		// Variables para guardar errores
+		StringHolder texto = new StringHolder();
+		BooleanHolder error = new BooleanHolder();
+		
+		// Tabla Temporal
+		ResultSetHolder tt_ctCliente = new ResultSetHolder();
+		
+		//Lista
+		List<CtCliente> listaCliente = new ArrayList<CtCliente>();
+		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+		
+		try {
+			
+			app.as_ctCliente_Carga(cCveCia, tt_ctCliente, error, texto);
+			ResultSet rs_tt_ctCompania = tt_ctCliente.getResultSetValue();
+			
+			while(rs_tt_ctCompania.next()){
+				
+				CtCliente obj = new CtCliente();
+				obj.setcCveCia(rs_tt_ctCompania.getString("cCveCia"));
+				obj.setcRazonS(rs_tt_ctCompania.getString("cRazonS"));
+				obj.setcCalle(rs_tt_ctCompania.getString("cCalle"));
+				obj.setcColonia(rs_tt_ctCompania.getString("cColonia"));
+				obj.setcCiudad(rs_tt_ctCompania.getString("cCiudad"));
+				obj.setcEstado(rs_tt_ctCompania.getString("cEstado"));
+				obj.setcEmail(rs_tt_ctCompania.getString("cEmail"));
+				obj.setcContacto(rs_tt_ctCompania.getString("cContacto"));
+				
+				
+				listaCliente.add(obj);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Este error imprime: "+e);
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
+		return listaCliente;
 	}
 }

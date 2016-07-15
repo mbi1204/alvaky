@@ -20,9 +20,23 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
 		
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		
 		model.addAttribute("ctUsuarioWeb",new CtUsuarioWeb());
+		model.addAttribute("lista_ctCompania",valor.ListaCompania(true));
 		
 		return "usuario";
+	}
+	
+	@RequestMapping(value = "/ClienteListado", headers = "Accept=application/json")
+	public @ResponseBody String ClienteListado(String CCveCia)	
+					throws Open4GLException, IOException {
+
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		String lista = "";
+
+		lista = new Gson().toJson(valor.ListaCliente(CCveCia));
+		return lista;
 	}
 	
 	@RequestMapping(value = "/UsuarioListado", headers = "Accept=application/json")

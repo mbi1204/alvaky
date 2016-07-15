@@ -76,9 +76,26 @@ function resetDialog(form) {
 	form.find("input").val("");
 }
 
+function cambiarDisplay(id) {
+	if (!document.getElementById){
+		return false;
+	}
+	var fila = document.getElementById(id);
+	if (fila.style.display != "none") {
+		fila.style.display = "none"; // ocultar fila
+	} 
+}
+
+function busquedaCompania(){
+	var cCompania = $('#cCompania').val();
+
+	
+}
+
 $(document).ready(function() {
 	
 	listadoUsuarios();
+	cambiarDisplay('cliente');
 	
 	$('#AddCtUsuarioWeb_Dialog').dialog({
 
