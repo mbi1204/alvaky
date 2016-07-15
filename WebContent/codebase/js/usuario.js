@@ -88,7 +88,33 @@ function cambiarDisplay(id) {
 
 function busquedaCompania(){
 	var cCompania = $('#cCompania').val();
-
+	
+	$.ajax({
+		type : "GET",
+		url : "ClienteListado",
+		dataType : "json",
+		contentType : "application/json",
+		data : {
+			cCveCia : cCompania
+		},
+		success : function(data) {
+			
+			console.log(data);
+			
+			if(data != ""){
+				
+				for ( var item in data) {
+					}	
+				
+				}else{
+					swal("No Existen Registros");
+				}
+		},
+		error : function(data,status,error) {
+			sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
+		}
+		
+	});
 	
 }
 

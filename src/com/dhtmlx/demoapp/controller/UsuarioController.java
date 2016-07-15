@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.progress.open4gl.Open4GLException;
+import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.UsuarioDaoImpl;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 
@@ -32,10 +33,10 @@ public class UsuarioController {
 	public @ResponseBody String ClienteListado(String CCveCia)	
 					throws Open4GLException, IOException {
 
-		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		ClienteDaoImpl valor = new ClienteDaoImpl();
 		String lista = "";
 
-		lista = new Gson().toJson(valor.ListaCliente(CCveCia));
+		lista = new Gson().toJson(valor.listaCliente(CCveCia));
 		return lista;
 	}
 	
