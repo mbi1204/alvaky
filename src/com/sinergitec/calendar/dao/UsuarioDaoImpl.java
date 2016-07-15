@@ -146,8 +146,6 @@ public class UsuarioDaoImpl {
 				
 			}
 			
-			System.out.println(texto.getStringValue());
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Este error imprime: "+e);

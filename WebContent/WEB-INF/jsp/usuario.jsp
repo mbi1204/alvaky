@@ -34,7 +34,7 @@
 		<!-- Contenido Principal -->
 		<div class="scheduler" id="scheduler">
 			<div class="dhx_cal_container" id="scheduler_her" style="border-style:none">
-				<a class="boton">Agregar Usuario</a>
+				<a class="boton">Agregar Usuario <%@ include file="usuarioAdd.jsp"%></a>
 				<a class="boton">Modificar Usuario</a>
 				<a class="boton">Borrar Usuario</a>
 				<div class="usuario">
