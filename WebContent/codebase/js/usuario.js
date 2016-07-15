@@ -4,6 +4,7 @@
  * la tabla de usuarios web
  */
 
+
 $.ajax({
 		type : "GET",
 		url : "UsuarioListado",
@@ -19,13 +20,14 @@ $.ajax({
 			if(data != ""){
 				$("#mytable > tbody").empty();
 				for ( var item in data) {
-					$('#mytable > tbody').append('<tr class="text-center">'                           +
-							 '<td class="text-center">' + data[item].cNombre                          +   '</td>' +
-							 '<td class="text-center">' + data[item].cUsuarioWeb                      +   '</td>' + 
-							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia            +   '</td>' +
-							 '<td class="text-center">'	+ data[item].cCliente                         +   '</td>' +
-							 '<td class="text-center">'	+ data[item].lActivo  ? "Activo":"Desactivo"  +   '</td>' +'</tr>');
-					}
+					var activo = data[item].lActivo ? "Activo":"Desactivo";
+					$('#mytable > tbody').append('<tr class="text-center">'                 +
+							 '<td class="text-center">' + data[item].cNombre                +   '</td>' +
+							 '<td class="text-center">' + data[item].cUsuarioWeb            +   '</td>' + 
+							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia  +   '</td>' +
+							 '<td class="text-center">'	+ data[item].cCliente               +   '</td>' +
+							 '<td class="text-center">'	+ activo                            +   '</td>' +'</tr>');
+					}	
 				
 				}else{
 					swal("No Existen Registros");
