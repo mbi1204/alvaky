@@ -127,23 +127,20 @@ public class UsuarioDaoImpl {
 				obj.setcPassword(rs_tt_ctUsuarioWeb.getString("cPassword"));
 				obj.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
 				obj.setcCliente(rs_tt_ctUsuarioWeb.getString("cCliente"));
-				obj.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado").toString());
-				obj.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
+				//obj.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado"));
+				//obj.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
 				obj.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));
 				obj.setcNombre(rs_tt_ctUsuarioWeb.getString("cNombre"));
 				
 				//Para llenar el objeto de ctUsuCompWeb
 				CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
 				objUsuaCompWeb.setcCveCia(rs_tt_ctUsuarioWeb.getString("cCveCia"));
-				/*objUsuaCompWeb.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
-				objUsuaCompWeb.setDtCreado(rs_tt_ctUsuarioWeb.getDate("dtCreado").toString());
-				objUsuaCompWeb.setDtModificado(rs_tt_ctUsuarioWeb.getDate("dtModificado").toString());
-				objUsuaCompWeb.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));*/
+				obj.setId(rs_tt_ctUsuarioWeb.getBytes("id"));
 				
 				obj.setCtUsuaCompWeb(objUsuaCompWeb);
 				obj.setError(error.getBooleanValue());
 				obj.setErrorTexto(texto.getStringValue());
-				obj.setId(rs_tt_ctUsuarioWeb.getBytes("id"));
+				
 				
 				listaUsuarios.add(obj);
 				
