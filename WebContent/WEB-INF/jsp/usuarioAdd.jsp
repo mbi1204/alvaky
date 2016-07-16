@@ -51,9 +51,7 @@
 						<spring:message text="Cliente" />
 					</form:label></td>
 				<td>
-					<select id="cCliente" name="cCliente">
-						<option selected="selected">Seleccione un cliente:</option>
-					</select>	  		
+					<select id="Cliente" name="Cliente"></select>	  		
 				</td>
 			</tr>
 

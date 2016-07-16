@@ -102,12 +102,13 @@ function busquedaCliente(){
 		},
 		success : function(data) {
 			
-			console.log(data);
-			
 			if(data != ""){
-				$('cCliente').empty();
+				
+				$('#Cliente option').remove();
+				$('#Cliente').append("<option selected=\"selected\">Seleccione un cliente:</option>");
+				
 				for ( var item in data) {
-					$('cCliente').append("<option value ="+data[item].cCliente+">"+data[item].cRazonS+"<option/>");
+					$('#Cliente').append("<option value ="+data[item].cCliente+">"+data[item].cRazonS+"<option/>");
 					}	
 				
 				}else{
