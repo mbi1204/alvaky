@@ -7,10 +7,10 @@ import com.progress.open4gl.javaproxy.Connection;
 
 public class DBConexion {
 	
-	static String cURL = "AppServer://192.168.2.20:5163/asalvaky";
+	//static String cURL = "AppServer://192.168.2.20:5163/asalvaky";
 	//OJO Produccion no vayas a borrar nada
 	//static String cURL = "AppServer://192.168.2.40:5162/as_yacatmto";
-	//static String cURL = "http://mioficina.ddns.net:8080/aia/Aia?AppService=as_yacatmto"; 
+	static String cURL = "http://mioficina.ddns.net:8080/aia/Aia?AppService=as_yacatmto"; 
 	 
 	static Connection conexion;
 	
