@@ -5106,7 +5106,7 @@ scheduler._init_lightbox_events=function(){
 					
 					$.ajax({
 						type : "GET",
-						url : "getFile",
+						url : "confirmaArchivo",
 						dataType : "json",
 						contentType : "application/json",
 						data : {
@@ -5118,11 +5118,7 @@ scheduler._init_lightbox_events=function(){
 							if(data != null){
 								
 								console.log("Entro en la condicion");
-								
-								var url = "data:application/pdf;base64,"+data.pdf;
-								//var _iFrame = document.createElement('iframe');
-								//_iFrame.setAttribute('src', url);
-								window.open(url);
+								window.open('getFile/'+tmpSucursal);
 								
 								}else{
 									swal("No Existen PDF Asociado al Registo");
