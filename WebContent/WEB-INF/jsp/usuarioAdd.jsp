@@ -52,7 +52,7 @@
 					</form:label></td>
 				<td>
 					<select id="cCliente" name="cCliente">
-						<option selected="selected">Seleccione un cliente:</option>
+						<option selected="selected">Seleccione un cliente: </option>
 					</select>	  		
 				</td>
 			</tr>
