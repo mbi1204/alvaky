@@ -86,8 +86,11 @@ function cambiarDisplay(id) {
 	} 
 }
 
-function busquedaCompania(){
+function busquedaCliente(){
 	var cCompania = $('#cCompania').val();
+	
+	var fila = document.getElementById("cliente");
+	fila.style.display = "";
 	
 	$.ajax({
 		type : "GET",
@@ -102,8 +105,9 @@ function busquedaCompania(){
 			console.log(data);
 			
 			if(data != ""){
-				
+				$('cCliente').empty();
 				for ( var item in data) {
+					$('cCliente').append("<option value ="+data[item].cCliente+">"+data[item].cRazonS+"<option/>");
 					}	
 				
 				}else{

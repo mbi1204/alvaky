@@ -38,7 +38,7 @@
 				<td><form:label path="ctUsuaCompWeb.cCveCia">
 						<spring:message text="Compañia" />
 					</form:label></td>
-				<td><select id="cCompania" name="cCompania" onchange="busquedaCompania();">
+				<td><select id="cCompania" name="cCompania" onchange="busquedaCliente();">
 						  		<option selected="selected">Seleccione una compañia:</option>
 								<c:forEach items="${lista_ctCompania}" var="ctCompania">
 									<option value="${ctCompania.cCveCia}">${ctCompania.cRazonS}</option>
@@ -51,7 +51,9 @@
 						<spring:message text="Cliente" />
 					</form:label></td>
 				<td>
-				
+					<select id="cCliente" name="cCliente">
+						<option selected="selected">Seleccione un cliente:</option>
+					</select>	  		
 				</td>
 			</tr>
 
