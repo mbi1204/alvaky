@@ -119,7 +119,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			app.as_ctUsuarioWeb_Carga(lActivo, tt_ctUsuario, error, texto);
+			app.as_ctUsuarioWeb_Carga (lActivo, tt_ctUsuario, error, texto);
 			ResultSet rs_tt_ctUsuarioWeb = tt_ctUsuario.getResultSetValue();
 			
 			while(rs_tt_ctUsuarioWeb.next()){
