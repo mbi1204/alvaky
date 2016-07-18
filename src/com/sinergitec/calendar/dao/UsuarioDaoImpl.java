@@ -88,7 +88,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			//app.as_ctUsuario_Actualiza(cUsuario, ttCtUsuarioWebMod, error, texto);
+			//app.as_ctUsuarioWeb_Actualiza(cUsuario, ttCtUsuarioWebMod, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -186,7 +186,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			//app.as_ctUsuario_Borra(cUsuario, tt_Viejos, error, texto);
+			//app.as_ctUsuarioWeb_Borra(cUsuario, tt_Viejos, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
