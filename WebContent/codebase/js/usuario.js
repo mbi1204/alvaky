@@ -25,7 +25,8 @@ function listadoUsuarios(){
 							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia  +   '</td>' +
 							 '<td class="text-center">'	+ data[item].cCliente               +   '</td>' +
 							 '<td class="text-center">'	+ activo                            +   '</td>' +
-							 '<td class="text-center"><input type="checkbox" name="vehicle" value="Bike"/></td>' +'</tr>');
+							 '<td class="text-center"><input type="checkbox" id="registro" '+ 
+							 'name="registro" value="'+data[item]+'" onclick="lecturaRegistro();"/></td>' +'</tr>');
 					}	
 				
 				}else{
@@ -154,6 +155,22 @@ function busquedaCliente(){
 	
 }
 
+function leerCookies(galleta) {
+
+	var arreglo = galleta.split(";");
+	var final = [];
+	for ( var i in arreglo) {
+		final.push(arreglo[i].split("="));
+	}
+	return final;
+
+}
+
+function lecturaRegistro(){
+	var objeto = $('#registro');
+	console.log(objeto);
+}
+
 $(document).ready(function() {
 	
 	var mensajeError = document.getElementById("mensajeError").innerHTML;
@@ -215,13 +232,3 @@ $(document).ready(function() {
 	});
 });
 
-function leerCookies(galleta) {
-
-	var arreglo = galleta.split(";");
-	var final = [];
-	for ( var i in arreglo) {
-		final.push(arreglo[i].split("="));
-	}
-	return final;
-
-}
