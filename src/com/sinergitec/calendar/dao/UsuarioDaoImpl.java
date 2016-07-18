@@ -49,7 +49,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			app.as_ctUsuario_Inserta(cUsuario, ttCtUsuarioWeb, error, texto);
+			app.as_ctUsuarioWeb_Inserta(cUsuario, ttCtUsuarioWeb, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
