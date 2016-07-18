@@ -97,6 +97,8 @@ public class UsuarioDaoImpl {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
+		
+		System.out.println(texto.getStringValue());
 
 		return texto.getStringValue();
 	}
@@ -130,8 +132,8 @@ public class UsuarioDaoImpl {
 				obj.setcPassword(rs_tt_ctUsuarioWeb.getString("cPassword"));
 				obj.setlActivo(rs_tt_ctUsuarioWeb.getBoolean("lActivo"));
 				obj.setcCliente(rs_tt_ctUsuarioWeb.getString("cCliente"));
-				obj.setDtCreado(rs_tt_ctUsuarioWeb.getTimestamp("dtCreado").toString());
-				obj.setDtModificado(rs_tt_ctUsuarioWeb.getTimestamp("dtModificado").toString());
+				obj.setDtCreado(rs_tt_ctUsuarioWeb.getTimestamp("dtCreado"));
+				obj.setDtModificado(rs_tt_ctUsuarioWeb.getTimestamp("dtModificado"));
 				obj.setcUsuario(rs_tt_ctUsuarioWeb.getString("cUsuario"));
 				obj.setcNombre(rs_tt_ctUsuarioWeb.getString("cNombre"));
 				

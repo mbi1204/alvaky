@@ -1,5 +1,6 @@
 package com.sinergitec.calendar.model;
 
+import java.sql.Timestamp;
 import java.util.Vector;
 
 public class CtUsuarioWeb {
@@ -8,8 +9,8 @@ public class CtUsuarioWeb {
 	private String cPassword;
 	private Boolean lActivo;
 	private String cCliente;
-	private String dtCreado;
-	private String dtModificado;
+	private Timestamp dtCreado;
+	private Timestamp dtModificado;
 	private String cUsuario;
 	private String cNombre;
 	private CtUsuaCompWeb ctUsuaCompWeb;
@@ -41,16 +42,16 @@ public class CtUsuarioWeb {
 	public void setcCliente(String cCliente) {
 		this.cCliente = cCliente;
 	}
-	public String getDtCreado() {
+	public Timestamp getDtCreado() {
 		return dtCreado;
 	}
-	public void setDtCreado(String dtCreado) {
+	public void setDtCreado(Timestamp dtCreado) {
 		this.dtCreado = dtCreado;
 	}
-	public String getDtModificado() {
+	public Timestamp getDtModificado() {
 		return dtModificado;
 	}
-	public void setDtModificado(String dtModificado) {
+	public void setDtModificado(Timestamp dtModificado) {
 		this.dtModificado = dtModificado;
 	}
 	public String getcUsuario() {
@@ -103,6 +104,7 @@ public class CtUsuarioWeb {
 		vector.add(this.getcUsuario());
 		vector.add(this.getcNombre());
 		vector.add(this.getCtUsuaCompWeb().getcCveCia());
+		vector.add(this.getId());
 		return vector;
 	}
 	

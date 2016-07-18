@@ -64,12 +64,8 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuarioInsertar", method = RequestMethod.POST)
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss.SSS");
-		String auxFecha = dateFormat.format(new Date());
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		obj.setlActivo(true);
-		obj.setDtCreado(auxFecha);
-		obj.setDtModificado(auxFecha);
 		obj.setcUsuario("SISAEM");
 		valor.Inserta("SISAEM", obj);
 		
