@@ -1,7 +1,7 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
@@ -64,11 +64,12 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuarioInsertar", method = RequestMethod.POST)
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss.SSS");
+		String auxFecha = dateFormat.format(new Date());
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
-		Date date= new Date();
 		obj.setlActivo(true);
-		obj.setDtCreado(new Timestamp(date.getTime()));
-		obj.setDtModificado(new Timestamp(date.getTime()));
+		obj.setDtCreado(auxFecha);
+		obj.setDtModificado(auxFecha);
 		obj.setcUsuario("SISAEM");
 		valor.Inserta("SISAEM", obj);
 		
