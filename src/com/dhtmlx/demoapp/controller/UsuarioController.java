@@ -1,11 +1,12 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,14 +63,18 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/usuarioInsertar", method = RequestMethod.POST)
-	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
+	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model,
+			HttpServletResponse response, ModelMap mm) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		obj.setlActivo(true);
 		obj.setcUsuario("SISAEM");
-		valor.Inserta("SISAEM", obj);
+		String mensaje = valor.Inserta("SISAEM", obj);
+		if(!mensaje.equals(null)){
+			mm.put("mensaje", mensaje);
+		}
 		
-		return "redirect:/usuario";
+		return "usuario";
 	}
 
 }

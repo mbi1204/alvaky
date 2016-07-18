@@ -158,6 +158,12 @@ function busquedaCliente(){
 
 $(document).ready(function() {
 	
+	var mensajeError = document.getElementById("mensajeError").innerHTML;
+	console.log(mensajeError);
+	if(mensajeError != null || mensajeError != ""){
+		sweetAlert("Oops...", mensajeError, "error");
+	}
+	
 	listadoUsuarios();
 	busquedaCompania();
 	cambiarDisplay('cliente');
@@ -211,3 +217,14 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function leerCookies(galleta) {
+
+	var arreglo = galleta.split(";");
+	var final = [];
+	for ( var i in arreglo) {
+		final.push(arreglo[i].split("="));
+	}
+	return final;
+
+}

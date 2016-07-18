@@ -59,6 +59,7 @@
 						<tbody></tbody>
 					</table>
 				</div>
+				<p id="mensajeError" style="display:none;">${mensaje}</p>
 			</div>
 		</div>
 		<!-- Fin Contenido Principal -->
