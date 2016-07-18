@@ -15,8 +15,6 @@ function listadoUsuarios(){
 		},
 		success : function(data) {
 			
-			console.log(data);
-			
 			if(data != ""){
 				$("#mytable > tbody").empty();
 				for ( var item in data) {
