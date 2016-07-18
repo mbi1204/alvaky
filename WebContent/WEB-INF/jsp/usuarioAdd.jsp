@@ -50,6 +50,13 @@
 					<form:select path="cCliente" id="Cliente" name="Cliente"/>	  		
 				</td>
 			</tr>
+			
+			<tr id="estatus">
+				<td><form:label path="lActivo">
+						<spring:message text="Estatus"/>
+					</form:label></td>
+				<td><form:checkbox path="lActivo" id="lActivo" name="lActivo"/></td>
+			</tr>
 
 		</table>
 	</fieldset>

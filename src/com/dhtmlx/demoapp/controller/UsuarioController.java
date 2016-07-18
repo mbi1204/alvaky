@@ -63,11 +63,6 @@ public class UsuarioController {
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
-		System.out.println(obj.getcNombre());
-		System.out.println(obj.getcUsuarioWeb());
-		System.out.println(obj.getcPassword());
-		System.out.println(obj.getCtUsuaCompWeb().getcCveCia());
-		System.out.println(obj.getcCliente());
 		valor.Inserta("SISAEM", obj);
 		
 		return "redirect:/usuario";

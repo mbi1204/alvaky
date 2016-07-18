@@ -161,6 +161,7 @@ $(document).ready(function() {
 	listadoUsuarios();
 	busquedaCompania();
 	cambiarDisplay('cliente');
+	cambiarDisplay('estatus');
 	
 	$('#AddCtUsuarioWeb_Dialog').dialog({
 

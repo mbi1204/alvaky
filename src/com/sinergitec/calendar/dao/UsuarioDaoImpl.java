@@ -40,6 +40,7 @@ public class UsuarioDaoImpl {
 		yacatmto app = new yacatmto(conexion);
 		
 		for (CtUsuarioWeb objCtUsuarioWeb : Lista) {
+			System.out.println(objCtUsuarioWeb.getVectorDatos());
 			vecRow1 = objCtUsuarioWeb.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
