@@ -86,6 +86,39 @@ function cambiarDisplay(id) {
 	} 
 }
 
+function busquedaCompania(){
+	
+	$.ajax({
+		type : "GET",
+		url : "CompaniaListado",
+		dataType : "json",
+		contentType : "application/json",
+		data : {
+			lActivos : "TRUE"
+		},
+		success : function(data) {
+			
+			if(data != ""){
+				
+				$('#cCompania option').remove();
+				$('#cCompania').append('<option selected=\"selected\">Seleccione una compa&ntilde;ia:</option>');
+				
+				for ( var item in data) {
+					$('#cCompania').append('<option value="'+data[item].cCveCia+'">'+data[item].cRazonS+'</option>');
+					}	
+				
+				}else{
+					swal("No Existen Registros");
+				}
+		},
+		error : function(data,status,error) {
+			sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
+		}
+		
+	});
+	
+}
+
 function busquedaCliente(){
 	var cCompania = $('#cCompania').val();
 	
@@ -105,10 +138,10 @@ function busquedaCliente(){
 			if(data != ""){
 				
 				$('#Cliente option').remove();
-				$('#Cliente').append("<option selected=\"selected\">Seleccione un cliente:</option>");
+				$('#Cliente').append('<option selected=\"selected\">Seleccione un cliente:</option>');
 				
 				for ( var item in data) {
-					$('#Cliente').append("<option value ="+data[item].cCliente+">"+data[item].cRazonS+"<option/>");
+					$('#Cliente').append('<option value="'+data[item].cCliente+'">'+data[item].cRazonS+'</option>');
 					}	
 				
 				}else{
@@ -126,6 +159,7 @@ function busquedaCliente(){
 $(document).ready(function() {
 	
 	listadoUsuarios();
+	busquedaCompania();
 	cambiarDisplay('cliente');
 	
 	$('#AddCtUsuarioWeb_Dialog').dialog({
@@ -138,9 +172,6 @@ $(document).ready(function() {
 		buttons : {
 			"Save" : function() {
 				$('#Form_ctUsuarioWeb_Add').submit();
-				
-				
-				
 				
 			},
 			"Cancel" : function() {

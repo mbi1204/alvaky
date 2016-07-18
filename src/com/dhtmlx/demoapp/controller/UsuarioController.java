@@ -21,12 +21,20 @@ public class UsuarioController {
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
 		
-		UsuarioDaoImpl valor = new UsuarioDaoImpl();
-		
 		model.addAttribute("ctUsuarioWeb",new CtUsuarioWeb());
-		model.addAttribute("lista_ctCompania",valor.ListaCompania(true));
 		
 		return "usuario";
+	}
+	
+	@RequestMapping(value = "/CompaniaListado", headers = "Accept=application/json")
+	public @ResponseBody String CompaniaListado(Boolean lActivos)	
+					throws Open4GLException, IOException {
+
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		String lista = "";
+
+		lista = new Gson().toJson(valor.ListaCompania(lActivos));
+		return lista;
 	}
 	
 	@RequestMapping(value = "/ClienteListado", headers = "Accept=application/json")
@@ -55,6 +63,11 @@ public class UsuarioController {
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		System.out.println(obj.getcNombre());
+		System.out.println(obj.getcUsuarioWeb());
+		System.out.println(obj.getcPassword());
+		System.out.println(obj.getCtUsuaCompWeb().getcCveCia());
+		System.out.println(obj.getcCliente());
 		valor.Inserta("SISAEM", obj);
 		
 		return "redirect:/usuario";
