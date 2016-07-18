@@ -159,8 +159,7 @@ function busquedaCliente(){
 $(document).ready(function() {
 	
 	var mensajeError = document.getElementById("mensajeError").innerHTML;
-	console.log(mensajeError);
-	if(mensajeError != null || mensajeError != ""){
+	if(mensajeError != null && mensajeError != ""){
 		sweetAlert("Oops...", mensajeError, "error");
 	}
 	

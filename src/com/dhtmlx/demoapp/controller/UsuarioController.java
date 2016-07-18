@@ -74,7 +74,7 @@ public class UsuarioController {
 			mm.put("mensaje", mensaje);
 		}
 		
-		return "usuario";
+		return "redirect:usuario";
 	}
 
 }
