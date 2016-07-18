@@ -1,6 +1,8 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,7 +65,11 @@ public class UsuarioController {
 	String usuarioInsertar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		Date date= new Date();
 		obj.setlActivo(true);
+		obj.setDtCreado(new Timestamp(date.getTime()));
+		obj.setDtModificado(new Timestamp(date.getTime()));
+		obj.setcUsuario("SISAEM");
 		valor.Inserta("SISAEM", obj);
 		
 		return "redirect:/usuario";
