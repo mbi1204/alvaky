@@ -1,6 +1,7 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.UsuarioDaoImpl;
@@ -77,19 +79,32 @@ public class UsuarioController {
 		return "redirect:usuario";
 	}
 	
-	@RequestMapping(value = "/usuarioEliminar", method = RequestMethod.POST)
-	String usuarioEliminar(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model,
-			HttpServletResponse response, ModelMap mm) throws Open4GLException, IOException{
+	@RequestMapping(value = "/UsuarioModificar", headers = "Accept=application/json")
+	public @ResponseBody String UsuarioModificar(String listUsuarios) throws Open4GLException, IOException{
+		
+		Gson gson = new Gson();
+		TypeToken<List<CtUsuarioWeb>> token = new TypeToken<List<CtUsuarioWeb>>(){};
+		List<CtUsuarioWeb> usuarioList = gson.fromJson(listUsuarios, token.getType());
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
-		obj.setlActivo(true);
-		obj.setcUsuario("SISAEM");
-		String mensaje = valor.Inserta("SISAEM", obj);
-		if(!mensaje.equals(null)){
-			mm.put("mensaje", mensaje);
-		}
 		
-		return "redirect:usuario";
+		String respuesta = "";
+		respuesta = new Gson().toJson(valor.Borra("SISAEM", usuarioList));
+		return respuesta;
+	}
+	
+	@RequestMapping(value = "/UsuarioEliminar", headers = "Accept=application/json")
+	public @ResponseBody String UsuarioEliminar(String listUsuarios) throws Open4GLException, IOException{
+		
+		Gson gson = new Gson();
+		TypeToken<List<CtUsuarioWeb>> token = new TypeToken<List<CtUsuarioWeb>>(){};
+		List<CtUsuarioWeb> usuarioList = gson.fromJson(listUsuarios, token.getType());
+		
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		
+		String respuesta = "";
+		respuesta = new Gson().toJson(valor.Borra("SISAEM", usuarioList));
+		return respuesta;
 	}
 
 }

@@ -15,18 +15,21 @@ function listadoUsuarios(){
 		},
 		success : function(data) {
 			
+			arreglo = data;
+			
 			if(data != ""){
 				$("#mytable > tbody").empty();
+				var contador = 0;
 				for ( var item in data) {
 					var activo = data[item].lActivo ? "Activo":"Desactivo";
 					$('#mytable > tbody').append('<tr class="text-center">'                 +
-							 '<td class="text-center">' + data[item].cNombre                +   '</td>' +
-							 '<td class="text-center">' + data[item].cUsuarioWeb            +   '</td>' + 
-							 '<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia  +   '</td>' +
-							 '<td class="text-center">'	+ data[item].cCliente               +   '</td>' +
-							 '<td class="text-center">'	+ activo                            +   '</td>' +
-							 '<td class="text-center"><input type="checkbox" id="registro" '+ 
-							 'name="registro" value="'+data[item]+'" onclick="lecturaRegistro();"/></td>' +'</tr>');
+							'<td class="text-center">'  + data[item].cNombre                +   '</td>' +
+							'<td class="text-center">'  + data[item].cUsuarioWeb            +   '</td>' + 
+							'<td class="text-center">'	+ data[item].ctUsuaCompWeb.cCveCia  +   '</td>' +
+							'<td class="text-center">'	+ data[item].cCliente               +   '</td>' +
+							'<td class="text-center">'	+ activo                            +   '</td>' +
+							'<td class="text-center"><input type=\"checkbox\" id=\"registro\" name=\"registro\" value="'+contador+'" /></td>'+'</tr>');
+					contador++;
 					}	
 				
 				}else{
@@ -166,9 +169,61 @@ function leerCookies(galleta) {
 
 }
 
-function lecturaRegistro(){
-	var objeto = $('#registro');
-	console.log(objeto);
+function borraRegistro() {
+
+	var lista = [];
+
+	$('#registro:checked').each(function() {
+		lista.push(arreglo[$(this).val()]);
+	});
+	
+	if(lista == null || lista == ""){
+		swal("Selecciona al menos un registro")
+	}else{
+		console.log(lista);
+		swal({
+			title : "Estas seguro?",
+			text : "Si borras el registro no podras recuperarlo!",
+			type : "warning",
+			showCancelButton : true,
+			confirmButtonColor : "#DD6B55",
+			confirmButtonText : "Si, Borralo!",
+			closeOnConfirm : false}, function(){
+		
+		var json = JSON.stringify(lista);
+
+		$.ajax({
+			type : "GET",
+			url : "UsuarioEliminar",
+			dataType : "json",
+			contentType : "application/json",
+			data : {
+				listUsuarios : json
+			},
+			success : function(data) {
+
+				if (data != null && data != "") {
+
+					sweetAlert("Oops...", data, "error");
+
+				} else {
+					swal("Exito!", "Registro Eliminado", "success");
+					location.reload();
+				}
+
+			},
+			error : function(data, status, error) {
+				console.log(data);
+				console.log(status);
+				console.log(error);
+				sweetAlert("Oops...",
+						"Algo salio mal intenta mas tarde o contacta a sistemas",
+						"error");
+			}
+
+		});
+		swal("Deleted!", "Your imaginary file has been deleted.", "success"); });
+	}
 }
 
 $(document).ready(function() {

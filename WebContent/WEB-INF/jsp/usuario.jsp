@@ -43,7 +43,7 @@
 				</div>
 				<a class="boton" onclick="add_ctUsuarioWeb();">Agregar Usuario </a>
 				<a class="boton">Modificar Usuario</a>
-				<a class="boton">Borrar Usuario</a>
+				<a class="boton" onclick="borraRegistro();">Borrar Usuario</a>
 				<div class="usuario">
 					<table id="mytable" class = "pure-table pure-table-bordered pure-table-striped">
 						<thead>

@@ -174,8 +174,19 @@ public class UsuarioDaoImpl {
 		return null;
 	}
 	
-	@SuppressWarnings("static-access")
-	public String Borra(String cUsuario, String cUsuarioWeb) throws Open4GLException, IOException{
+	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
+	public String Borra(String cUsuario, List<CtUsuarioWeb> listUsuarioWeb) throws Open4GLException, IOException{
+		
+		Vector vecTabla1, vecRow1;
+		vecTabla1 = new Vector();
+		
+		for (CtUsuarioWeb objCtUsuarioWeb : listUsuarioWeb) {
+			vecRow1 = objCtUsuarioWeb.getVectorDatos();
+			vecTabla1.add(vecRow1);
+		}
+		
+		ResultSetHolder ttCtUsuarioWebBorra = new ResultSetHolder(new VectorResultSet(vecTabla1));
+		ResultSet rs_tt_ctUsuarioWebBorra = ttCtUsuarioWebBorra.getResultSetValue();
 		
 		// Conexion a la base de datos
 		Connection conexion = new DBConexion().getConnection();
@@ -187,7 +198,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			//app.as_ctUsuarioWeb_Borra(cUsuario, tt_Viejos, error, texto);
+			app.as_ctUsuarioWeb_Borra(cUsuario, rs_tt_ctUsuarioWebBorra, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -197,7 +208,7 @@ public class UsuarioDaoImpl {
 			DBConexion.closeConnection(conexion);
 		}
 		
-		return null;
+		return texto.getStringValue();
 	}
 	
 	@SuppressWarnings("static-access")
