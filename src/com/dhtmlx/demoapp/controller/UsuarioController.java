@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -18,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.calendar.dao.ClienteDaoImpl;
 import com.sinergitec.calendar.dao.UsuarioDaoImpl;
+import com.sinergitec.calendar.model.CtUsuaCompWeb;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 
 @Controller
@@ -91,6 +94,45 @@ public class UsuarioController {
 		String respuesta = "";
 		respuesta = new Gson().toJson(valor.Borra("SISAEM", usuarioList));
 		return respuesta;
+	}
+	
+	@RequestMapping(value = "/UsuarioGet", headers = "Accept=application/json")
+	public @ResponseBody  String UsuarioGet(String listUsuarios, Model model) throws Open4GLException, IOException{
+		
+		System.out.println(listUsuarios);
+		
+		Gson gson = new Gson();
+		TypeToken<List<CtUsuarioWeb>> token = new TypeToken<List<CtUsuarioWeb>>(){};
+		List<CtUsuarioWeb> usuarioList = gson.fromJson(listUsuarios, token.getType());
+		
+		CtUsuarioWeb obj = new CtUsuarioWeb();
+		
+		for (CtUsuarioWeb ctUsuarioWeb : usuarioList) {
+			obj.setcUsuarioWeb(ctUsuarioWeb.getcUsuarioWeb());
+			obj.setcPassword(ctUsuarioWeb.getcPassword());
+			obj.setlActivo(ctUsuarioWeb.getlActivo());
+			obj.setcCliente(ctUsuarioWeb.getcCliente());
+			obj.setDtCreado(ctUsuarioWeb.getDtCreado());
+			obj.setDtModificado(ctUsuarioWeb.getDtModificado());
+			obj.setcUsuario(ctUsuarioWeb.getcUsuario());
+			obj.setcNombre(ctUsuarioWeb.getcNombre());
+			
+			//Para llenar el objeto de ctUsuCompWeb
+			CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
+			objUsuaCompWeb.setcCveCia(ctUsuarioWeb.getCtUsuaCompWeb().getcCveCia());
+			obj.setId(ctUsuarioWeb.getId());
+			
+			obj.setCtUsuaCompWeb(objUsuaCompWeb);
+			obj.setError(ctUsuarioWeb.getError());
+			obj.setErrorTexto(ctUsuarioWeb.getErrorTexto());
+		}
+		
+		model.addAttribute("ctUsuarioWeb",obj);
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		
+		
+		
+		return new Gson().toJson(obj);
 	}
 	
 	@RequestMapping(value = "/UsuarioEliminar", headers = "Accept=application/json")

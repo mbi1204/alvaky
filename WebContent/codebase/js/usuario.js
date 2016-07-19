@@ -50,18 +50,61 @@ function add_ctUsuarioWeb() {
 }
 
 function edit_ctUsuario(cUsuario) {
-	
-	$.get("get_ctUsuario/" + cUsuario, function(result) {
-		$("#UpdateCtUsuario_Dialog").html(result);
-		$("#UpdateCtUsuario_Dialog").dialog("option", "title", 'Editar Usuario');
-		$("#UpdateCtUsuario_Dialog").dialog('open');
 
-		// initializeDatePicker();
+	var lista = [];
+
+	$('#registro:checked').each(function() {
+		lista.push(arreglo[$(this).val()]);
 	});
-	
-	
 
+	if (lista == null || lista == "") {
+		swal("Selecciona al menos un registro")
+	} else {
+		var json = JSON.stringify(lista);
+		
+		/*$.get("UsuarioGet",json, function(result) {
+			$("#UpdateCtUsuario_Dialog").html(result);
+			$("#UpdateCtUsuario_Dialog").dialog("option", "title",
+					'Editar Usuario');
+			$("#UpdateCtUsuario_Dialog").dialog('open');
+		});*/
+		
+		
+		$.ajax({
+			type : "GET",
+			url : "UsuarioGet",
+			dataType : "json",
+			contentType : "application/json",
+			data : {
+				listUsuarios : json
+			},
+			success : function(data) {
+				
+				console.log(data);
 
+				if (data != null && data != "") {
+					
+					for( var item in data){
+						$("#cUsuarioWeb").val(data[item].cUsuarioWeb);
+						$("#UpdateCtUsuario_Dialog").dialog("option", "title",
+								'Editar Usuario');
+						$("#UpdateCtUsuario_Dialog").dialog('open');
+					}
+
+				} else {
+					//swal("Exito!", "Registro Eliminado", "success");
+					sweetAlert("Oops...", data, "error");
+				}
+
+			},
+			error : function(data, status, error) {
+				sweetAlert("Oops...",
+						"Algo salio mal intenta mas tarde o contacta a sistemas",
+						"error");
+			}
+
+		});
+	}
 }
 
 function initializeDatePicker() {
@@ -272,7 +315,7 @@ $(document).ready(function() {
 		width : 800,
 		buttons : {
 			"Save" : function() {
-				$('#Form_ctUsuario_Update').submit();
+				$('#Form_ctUsuarioWeb_Update').submit();
 			},
 			"Cancel" : function() {
 				$(this).dialog('close');
@@ -280,7 +323,7 @@ $(document).ready(function() {
 		},
 		close : function() {
 
-			resetDialog($('#Form_ctUsuario_Update'));
+			resetDialog($('#Form_ctUsuarioWeb_Update'));
 
 			$(this).dialog('close');
 		}

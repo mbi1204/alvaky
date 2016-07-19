@@ -41,8 +41,11 @@
 				<div id="AddCtUsuarioWeb_Dialog" style="display: none;">
 				<%@ include file="usuarioAdd.jsp"%>
 				</div>
+				<div id="UpdateCtUsuario_Dialog" style="display: none;">
+				<%@ include file="usuarioUpdate.jsp"%>
+				</div>
 				<a class="boton" onclick="add_ctUsuarioWeb();">Agregar Usuario </a>
-				<a class="boton">Modificar Usuario</a>
+				<a class="boton" onclick="edit_ctUsuario();">Modificar Usuario</a>
 				<a class="boton" onclick="borraRegistro();">Borrar Usuario</a>
 				<div class="usuario">
 					<table id="mytable" class = "pure-table pure-table-bordered pure-table-striped">
