@@ -21,7 +21,7 @@ function listadoUsuarios(){
 				$("#mytable > tbody").empty();
 				var contador = 0;
 				for ( var item in data) {
-					console.log(data);
+
 					var activo = data[item].lActivo ? "Activo":"Desactivo";
 					$('#mytable > tbody').append('<tr class="text-center">'                 +
 							'<td class="text-center">'  + data[item].cNombre                +   '</td>' +
