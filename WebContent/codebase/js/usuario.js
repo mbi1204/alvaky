@@ -251,14 +251,11 @@ function borraRegistro() {
 
 				} else {
 					swal("Exito!", "Registro Eliminado", "success");
-					location.reload();
+					location.href = "usuario";
 				}
 
 			},
 			error : function(data, status, error) {
-				console.log(data);
-				console.log(status);
-				console.log(error);
 				sweetAlert("Oops...",
 						"Algo salio mal intenta mas tarde o contacta a sistemas",
 						"error");
