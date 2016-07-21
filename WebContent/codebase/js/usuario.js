@@ -312,14 +312,46 @@ function borraRegistro() {
 }
 
 function valida(){
-	if($('.validar').val() == null || $('.validar').val() == "" ){
-		$('.validar').css("box-shadow","0 0 5px #d45252");
-		$('.validar').css("border-color", "#b03535");
-	}else{
-		$('.validar').css("box-shadow","0 0 5px #5cd053");
-		$('.validar').css("border-color", "#28921f");
-		pasar = true;
-	}
+	if($('#cNombre').val() == null || $('#cNombre').val() == ""){
+		$('#cNombre').css("box-shadow","0 0 5px #d45252");
+		$('#cNombre').css("border-color", "#b03535");
+		}else{
+			$('#cNombre').css("box-shadow","0 0 5px #5cd053");
+			$('#cNombre').css("border-color", "#28921f");
+			}
+	
+	if($('#cUsuarioWeb').val() == null || $('#cUsuarioWeb').val() == ""){
+		$('#cUsuarioWeb').css("box-shadow","0 0 5px #d45252");
+		$('#cUsuarioWeb').css("border-color", "#b03535");
+		}else{
+			$('#cUsuarioWeb').css("box-shadow","0 0 5px #5cd053");
+			$('#cUsuarioWeb').css("border-color", "#28921f");
+			}
+			
+	if($('#cPassword').val() == null || $('#cPassword').val() == ""){
+		$('#cPassword').css("box-shadow","0 0 5px #d45252");
+		$('#cPassword').css("border-color", "#b03535");
+		}else{
+			$('#cPassword').css("box-shadow","0 0 5px #5cd053");
+			$('#cPassword').css("border-color", "#28921f");
+			}
+	
+	if($('#cCompania').val() == null || $('#cCompania').val() == ""){
+		$('#cCompania').css("box-shadow","0 0 5px #d45252");
+		$('#cCompania').css("border-color", "#b03535");
+		}else{
+			$('#cCompania').css("box-shadow","0 0 5px #5cd053");
+			$('#cCompania').css("border-color", "#28921f");
+			}
+	
+	if($('#Cliente').val() == null || $('#Cliente').val() == ""){
+		$('#Cliente').css("box-shadow","0 0 5px #d45252");
+		$('#Cliente').css("border-color", "#b03535");
+		}else{
+			$('#Cliente').css("box-shadow","0 0 5px #5cd053");
+			$('#Cliente').css("border-color", "#28921f");
+			pasar = true;
+			}
 }
 
 $(document).ready(function() {
@@ -344,7 +376,6 @@ $(document).ready(function() {
 		width : 800,
 		buttons : {
 			"Guardar" : function() {
-				valida();
 				if(pasar == true){
 					$('#Form_ctUsuarioWeb_Add').submit();
 				}
