@@ -311,15 +311,13 @@ function borraRegistro() {
 	}
 }
 
-function valida(campo){
-	if($('Input[type=text]').val() == null || $('Input[type=text]').val(campo) == "" 
-		  && $('Input[type=pasword]').val() == null || $('Input[type=pasword]').val(campo) == ""){
-		$(campo).css("box-shadow","0 0 5px #d45252");
-		$(campo).css("border-color", "#b03535");
-		
+function valida(){
+	if($('.validar').val() == null || $('.validar').val() == "" ){
+		$('.validar').css("box-shadow","0 0 5px #d45252");
+		$('.validar').css("border-color", "#b03535");
 	}else{
-		$(campo).css("box-shadow","0 0 5px #5cd053");
-		$(campo).css("border-color", "#28921f");
+		$('.validar').css("box-shadow","0 0 5px #5cd053");
+		$('.validar').css("border-color", "#28921f");
 		pasar = true;
 	}
 }
@@ -331,6 +329,7 @@ $(document).ready(function() {
 		sweetAlert("Oops...", mensajeError, "error");
 	}
 
+	valida();
 	listadoUsuarios();
 	busquedaCompania();
 	cambiarDisplay('cliente');
