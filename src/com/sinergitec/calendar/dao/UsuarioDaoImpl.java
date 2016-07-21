@@ -101,7 +101,7 @@ public class UsuarioDaoImpl {
 		
 		try {
 			
-			app.as_ctUsuarioWeb_Actualiza(cUsuario, rs_ttCtUsuarioWebMod, rs_ttCtUsuarioWebViejos, error, texto);
+			app.as_ctUsuarioWeb_Actualiza(cUsuario, rs_ttCtUsuarioWebViejos, rs_ttCtUsuarioWebMod, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -110,8 +110,6 @@ public class UsuarioDaoImpl {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		
-		System.out.println(texto.getStringValue());
 
 		return texto.getStringValue();
 	}
