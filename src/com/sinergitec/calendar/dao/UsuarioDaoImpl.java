@@ -11,7 +11,6 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
-import com.sinergitec.calendar.model.CtCliente;
 import com.sinergitec.calendar.model.CtCompania;
 import com.sinergitec.calendar.model.CtUsuaCompWeb;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
@@ -62,12 +61,16 @@ public class UsuarioDaoImpl {
 	}
 	
 	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
-	public String Actualiza(String cUsuario, CtUsuarioWeb obj_ctUsuarioWeb) throws Open4GLException, IOException{
+	public String Actualiza(String cUsuario, CtUsuarioWeb oldCtUsuarioWeb, CtUsuarioWeb obj_ctUsuarioWeb) throws Open4GLException, IOException{
+		
+		List<CtUsuarioWeb> ListaViejos = new ArrayList<CtUsuarioWeb>();
+		ListaViejos.add(oldCtUsuarioWeb);
 		
 		List<CtUsuarioWeb> Lista = new ArrayList<CtUsuarioWeb>();
 		Lista.add(obj_ctUsuarioWeb);
 		
-		Vector vecTabla1, vecRow1;
+		Vector vecTabla1, vecRow1, vecTablaViejos, vecRowViejos;
+		vecTablaViejos = new Vector();
 		vecTabla1 = new Vector();
 
 		// Variables para guardar errores
@@ -78,16 +81,25 @@ public class UsuarioDaoImpl {
 		Connection conexion = new DBConexion().getConnection();
 		yacatmto app = new yacatmto(conexion);
 		
+		for (CtUsuarioWeb objCtUsuarioWebViejos : ListaViejos) {
+			vecRowViejos = objCtUsuarioWebViejos.getVectorDatos();
+			vecTablaViejos.add(vecRowViejos);
+		}
+		
 		for (CtUsuarioWeb objCtUsuarioWeb : Lista) {
 			vecRow1 = objCtUsuarioWeb.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
 		
+		ResultSetHolder ttCtUsuarioWebViejos = new ResultSetHolder(new VectorResultSet(vecTablaViejos));
 		ResultSetHolder ttCtUsuarioWebMod = new ResultSetHolder(new VectorResultSet(vecTabla1));
+		
+		ResultSet rs_ttCtUsuarioWebViejos = ttCtUsuarioWebViejos.getResultSetValue();
+		ResultSet rs_ttCtUsuarioWebMod = ttCtUsuarioWebMod.getResultSetValue();
 		
 		try {
 			
-			//app.as_ctUsuarioWeb_Actualiza(cUsuario, ttCtUsuarioWebMod, error, texto);
+			app.as_ctUsuarioWeb_Actualiza(cUsuario, rs_ttCtUsuarioWebViejos, rs_ttCtUsuarioWebMod, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -159,19 +171,6 @@ public class UsuarioDaoImpl {
 		}
 		
 		return listaUsuarios;
-	}
-	
-	@SuppressWarnings("static-access")
-	public CtUsuarioWeb GetUsuarioWeb(String cUsuario) throws Open4GLException, IOException{
-		
-		// Conexion a la base de datos
-		Connection conexion = new DBConexion().getConnection();
-		yacatmto app = new yacatmto(conexion);
-
-		// Variables para guardar errores
-		StringHolder texto = new StringHolder();
-		BooleanHolder error = new BooleanHolder();
-		return null;
 	}
 	
 	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })

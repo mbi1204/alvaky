@@ -89,7 +89,7 @@ public class UsuarioController {
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		obj.setcUsuario("SISAEM");
-		String mensaje = valor.Inserta("SISAEM", obj);
+		String mensaje = valor.Actualiza("SISAEM", usuarioOLD, obj);
 		if(!mensaje.equals(null)){
 			mm.put("mensaje", mensaje);
 		}
