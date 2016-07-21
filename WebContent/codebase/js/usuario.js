@@ -11,7 +11,7 @@ function listadoUsuarios(){
 		dataType : "json",
 		contentType : "application/json",
 		data : {
-			lActivos : "TRUE"
+			lActivo : "TRUE"
 		},
 		success : function(data) {
 			

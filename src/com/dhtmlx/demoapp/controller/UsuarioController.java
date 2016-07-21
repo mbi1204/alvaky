@@ -60,6 +60,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/UsuarioListado", headers = "Accept=application/json")
 	public @ResponseBody String UsuarioListado(Boolean lActivo)	
 					throws Open4GLException, IOException {
+		System.out.println(lActivo);
 
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		String lista = "";
