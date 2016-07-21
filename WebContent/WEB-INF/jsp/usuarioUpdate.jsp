@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<c:url var="actionUrl" value="UsuarioModificar" />
+<c:url var="actionUrl" value="usuarioModificado" />
 
 <form:form id="Form_ctUsuarioWeb_Update" commandName="ctUsuarioWeb" method="POST"
 	action="${actionUrl}" class="pure-form pure-form-aligned">

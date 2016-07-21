@@ -83,6 +83,20 @@ public class UsuarioController {
 		return "redirect:usuario";
 	}
 	
+	@RequestMapping(value = "/usuarioModificado", method = RequestMethod.POST)
+	String usuarioModificado(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model,
+			HttpServletResponse response, ModelMap mm) throws Open4GLException, IOException{
+		
+		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		obj.setcUsuario("SISAEM");
+		String mensaje = valor.Inserta("SISAEM", obj);
+		if(!mensaje.equals(null)){
+			mm.put("mensaje", mensaje);
+		}
+		
+		return "redirect:usuario";
+	}
+	
 	@RequestMapping(value = "/UsuarioModificar", method=RequestMethod.GET)
 	public String UsuarioModificar(Model model) throws Open4GLException, IOException{
 		
