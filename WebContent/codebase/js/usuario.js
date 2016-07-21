@@ -3,7 +3,7 @@
  * Descripcion: Genera la comunicacion con el server para el llenado de la tabla
  * de usuarios web
  */
-
+var pasar = false;
 function listadoUsuarios() {
 	$
 			.ajax({
@@ -311,6 +311,19 @@ function borraRegistro() {
 	}
 }
 
+function valida(campo){
+	if($('Input[type=text]').val() == null || $('Input[type=text]').val(campo) == "" 
+		  && $('Input[type=pasword]').val() == null || $('Input[type=pasword]').val(campo) == ""){
+		$(campo).css("box-shadow","0 0 5px #d45252");
+		$(campo).css("border-color", "#b03535");
+		
+	}else{
+		$(campo).css("box-shadow","0 0 5px #5cd053");
+		$(campo).css("border-color", "#28921f");
+		pasar = true;
+	}
+}
+
 $(document).ready(function() {
 
 	var mensajeError = document.getElementById("mensajeError").innerHTML;
@@ -332,8 +345,10 @@ $(document).ready(function() {
 		width : 800,
 		buttons : {
 			"Guardar" : function() {
-				$('#Form_ctUsuarioWeb_Add').submit();
-
+				valida();
+				if(pasar == true){
+					$('#Form_ctUsuarioWeb_Add').submit();
+				}
 			},
 			"Cancelar" : function() {
 				$(this).dialog('close');
@@ -354,6 +369,7 @@ $(document).ready(function() {
 		modal : true,
 		resizable : false,
 		width : 800,
+		dialogClass: "guardar",
 		buttons : {
 			"Guardar" : function() {
 				$('#Form_ctUsuarioWeb_Update').submit();
