@@ -9,10 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -23,8 +21,11 @@ import com.sinergitec.calendar.dao.UsuarioDaoImpl;
 import com.sinergitec.calendar.model.CtUsuaCompWeb;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 
+
 @Controller
 public class UsuarioController {
+	
+	private CtUsuarioWeb usuarioOLD;
 	
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
@@ -82,57 +83,49 @@ public class UsuarioController {
 		return "redirect:usuario";
 	}
 	
-	@RequestMapping(value = "/UsuarioModificar", headers = "Accept=application/json")
-	public @ResponseBody String UsuarioModificar(String listUsuarios) throws Open4GLException, IOException{
-		
-		Gson gson = new Gson();
-		TypeToken<List<CtUsuarioWeb>> token = new TypeToken<List<CtUsuarioWeb>>(){};
-		List<CtUsuarioWeb> usuarioList = gson.fromJson(listUsuarios, token.getType());
+	@RequestMapping(value = "/UsuarioModificar", method=RequestMethod.GET)
+	public String UsuarioModificar(Model model) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
+		ClienteDaoImpl valor2 = new ClienteDaoImpl();
 		
-		String respuesta = "";
-		respuesta = new Gson().toJson(valor.Borra("SISAEM", usuarioList));
-		return respuesta;
+		model.addAttribute("ctUsuarioWeb", usuarioOLD);
+		model.addAttribute("listCompania",valor.ListaCompania(true));
+		model.addAttribute("listCliente",valor2.listaCliente(usuarioOLD.getCtUsuaCompWeb().getcCveCia()));
+		
+		return "usuarioUpdate";
 	}
 	
 	@RequestMapping(value = "/UsuarioGet", headers = "Accept=application/json")
-	public @ResponseBody  String UsuarioGet(String listUsuarios, Model model) throws Open4GLException, IOException{
-		
-		System.out.println(listUsuarios);
+	public @ResponseBody  String UsuarioGet(String listUsuarios) throws Open4GLException, IOException{
 		
 		Gson gson = new Gson();
 		TypeToken<List<CtUsuarioWeb>> token = new TypeToken<List<CtUsuarioWeb>>(){};
 		List<CtUsuarioWeb> usuarioList = gson.fromJson(listUsuarios, token.getType());
 		
-		CtUsuarioWeb obj = new CtUsuarioWeb();
+		usuarioOLD = new CtUsuarioWeb();
 		
 		for (CtUsuarioWeb ctUsuarioWeb : usuarioList) {
-			obj.setcUsuarioWeb(ctUsuarioWeb.getcUsuarioWeb());
-			obj.setcPassword(ctUsuarioWeb.getcPassword());
-			obj.setlActivo(ctUsuarioWeb.getlActivo());
-			obj.setcCliente(ctUsuarioWeb.getcCliente());
-			obj.setDtCreado(ctUsuarioWeb.getDtCreado());
-			obj.setDtModificado(ctUsuarioWeb.getDtModificado());
-			obj.setcUsuario(ctUsuarioWeb.getcUsuario());
-			obj.setcNombre(ctUsuarioWeb.getcNombre());
+			usuarioOLD.setcUsuarioWeb(ctUsuarioWeb.getcUsuarioWeb());
+			usuarioOLD.setcPassword(ctUsuarioWeb.getcPassword());
+			usuarioOLD.setlActivo(ctUsuarioWeb.getlActivo());
+			usuarioOLD.setcCliente(ctUsuarioWeb.getcCliente());
+			usuarioOLD.setDtCreado(ctUsuarioWeb.getDtCreado());
+			usuarioOLD.setDtModificado(ctUsuarioWeb.getDtModificado());
+			usuarioOLD.setcUsuario(ctUsuarioWeb.getcUsuario());
+			usuarioOLD.setcNombre(ctUsuarioWeb.getcNombre());
 			
 			//Para llenar el objeto de ctUsuCompWeb
 			CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
 			objUsuaCompWeb.setcCveCia(ctUsuarioWeb.getCtUsuaCompWeb().getcCveCia());
-			obj.setId(ctUsuarioWeb.getId());
+			usuarioOLD.setId(ctUsuarioWeb.getId());
 			
-			obj.setCtUsuaCompWeb(objUsuaCompWeb);
-			obj.setError(ctUsuarioWeb.getError());
-			obj.setErrorTexto(ctUsuarioWeb.getErrorTexto());
+			usuarioOLD.setCtUsuaCompWeb(objUsuaCompWeb);
+			usuarioOLD.setError(ctUsuarioWeb.getError());
+			usuarioOLD.setErrorTexto(ctUsuarioWeb.getErrorTexto());
 		}
 		
-		model.addAttribute("ctUsuarioWeb",obj);
-		UsuarioDaoImpl valor = new UsuarioDaoImpl();
-		
-		
-		
-		return new Gson().toJson(obj);
+		return new Gson().toJson(usuarioOLD);
 	}
 	
 	@RequestMapping(value = "/UsuarioEliminar", headers = "Accept=application/json")

@@ -79,17 +79,16 @@ function edit_ctUsuario(cUsuario) {
 				listUsuarios : json
 			},
 			success : function(data) {
-				
-				console.log(data);
 
 				if (data != null && data != "") {
 					
-					for( var item in data){
-						$("#cUsuarioWeb").val(data[item].cUsuarioWeb);
-						$("#UpdateCtUsuario_Dialog").dialog("option", "title",
-								'Editar Usuario');
-						$("#UpdateCtUsuario_Dialog").dialog('open');
-					}
+					$.get("UsuarioModificar", function(result) {
+					$("#UpdateCtUsuario_Dialog").html(result);
+					$("#UpdateCtUsuario_Dialog").dialog("option", "title",
+							'Editar Usuario');
+					$("#UpdateCtUsuario_Dialog").dialog('open');
+					});
+						
 
 				} else {
 					//swal("Exito!", "Registro Eliminado", "success");
@@ -314,7 +313,7 @@ $(document).ready(function() {
 		resizable : false,
 		width : 800,
 		buttons : {
-			"Save" : function() {
+			"Guardar" : function() {
 				$('#Form_ctUsuarioWeb_Update').submit();
 			},
 			"Cancel" : function() {
