@@ -62,7 +62,7 @@ public class UsuarioDaoImpl {
 	
 	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
 	public String Actualiza(String cUsuario, CtUsuarioWeb oldCtUsuarioWeb, CtUsuarioWeb obj_ctUsuarioWeb) throws Open4GLException, IOException{
-		
+
 		List<CtUsuarioWeb> ListaViejos = new ArrayList<CtUsuarioWeb>();
 		ListaViejos.add(oldCtUsuarioWeb);
 		

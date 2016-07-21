@@ -89,9 +89,9 @@ public class UsuarioController {
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		obj.setcUsuario("SISAEM");
+		obj.setId(usuarioOLD.getId());
 		String mensaje = valor.Actualiza("SISAEM", usuarioOLD, obj);
 		if(!mensaje.equals(null)){
-			System.out.println("Entro en la condicion del mensaje de error");
 			mm.addAttribute("mensaje", mensaje);
 		}
 		
