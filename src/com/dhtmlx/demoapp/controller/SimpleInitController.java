@@ -3,6 +3,7 @@ package com.dhtmlx.demoapp.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +49,15 @@ public class SimpleInitController {
 		}
 		mm.put("mensaje", "Usuario y/o Contraseña Inválidos");
 		return"login";
+	}
+	
+	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
+	String Fin(Model model, HttpServletRequest request) throws Open4GLException, IOException{
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		return "login";
 	}
 
 	@RequestMapping({"/01_simple_init.html", "/index"})
