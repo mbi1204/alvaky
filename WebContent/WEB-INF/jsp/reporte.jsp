@@ -19,7 +19,7 @@
 	<!-- Fin Encabezado -->
 	
 	<!-- Menu -->
-	<div class = "menu" id = "menu"></div>
+	<div class = "menu" id = "menu"><%@ include file="menu.jsp" %></div>
 	<!-- Fin Menu -->
 	
 	<!-- Contenido -->

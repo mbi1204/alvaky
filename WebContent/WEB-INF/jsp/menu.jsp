@@ -5,5 +5,6 @@
 	<li><a>Ingrese Sucursal:</a></li>
 	<li><a><input type="text" id="sucursal" maxlength="5" onkeypress="return isNumberKey(event)"></a></li>
 	<li><a><input id="buscar" class="buscar" type="button" value="Buscar" onclick="buscarSucursal();"></a></li>
+	<li><a href="index">Cerrar Sesión</a></li>
 	</ul>
 </div>
