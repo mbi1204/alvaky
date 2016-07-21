@@ -15,7 +15,7 @@
 						<spring:message text="Nombre" />
 					</form:label></td>
 				<td><form:input id="cNombre" path="cNombre" placeholder="Nombre del Usuario"
-						size="50" /></td>
+						size="50" class="validar"/></td>
 			</tr>
 			
 			<tr>
@@ -23,7 +23,7 @@
 						<spring:message text="Usuario" />
 					</form:label></td>
 				<td><form:input id="cUsuarioWeb" path="cUsuarioWeb" placeholder="Usuario" size="10" 
-						maxlength="10" /></td>
+						maxlength="10" class="validar"/></td>
 			</tr>
 			
 			<tr>
@@ -31,7 +31,7 @@
 						<spring:message text="Password" />
 					</form:label></td>
 				<td><form:input id="cPassword" path="cPassword" placeholder="Password "
-						type="password" size="10" maxlength="10" /></td>
+						type="password" size="10" maxlength="10" class="validar"/></td>
 			</tr>
 			
 			<tr>
@@ -39,7 +39,7 @@
 						<spring:message text="Compañia" />
 					</form:label></td>
 				<td><form:select path="ctUsuaCompWeb.cCveCia" id="cCompania" name="cCompania" 
-				onchange="busquedaCliente();" />
+				onchange="busquedaCliente();" class="validar"/>
 				</td>
 			</tr>
 			
@@ -48,7 +48,7 @@
 						<spring:message text="Cliente" />
 					</form:label></td>
 				<td>
-					<form:select path="cCliente" id="Cliente" name="Cliente"/>	  		
+					<form:select path="cCliente" id="Cliente" name="Cliente" class="validar"/>	  		
 				</td>
 			</tr>
 			
@@ -56,7 +56,7 @@
 				<td><form:label path="lActivo">
 						<spring:message text="Estatus"/>
 					</form:label></td>
-				<td><form:checkbox path="lActivo" id="lActivo" name="lActivo"/></td>
+				<td><form:checkbox path="lActivo" id="lActivo" name="lActivo" class="validar"/></td>
 			</tr>
 
 		</table>
