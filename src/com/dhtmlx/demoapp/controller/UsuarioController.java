@@ -85,13 +85,14 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/usuarioModificado", method = RequestMethod.POST)
 	String usuarioModificado(@ModelAttribute("ctUsuarioWeb") CtUsuarioWeb obj, Model model,
-			HttpServletResponse response, ModelMap mm) throws Open4GLException, IOException{
+			HttpServletResponse response, Model mm) throws Open4GLException, IOException{
 		
 		UsuarioDaoImpl valor = new UsuarioDaoImpl();
 		obj.setcUsuario("SISAEM");
 		String mensaje = valor.Actualiza("SISAEM", usuarioOLD, obj);
 		if(!mensaje.equals(null)){
-			mm.put("mensaje", mensaje);
+			System.out.println("Entro en la condicion del mensaje de error");
+			mm.addAttribute("mensaje", mensaje);
 		}
 		
 		return "redirect:usuario";
@@ -132,9 +133,9 @@ public class UsuarioController {
 			//Para llenar el objeto de ctUsuCompWeb
 			CtUsuaCompWeb objUsuaCompWeb = new CtUsuaCompWeb();
 			objUsuaCompWeb.setcCveCia(ctUsuarioWeb.getCtUsuaCompWeb().getcCveCia());
-			usuarioOLD.setId(ctUsuarioWeb.getId());
-			
 			usuarioOLD.setCtUsuaCompWeb(objUsuaCompWeb);
+			
+			usuarioOLD.setId(ctUsuarioWeb.getId());
 			usuarioOLD.setError(ctUsuarioWeb.getError());
 			usuarioOLD.setErrorTexto(ctUsuarioWeb.getErrorTexto());
 		}

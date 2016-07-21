@@ -69,7 +69,7 @@ public class UsuarioDaoImpl {
 		List<CtUsuarioWeb> Lista = new ArrayList<CtUsuarioWeb>();
 		Lista.add(obj_ctUsuarioWeb);
 		
-		Vector vecTabla1, vecRow1, vecTablaViejos, vecRowViejos;
+		Vector vecTablaViejos, vecRowViejos, vecTabla1, vecRow1;
 		vecTablaViejos = new Vector();
 		vecTabla1 = new Vector();
 
@@ -77,15 +77,13 @@ public class UsuarioDaoImpl {
 		StringHolder texto = new StringHolder();
 		BooleanHolder error = new BooleanHolder();
 		
-		// Conexion a la base de datos
-		Connection conexion = new DBConexion().getConnection();
-		yacatmto app = new yacatmto(conexion);
-		
+		// Datos Viejos
 		for (CtUsuarioWeb objCtUsuarioWebViejos : ListaViejos) {
 			vecRowViejos = objCtUsuarioWebViejos.getVectorDatos();
 			vecTablaViejos.add(vecRowViejos);
 		}
 		
+		// Datos Nuevos
 		for (CtUsuarioWeb objCtUsuarioWeb : Lista) {
 			vecRow1 = objCtUsuarioWeb.getVectorDatos();
 			vecTabla1.add(vecRow1);
@@ -97,9 +95,13 @@ public class UsuarioDaoImpl {
 		ResultSet rs_ttCtUsuarioWebViejos = ttCtUsuarioWebViejos.getResultSetValue();
 		ResultSet rs_ttCtUsuarioWebMod = ttCtUsuarioWebMod.getResultSetValue();
 		
+		// Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+		
 		try {
 			
-			app.as_ctUsuarioWeb_Actualiza(cUsuario, rs_ttCtUsuarioWebViejos, rs_ttCtUsuarioWebMod, error, texto);
+			app.as_ctUsuarioWeb_Actualiza(cUsuario, rs_ttCtUsuarioWebMod, rs_ttCtUsuarioWebViejos, error, texto);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
