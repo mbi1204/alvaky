@@ -55,7 +55,7 @@ public class SimpleInitController {
 	String Fin(Model model, HttpServletRequest request) throws Open4GLException, IOException{
 		
 		HttpSession session = request.getSession();
-		session.invalidate();
+		session.removeAttribute("usuarioIniciado");
 		
 		return "login";
 	}
