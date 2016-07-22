@@ -56,8 +56,6 @@ public class CustomEventsManager extends DHXEventsManager {
 				StringBuilder fechaVisita = new StringBuilder();
 				
 				fechaVisita.append(rs_tt_opCalmnto.getDate("dtFecha"));
-				String ruta = ("Ruta: "+rs_tt_opCalmnto.getInt("iRutaID")+"\n");
-				String local = ("Local: "+rs_tt_opCalmnto.getInt("iLocalID")+"\n");
 				fechaVisita.append(" "+rs_tt_opCalmnto.getString("cHora")+":00");
 				String estatus = ("Estatus: "+rs_tt_opCalmnto.getString("cEstatus")+"\n");
 				String oSID = String.valueOf(rs_tt_opCalmnto.getInt("iOServID"));
@@ -122,22 +120,19 @@ public class CustomEventsManager extends DHXEventsManager {
 			
 			ResultSet rs_tt_opOrdenServicio = tt_opOrdenServicio.getResultSetValue();
 			
-			System.out.println(rs_tt_opOrdenServicio.getString(1));
-			
 			while (rs_tt_opOrdenServicio.next()) { 
 				
 				Event e = new Event();
 				StringBuilder fechaVisita = new StringBuilder();
 				
-				fechaVisita.append(rs_tt_opOrdenServicio.getDate("dtFecha"));
-				String ruta = ("Ruta: "+rs_tt_opOrdenServicio.getInt("iRutaID")+"\n");
-				String local = ("Local: "+rs_tt_opOrdenServicio.getInt("iLocalID")+"\n");
-				fechaVisita.append(" "+rs_tt_opOrdenServicio.getString("cHora")+":00");
-				String estatus = ("Estatus: "+rs_tt_opOrdenServicio.getString("cEstatus")+"\n");
 				String oSID = String.valueOf(rs_tt_opOrdenServicio.getInt("iOServID"));
+				fechaVisita.append(rs_tt_opOrdenServicio.getDate("dtFechaVisita"));
+				fechaVisita.append(" "+rs_tt_opOrdenServicio.getString("cHora")+":00");
+				String nombreR = ("Ruta: "+rs_tt_opOrdenServicio.getString("cRutaImagen")+"\n");
+				String estatus = ("Estatus: "+rs_tt_opOrdenServicio.getString("cEstatus")+"\n");
 				String nombreL = ("Local: "+rs_tt_opOrdenServicio.getString("cDesLocal")+"\n");
 				String sucursal = (rs_tt_opOrdenServicio.getString("cSucursal"));
-				String nombreR = ("Ruta: "+rs_tt_opOrdenServicio.getString("cRuta")+"\n");
+				
 				
 				
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

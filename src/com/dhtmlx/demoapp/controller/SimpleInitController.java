@@ -92,6 +92,11 @@ public class SimpleInitController {
     	CustomEventsManager evs = new CustomEventsManager(request);
     	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
     			usuarioWebCompania.getcCliente(),cSucursal));
+    	
+    	// mantenimiento correctivo
+    	s.parse(evs.correctivo(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
+    			usuarioWebCompania.getcCliente(),cSucursal));
+    	
 
     	ModelAndView mnv = new ModelAndView("article");
     	mnv.addObject("title", "Calendario de Alvaky");
