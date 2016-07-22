@@ -32,11 +32,12 @@ public class PDFBuilder extends AbstractITextPdfView{
 		List<InfEjecutivo> listBooks = (List<InfEjecutivo>) model.get("listBooks");
 		
 		// Carga y redimensiona una imagen en el pdf
-		String path = getServletContext().getRealPath("codebase/imgs/Starbucks_Coffee_Logo.png");
-		Image img = Image.getInstance(path);
-		img.scaleAbsolute(80, 80);
+        String path = getServletContext().getRealPath("codebase/imgs/Starbucks_Coffee_Logo.png");
+     	Image img = Image.getInstance(path);
+     	img.scaleAbsolute(80, 80);
         doc.add(img);
-		
+        
+        //Para evitar que marque como vacias las paginas
         doc.add(new Paragraph("Reporte Ejecutivo"));
         
         //Inicio de la tabla reporte ejecutivo parte 1
@@ -100,6 +101,17 @@ public class PDFBuilder extends AbstractITextPdfView{
         
         //Inicio de la tabla reporte ejecutivo parte 2
         
+        doc.newPage();
+        
+        // Carga y redimensiona una imagen en el pdf
+        path = getServletContext().getRealPath("codebase/imgs/Starbucks_Coffee_Logo.png");
+     	img = Image.getInstance(path);
+     	img.scaleAbsolute(80, 80);
+     	doc.add(img);
+        
+        //Para evitar que marque como vacias las paginas
+     	doc.add(new Paragraph("Reporte Ejecutivo"));
+        
         PdfPTable table2 = new PdfPTable(4);
         table2.setWidthPercentage(100.0f);
         table2.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f});
@@ -117,6 +129,13 @@ public class PDFBuilder extends AbstractITextPdfView{
         cell2.setHorizontalAlignment(Element.ALIGN_MIDDLE);
          
         // write table header
+        
+        cellVisita = new PdfPCell(new Phrase("Fecha de Visita", font));
+        cellVisita.setBackgroundColor(BaseColor.BLUE);
+        cellVisita.setPadding(3);
+        cellVisita.setRowspan(2);
+        
+        table2.addCell(cellVisita);
 
         PdfPCell cellAguaSuavizada = new PdfPCell(new Phrase("Agua Suavizada", font));
         cellAguaSuavizada.setBackgroundColor(BaseColor.BLUE);
@@ -139,6 +158,7 @@ public class PDFBuilder extends AbstractITextPdfView{
          
         // write table row data
         for (InfEjecutivo aBook : listBooks) {
+        	table2.addCell(aBook.getDtFechaV().toString());
         	table2.addCell(aBook.getDeCloroFilt().toString());
         	table2.addCell(aBook.getDePHFilt().toString());
         	table2.addCell(aBook.getDeDurFilt().toString());
@@ -150,6 +170,17 @@ public class PDFBuilder extends AbstractITextPdfView{
         //Termino de la tabla reporte ejecutivo parte 2
         
         //Inicio de la tabla reporte ejecutivo parte 3
+        
+        doc.newPage();
+        
+        // Carga y redimensiona una imagen en el pdf
+        path = getServletContext().getRealPath("codebase/imgs/Starbucks_Coffee_Logo.png");
+     	img = Image.getInstance(path);
+     	img.scaleAbsolute(80, 80);
+     	doc.add(img);
+        
+        //Para evitar que marque como vacias las paginas
+     	doc.add(new Paragraph("Reporte Ejecutivo"));
         
         PdfPTable table3 = new PdfPTable(5);
         table3.setWidthPercentage(100.0f);
@@ -168,6 +199,13 @@ public class PDFBuilder extends AbstractITextPdfView{
         cell3.setHorizontalAlignment(Element.ALIGN_MIDDLE);
          
         // write table header
+        
+        cellVisita = new PdfPCell(new Phrase("Fecha de Visita", font));
+        cellVisita.setBackgroundColor(BaseColor.BLUE);
+        cellVisita.setPadding(3);
+        cellVisita.setRowspan(2);
+        
+        table3.addCell(cellVisita);
 
         PdfPCell cellAguaFiltrada = new PdfPCell(new Phrase("Agua Filtrada", font));
         cellAguaFiltrada.setBackgroundColor(BaseColor.BLUE);
@@ -193,6 +231,7 @@ public class PDFBuilder extends AbstractITextPdfView{
          
         // write table row data
         for (InfEjecutivo aBook : listBooks) {
+        	table3.addCell(aBook.getDtFechaV().toString());
         	table3.addCell(aBook.getDeCloroUV().toString());
         	table3.addCell(aBook.getDePHUV().toString());
         	table3.addCell(aBook.getDeDurUV().toString());
@@ -205,6 +244,17 @@ public class PDFBuilder extends AbstractITextPdfView{
         //Termino de la tabla reporte ejecutivo parte 3
         
         //Inicio de la tabla reporte ejecutivo parte 4
+        
+        doc.newPage();
+        
+        // Carga y redimensiona una imagen en el pdf
+        path = getServletContext().getRealPath("codebase/imgs/Starbucks_Coffee_Logo.png");
+     	img = Image.getInstance(path);
+     	img.scaleAbsolute(80, 80);
+     	doc.add(img);
+        
+        //Para evitar que marque como vacias las paginas
+     	doc.add(new Paragraph("Reporte Ejecutivo"));
         
         PdfPTable table4 = new PdfPTable(4);
         table4.setWidthPercentage(100.0f);
@@ -223,6 +273,13 @@ public class PDFBuilder extends AbstractITextPdfView{
         cell4.setHorizontalAlignment(Element.ALIGN_MIDDLE);
          
         // write table header
+        
+        cellVisita = new PdfPCell(new Phrase("Fecha de Visita", font));
+        cellVisita.setBackgroundColor(BaseColor.BLUE);
+        cellVisita.setPadding(3);
+        cellVisita.setRowspan(2);
+        
+        table4.addCell(cellVisita);
 
         PdfPCell cellConsumibles = new PdfPCell(new Phrase("Consumibles", font));
         cellConsumibles.setBackgroundColor(BaseColor.BLUE);
@@ -245,6 +302,7 @@ public class PDFBuilder extends AbstractITextPdfView{
          
         // write table row data
         for (InfEjecutivo aBook : listBooks) {
+        	table4.addCell(aBook.getDtFechaV().toString());
         	table4.addCell(aBook.getDeConsSed().toString());
         	table4.addCell(aBook.getDeConsSal().toString());
         	table4.addCell(aBook.getDeConsCarb().toString());
@@ -306,5 +364,7 @@ public class PDFBuilder extends AbstractITextPdfView{
         
         //Termino de la tabla reporte ejecutivo parte 5 */
 	}
+	
+	
 
 }
