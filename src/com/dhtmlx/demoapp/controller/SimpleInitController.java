@@ -2,7 +2,9 @@ package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -62,9 +64,15 @@ public class SimpleInitController {
 
 	@RequestMapping({"/01_simple_init.html", "/index"})
     public ModelAndView scheduler_01( HttpServletRequest request, 
+    		HttpServletResponse response, 
     		@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
     				throws Exception {
     	// creates and configures scheduler instance
+		
+		Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
+		Cookie cliente = new Cookie("cliente", usuarioWebCompania.getcCliente());
+		response.addCookie(compania);
+		response.addCookie(cliente);
 		
 		String cSucursal = ""; 
 		

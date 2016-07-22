@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
@@ -41,10 +40,10 @@ public class ReporteController {
 			@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania, 
 			HttpServletResponse response) throws Open4GLException, IOException {
 		
-		Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
+		/*Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
 		Cookie cliente = new Cookie("cliente", usuarioWebCompania.getcCliente());
 		response.addCookie(compania);
-		response.addCookie(cliente);
+		response.addCookie(cliente);*/
 
 		return "reporte";
 	}
