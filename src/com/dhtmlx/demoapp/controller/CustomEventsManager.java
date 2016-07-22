@@ -103,6 +103,80 @@ public class CustomEventsManager extends DHXEventsManager {
 		
 		return evs;
 	}
+	
+	@SuppressWarnings("static-access")
+	public Iterable<DHXEv> correctivo(String cCveCia, String cCliente,String cSucursal) {
+		List<DHXEv> evs = new ArrayList<DHXEv>();
+		
+		try {
+			
+			Connection conexion = new DBConexion().getConnection();
+			yacatmto app = new yacatmto(conexion);
+			
+			ResultSetHolder tt_opOrdenServicio  = new ResultSetHolder();
+			
+			StringHolder  texto  = new StringHolder();
+			BooleanHolder error  = new BooleanHolder();
+			
+			app.as_calendario_correctivos(cCveCia, cCliente, tt_opOrdenServicio, error, texto);
+			
+			ResultSet rs_tt_opOrdenServicio = tt_opOrdenServicio.getResultSetValue();
+			
+			System.out.println(rs_tt_opOrdenServicio.getString(1));
+			
+			while (rs_tt_opOrdenServicio.next()) { 
+				
+				Event e = new Event();
+				StringBuilder fechaVisita = new StringBuilder();
+				
+				fechaVisita.append(rs_tt_opOrdenServicio.getDate("dtFecha"));
+				String ruta = ("Ruta: "+rs_tt_opOrdenServicio.getInt("iRutaID")+"\n");
+				String local = ("Local: "+rs_tt_opOrdenServicio.getInt("iLocalID")+"\n");
+				fechaVisita.append(" "+rs_tt_opOrdenServicio.getString("cHora")+":00");
+				String estatus = ("Estatus: "+rs_tt_opOrdenServicio.getString("cEstatus")+"\n");
+				String oSID = String.valueOf(rs_tt_opOrdenServicio.getInt("iOServID"));
+				String nombreL = ("Local: "+rs_tt_opOrdenServicio.getString("cDesLocal")+"\n");
+				String sucursal = (rs_tt_opOrdenServicio.getString("cSucursal"));
+				String nombreR = ("Ruta: "+rs_tt_opOrdenServicio.getString("cRuta")+"\n");
+				
+				
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Date valorD = formatter.parse(fechaVisita.toString());
+				
+				if(cSucursal != ""){
+					if(cSucursal.equals(sucursal)){
+						sucursal = sucursal + "\n";
+						e.setStart_date(valorD);
+						e.setEnd_date(valorD);
+						e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+						evs.add(e);
+					}
+				}else{
+					sucursal = sucursal + "\n";
+					e.setStart_date(valorD);
+					e.setEnd_date(valorD);
+					e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+					evs.add(e);
+					}
+				}
+			app._release();
+			conexion.finalize();
+		} catch (Open4GLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return evs;
+	}
 
 	@Override
 	public DHXStatus saveEvent(DHXEv event, DHXStatus status) {
