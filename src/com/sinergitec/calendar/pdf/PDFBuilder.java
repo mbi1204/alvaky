@@ -36,7 +36,7 @@ public class PDFBuilder extends AbstractITextPdfView{
         doc.add(img);
         
         //Para evitar que marque como vacias las paginas
-        doc.add(new Paragraph("Reporte Ejecutivo"));
+        doc.add(new Paragraph("Reporte Ejecutivo de "+listBooks.get(0).getcNomSuc()));
         
         //Inicio de la tabla reporte ejecutivo parte 1
          
@@ -44,6 +44,7 @@ public class PDFBuilder extends AbstractITextPdfView{
         table.setWidthPercentage(100.0f);
         table.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
         table.setSpacingBefore(10);
+        table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // define font for table header row
         Font font = FontFactory.getFont(FontFactory.COURIER_BOLDOBLIQUE);
@@ -54,13 +55,15 @@ public class PDFBuilder extends AbstractITextPdfView{
         cell.setBackgroundColor(BaseColor.BLUE);
         cell.setPadding(3);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        cell.setHorizontalAlignment(Element.ALIGN_MIDDLE);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // write table header
         PdfPCell cellVisita = new PdfPCell(new Phrase("Fecha de Visita", font));
         cellVisita.setBackgroundColor(BaseColor.BLUE);
         cellVisita.setPadding(3);
         cellVisita.setRowspan(2);
+        cellVisita.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cellVisita.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table.addCell(cellVisita);
 
@@ -68,6 +71,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellAguaCruda.setBackgroundColor(BaseColor.BLUE);
         cellAguaCruda.setPadding(3);
         cellAguaCruda.setColspan(4);
+        cellAguaCruda.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cellAguaCruda.setVerticalAlignment(Element.ALIGN_CENTER);
         
         table.addCell(cellAguaCruda);
          
@@ -108,12 +113,13 @@ public class PDFBuilder extends AbstractITextPdfView{
      	doc.add(img);
         
         //Para evitar que marque como vacias las paginas
-     	doc.add(new Paragraph("Reporte Ejecutivo"));
+     	doc.add(new Paragraph("Reporte Ejecutivo "+listBooks.get(0).getcNomSuc()));
         
         PdfPTable table2 = new PdfPTable(5);
         table2.setWidthPercentage(100.0f);
         table2.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
         table2.setSpacingBefore(10);
+        table2.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // define font for table header row
         
@@ -123,8 +129,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         PdfPCell cell2 = new PdfPCell();
         cell2.setBackgroundColor(BaseColor.BLUE);
         cell2.setPadding(3);
-        cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        cell2.setHorizontalAlignment(Element.ALIGN_MIDDLE);
+        cell2.setVerticalAlignment(Element.ALIGN_CENTER);
+        cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // write table header
         
@@ -132,6 +138,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellVisita.setBackgroundColor(BaseColor.BLUE);
         cellVisita.setPadding(3);
         cellVisita.setRowspan(2);
+        cellVisita.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellVisita.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table2.addCell(cellVisita);
 
@@ -139,6 +147,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellAguaSuavizada.setBackgroundColor(BaseColor.BLUE);
         cellAguaSuavizada.setPadding(3);
         cellAguaSuavizada.setColspan(4);
+        cellAguaSuavizada.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellAguaSuavizada.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table2.addCell(cellAguaSuavizada);
          
@@ -178,12 +188,13 @@ public class PDFBuilder extends AbstractITextPdfView{
      	doc.add(img);
         
         //Para evitar que marque como vacias las paginas
-     	doc.add(new Paragraph("Reporte Ejecutivo"));
+     	doc.add(new Paragraph("Reporte Ejecutivo "+listBooks.get(0).getcNomSuc()));
         
         PdfPTable table3 = new PdfPTable(6);
         table3.setWidthPercentage(100.0f);
         table3.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f, 0.8f});
         table3.setSpacingBefore(10);
+        table3.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // define font for table header row
         
@@ -193,8 +204,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         PdfPCell cell3 = new PdfPCell();
         cell3.setBackgroundColor(BaseColor.BLUE);
         cell3.setPadding(3);
-        cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        cell3.setHorizontalAlignment(Element.ALIGN_MIDDLE);
+        cell3.setVerticalAlignment(Element.ALIGN_CENTER);
+        cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // write table header
         
@@ -202,6 +213,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellVisita.setBackgroundColor(BaseColor.BLUE);
         cellVisita.setPadding(3);
         cellVisita.setRowspan(2);
+        cellVisita.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellVisita.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table3.addCell(cellVisita);
 
@@ -209,6 +222,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellAguaFiltrada.setBackgroundColor(BaseColor.BLUE);
         cellAguaFiltrada.setPadding(3);
         cellAguaFiltrada.setColspan(5);
+        cellAguaFiltrada.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellAguaFiltrada.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table3.addCell(cellAguaFiltrada);
          
@@ -252,12 +267,13 @@ public class PDFBuilder extends AbstractITextPdfView{
      	doc.add(img);
         
         //Para evitar que marque como vacias las paginas
-     	doc.add(new Paragraph("Reporte Ejecutivo"));
+     	doc.add(new Paragraph("Reporte Ejecutivo "+listBooks.get(0).getcNomSuc()));
         
         PdfPTable table4 = new PdfPTable(5);
         table4.setWidthPercentage(100.0f);
         table4.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
         table4.setSpacingBefore(10);
+        table4.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // define font for table header row
         
@@ -267,8 +283,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         PdfPCell cell4 = new PdfPCell();
         cell4.setBackgroundColor(BaseColor.BLUE);
         cell4.setPadding(3);
-        cell4.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        cell4.setHorizontalAlignment(Element.ALIGN_MIDDLE);
+        cell4.setVerticalAlignment(Element.ALIGN_CENTER);
+        cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
          
         // write table header
         
@@ -276,6 +292,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellVisita.setBackgroundColor(BaseColor.BLUE);
         cellVisita.setPadding(3);
         cellVisita.setRowspan(2);
+        cellVisita.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellVisita.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table4.addCell(cellVisita);
 
@@ -283,6 +301,8 @@ public class PDFBuilder extends AbstractITextPdfView{
         cellConsumibles.setBackgroundColor(BaseColor.BLUE);
         cellConsumibles.setPadding(3);
         cellConsumibles.setColspan(4);
+        cellConsumibles.setVerticalAlignment(Element.ALIGN_CENTER);
+        cellConsumibles.setHorizontalAlignment(Element.ALIGN_CENTER);
         
         table4.addCell(cellConsumibles);
          
