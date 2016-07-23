@@ -221,7 +221,7 @@ public class ExcelBuilder extends AbstractExcelView {
         for (InfEjecutivo aBook : listBooks) {
             HSSFRow aRow = sheet.createRow(rowCount++);
             cNomSucursal = aBook.getcNomSuc();
-            aRow.createCell(0).setCellValue(aBook.getDtFechaV().toString());
+            aRow.createCell(0).setCellValue(aBook.getDtFechaV().toLocaleString().substring(0,9));
             aRow.getCell(0).setCellStyle(textoAjustado);
             aRow.getSheet().autoSizeColumn(0);
             aRow.createCell(1).setCellValue(aBook.getDeCloroEnt());
