@@ -27,8 +27,6 @@ public class PDFBuilder extends AbstractITextPdfView{
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		/*PDF de reporete ejecutivo*/
-		
-		
 		List<InfEjecutivo> listBooks = (List<InfEjecutivo>) model.get("listBooks");
 		
 		// Carga y redimensiona una imagen en el pdf
@@ -112,9 +110,9 @@ public class PDFBuilder extends AbstractITextPdfView{
         //Para evitar que marque como vacias las paginas
      	doc.add(new Paragraph("Reporte Ejecutivo"));
         
-        PdfPTable table2 = new PdfPTable(4);
+        PdfPTable table2 = new PdfPTable(5);
         table2.setWidthPercentage(100.0f);
-        table2.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f});
+        table2.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
         table2.setSpacingBefore(10);
          
         // define font for table header row
@@ -182,9 +180,9 @@ public class PDFBuilder extends AbstractITextPdfView{
         //Para evitar que marque como vacias las paginas
      	doc.add(new Paragraph("Reporte Ejecutivo"));
         
-        PdfPTable table3 = new PdfPTable(5);
+        PdfPTable table3 = new PdfPTable(6);
         table3.setWidthPercentage(100.0f);
-        table3.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
+        table3.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f, 0.8f});
         table3.setSpacingBefore(10);
          
         // define font for table header row
@@ -256,9 +254,9 @@ public class PDFBuilder extends AbstractITextPdfView{
         //Para evitar que marque como vacias las paginas
      	doc.add(new Paragraph("Reporte Ejecutivo"));
         
-        PdfPTable table4 = new PdfPTable(4);
+        PdfPTable table4 = new PdfPTable(5);
         table4.setWidthPercentage(100.0f);
-        table4.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f});
+        table4.setWidths(new float[] {1.0f, 0.8f, 0.8f, 0.8f, 0.8f});
         table4.setSpacingBefore(10);
          
         // define font for table header row
