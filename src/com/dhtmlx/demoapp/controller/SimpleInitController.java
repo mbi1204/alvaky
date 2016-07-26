@@ -88,12 +88,12 @@ public class SimpleInitController {
     	s.templates.getEventText();
     	s.config.setHourSizePx(25);
 
-    	// sets events set
+    	// calendario de mantenimientos
     	CustomEventsManager evs = new CustomEventsManager(request);
     	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
     			usuarioWebCompania.getcCliente(),cSucursal));
     	
-    	// mantenimiento correctivo
+    	// mantenimiento traidos de opOrdenServicio
     	s.parse(evs.correctivo(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
     			usuarioWebCompania.getcCliente(),cSucursal));
     	
