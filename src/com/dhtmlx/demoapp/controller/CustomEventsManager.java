@@ -58,7 +58,7 @@ public class CustomEventsManager extends DHXEventsManager {
 				fechaVisita.append(rs_tt_opCalmnto.getDate("dtFecha"));
 				fechaVisita.append(" "+rs_tt_opCalmnto.getString("cHora")+":00");
 				String estatus = ("Estatus: "+rs_tt_opCalmnto.getString("cEstatus")+"\n");
-				String oSID = String.valueOf(rs_tt_opCalmnto.getInt("iOServID"));
+				String oSID = String.valueOf(rs_tt_opCalmnto.getInt("iOServID"))+"\n";
 				String nombreL = ("Local: "+rs_tt_opCalmnto.getString("cDesLocal")+"\n");
 				String sucursal = (rs_tt_opCalmnto.getString("cSucursal"));
 				String nombreR = ("Ruta: "+rs_tt_opCalmnto.getString("cRuta")+"\n");
@@ -72,14 +72,14 @@ public class CustomEventsManager extends DHXEventsManager {
 						sucursal = sucursal + "\n";
 						e.setStart_date(valorD);
 						e.setEnd_date(valorD);
-						e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+						e.setText(sucursal+nombreR+nombreL+estatus+oSID+"Servicio: Preventivo");
 						evs.add(e);
 					}
 				}else{
 					sucursal = sucursal + "\n";
 					e.setStart_date(valorD);
 					e.setEnd_date(valorD);
-					e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+					e.setText(sucursal+nombreR+nombreL+estatus+oSID+"Servicio: Preventivo");
 					evs.add(e);
 					}
 				}
@@ -125,13 +125,14 @@ public class CustomEventsManager extends DHXEventsManager {
 				Event e = new Event();
 				StringBuilder fechaVisita = new StringBuilder();
 				
-				String oSID = String.valueOf(rs_tt_opOrdenServicio.getInt("iOServID"));
+				String oSID = String.valueOf(rs_tt_opOrdenServicio.getInt("iOServID")+"\n");
 				fechaVisita.append(rs_tt_opOrdenServicio.getDate("dtFechaVisita"));
 				fechaVisita.append(" "+rs_tt_opOrdenServicio.getString("cHora")+":00");
 				String nombreR = ("Ruta: "+rs_tt_opOrdenServicio.getString("cRutaImagen")+"\n");
 				String estatus = ("Estatus: "+rs_tt_opOrdenServicio.getString("cEstatus")+"\n");
 				String nombreL = ("Local: "+rs_tt_opOrdenServicio.getString("cDesLocal")+"\n");
 				String sucursal = (rs_tt_opOrdenServicio.getString("cSucursal"));
+				String servicio = ("Servicio: "+rs_tt_opOrdenServicio.getString("cDescripcion"));
 				
 				
 				
@@ -143,14 +144,14 @@ public class CustomEventsManager extends DHXEventsManager {
 						sucursal = sucursal + "\n";
 						e.setStart_date(valorD);
 						e.setEnd_date(valorD);
-						e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+						e.setText(sucursal+nombreR+nombreL+estatus+oSID+servicio);
 						evs.add(e);
 					}
 				}else{
 					sucursal = sucursal + "\n";
 					e.setStart_date(valorD);
 					e.setEnd_date(valorD);
-					e.setText(sucursal+nombreR+nombreL+estatus+oSID);
+					e.setText(sucursal+nombreR+nombreL+estatus+oSID+servicio);
 					evs.add(e);
 					}
 				}
