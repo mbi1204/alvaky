@@ -54,7 +54,8 @@
 					<table id="mytable" class = "mytable">
 						<thead>
 							<tr>
-								<th onclick="TablaOrden.en('mytable',0)" class="text-left" width="20%">Sucursal<br/><img style="margin: 0 auto" src="codebase/imgs/arrow-down-sign-to-navigate.png"/></th>
+								<th onclick="TablaOrden.en('mytable',0)" class="text-left" width="20%">Sucursal<img style="display: block;margin-left: auto;margin-right: auto;" 
+								src="codebase/imgs/arrow-down-sign-to-navigate.png"/></th>
 								<th colspan="2" style="text-align: center" width="60%">Nombre</th>
 							</tr>
 						</thead>
