@@ -8,7 +8,8 @@
 		</div>
 		<div class="scheduler" id="scheduler">${body}</div>
 	</div>
-	<script type="text/javascript" src = "codebase/js/lib/jquery-1.10.2.js"></script>
+	
+	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
 	<script type="text/javascript" src = "codebase/js/validacion.js"></script>
 	<script type="text/javascript" src = "codebase/js/reporteEjecutivo.js"></script>
 	<script src="codebase/js/lib/sweetalert.min.js"></script>

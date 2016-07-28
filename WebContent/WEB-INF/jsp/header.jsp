@@ -148,3 +148,6 @@
 	<div class="header" id="header">
 		<div class="logo"></div>
 	</div>
+	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
+</body>
+</html>

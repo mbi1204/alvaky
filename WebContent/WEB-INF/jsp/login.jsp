@@ -48,7 +48,7 @@
 	<script type="text/javascript" src="codebase/js/login.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/alertify.min.js"></script>
-	<script type="text/javascript" src="codebase/js/lib/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/notificacion-error.js"></script>
 </body>

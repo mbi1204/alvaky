@@ -87,6 +87,7 @@ public class SimpleInitController {
     	s.setWidth(1000);
     	s.templates.getEventText();
     	s.config.setHourSizePx(25);
+    	s.config.setDetailsOnDblClick(true);
 
     	// calendario de mantenimientos
     	CustomEventsManager evs = new CustomEventsManager(request);
