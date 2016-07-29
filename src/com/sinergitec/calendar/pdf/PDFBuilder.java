@@ -21,7 +21,7 @@ import com.sinergitec.calendar.model.InfEjecutivo;
 
 public class PDFBuilder extends AbstractITextPdfView{
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document doc, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
