@@ -69,7 +69,7 @@
 	</div>
 	<!-- Fin Contenido -->
 	
-	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src = "codebase/js/lib/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/jquery-ui-1.10.4.custom.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/jquery.ui.datepicker.js"></script>
 	<script type="text/javascript" src="codebase/js/lib/sweetalert.min.js"></script>
