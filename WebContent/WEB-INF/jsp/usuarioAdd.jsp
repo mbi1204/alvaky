@@ -54,7 +54,7 @@
 			
 			<tr id="estatus">
 				<td><form:label path="lActivo">
-						<spring:message text="Estatus"/>
+						<spring:message text="Activo?"/>
 					</form:label></td>
 				<td><form:checkbox path="lActivo" id="lActivo" name="lActivo" class="validar"/></td>
 			</tr>

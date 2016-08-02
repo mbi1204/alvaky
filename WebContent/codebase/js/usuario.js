@@ -218,9 +218,7 @@ function busquedaCliente() {
 
 						for ( var item in data) {
 							$('#Cliente').append(
-									'<option value="' + data[item].cCliente
-											+ '">' + data[item].cRazonS
-											+ '</option>');
+									'<option value="' + data[item].cCliente+ '">' + data[item].cCliente +'.-'+ data[item].cRazonS + '</option>');
 						}
 
 					} else {
