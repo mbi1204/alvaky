@@ -10,7 +10,7 @@
 	access="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR') or hasIpAddress('0:0:0:0:0:0:0:1')" />
 	</http>
 
-	<beans:import resource="servlet-context.xml" />
+	<beans:import resource="springtest-servlet.xml" />
 
 	<authentication-manager>
 		<authentication-provider>
