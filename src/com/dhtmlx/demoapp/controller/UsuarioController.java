@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -26,6 +27,19 @@ import com.sinergitec.calendar.model.CtUsuarioWeb;
 public class UsuarioController {
 	
 	private CtUsuarioWeb usuarioOLD;
+	
+	
+	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Custom Login Form");
+		model.addObject("message", "This is protected page!");
+		model.setViewName("admin");
+
+		return model;
+
+	}
 	
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String Inicio(Model model) throws Open4GLException, IOException{
