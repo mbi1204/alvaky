@@ -36,8 +36,8 @@
 	<http auto-config="true">
 		<intercept-url pattern="/admin**" access="ROLE_USER" />
 		<form-login 
-		    login-page="/usuario" 
-		    default-target-url="/welcome" 
+		    login-page="/login" 
+		    default-target-url="/usuario" 
 			authentication-failure-url="/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
