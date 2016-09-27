@@ -15,6 +15,7 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
 //import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
+import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.util.DBConexion;
 
@@ -210,4 +211,10 @@ public class InformeEjecutivoDaoImpl {
 		return informe_List;
 	}
 
+	public List<CalidadTienda> listaCalidad (){
+		
+		return null;
+		
+	}
+	
 }
