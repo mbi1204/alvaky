@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-//import com.progress.open4gl.BooleanHolder;
+import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
-//import com.progress.open4gl.StringHolder;
+import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.InfEjecutivo;
@@ -211,7 +211,36 @@ public class InformeEjecutivoDaoImpl {
 		return informe_List;
 	}
 
-	public List<CalidadTienda> listaCalidad (){
+	@SuppressWarnings("static-access")
+	public List<CalidadTienda> listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
+		
+		//Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		//Variables para guardar errores
+		StringHolder  texto  = new StringHolder();
+		BooleanHolder error  = new BooleanHolder();
+
+		//Lista que almacena la informacion obtenida
+		List<CalidadTienda> informeCalidad = new ArrayList<CalidadTienda>();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_ManTicket  = new ResultSetHolder();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_OrdFFecha  = new ResultSetHolder();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_CalidadParam  = new ResultSetHolder();
+		
+		//Conexion al appServer
+		try{
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		
 		return null;
 		
