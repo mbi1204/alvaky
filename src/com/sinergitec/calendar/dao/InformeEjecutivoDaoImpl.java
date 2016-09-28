@@ -237,6 +237,30 @@ public class InformeEjecutivoDaoImpl {
 		//Conexion al appServer
 		try{
 			
+			app.as_CalidadTiendas_Busca("ALVAKY", "06", tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
+			
+			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
+			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();
+			
+			while(rs_tt_ManTicket.next()){
+				
+				System.out.println(rs_tt_ManTicket.getString("cTicket"));
+				System.out.println(rs_tt_ManTicket.getString("iOrdenSer"));
+				System.out.println(rs_tt_ManTicket.getString("cTienda"));
+				
+			}
+			
+			while(rs_tt_CalidadParam.next()){
+				
+				System.out.println(rs_tt_CalidadParam.getString("cTienda"));
+				System.out.println(rs_tt_CalidadParam.getString("iOrdenSer"));
+				System.out.println(rs_tt_CalidadParam.getString("cParametro"));
+				System.out.println(rs_tt_CalidadParam.getString("deLectura"));
+				System.out.println(rs_tt_CalidadParam.getString("deVMinimo"));
+				System.out.println(rs_tt_CalidadParam.getString("deVMaximo"));
+				
+			}
+			
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
