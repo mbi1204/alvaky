@@ -237,7 +237,7 @@ public class InformeEjecutivoDaoImpl {
 		//Conexion al appServer
 		try{
 			
-			app.as_CalidadTiendas_Busca("ALVAKY", "06", tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
+			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
 			
 			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
 			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();
