@@ -24,11 +24,11 @@ public class CalidadTienda {
 	private String cTienda3;
 	private Integer iOrdenSer3;
 	private String cParametro;
+	private String cDescripcion;
 	private Date dtFechaE2;
 	private Double deLectura;
 	private Double deVMaximo;
 	private Double deVMinimo;
-	
 	
 	public String getcTicket() {
 		return cTicket;
@@ -113,6 +113,12 @@ public class CalidadTienda {
 	}
 	public void setcParametro(String cParametro) {
 		this.cParametro = cParametro;
+	}
+	public String getcDescripcion() {
+		return cDescripcion;
+	}
+	public void setcDescripcion(String cDescripcion) {
+		this.cDescripcion = cDescripcion;
 	}
 	public Date getDtFechaE2() {
 		return dtFechaE2;

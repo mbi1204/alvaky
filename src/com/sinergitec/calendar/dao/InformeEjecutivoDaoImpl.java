@@ -244,9 +244,15 @@ public class InformeEjecutivoDaoImpl {
 			
 			while(rs_tt_ManTicket.next()){
 				
-				System.out.println(rs_tt_ManTicket.getString("cTicket"));
-				System.out.println(rs_tt_ManTicket.getString("iOrdenSer"));
-				System.out.println(rs_tt_ManTicket.getString("cTienda"));
+				CalidadTienda obj = new CalidadTienda();
+				
+				System.out.println("Hey esto es la busqueda de ticket");
+				System.out.println("Ticket: " + rs_tt_ManTicket.getString("cTicket"));
+				System.out.println("Orden de Servicio: " + rs_tt_ManTicket.getString("iOrdenSer"));
+				System.out.println("Tienda: " + rs_tt_ManTicket.getString("cTienda"));
+				System.out.println(rs_tt_ManTicket.getDate("dtFechaR").toString());
+				System.out.println(rs_tt_ManTicket.getDate("dtFechaE").toString());
+				System.out.println("Hey esto es el fin busqueda de ticket");
 				
 			}
 			
