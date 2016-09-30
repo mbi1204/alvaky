@@ -17,6 +17,7 @@ import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.InfEjecutivo;
+import com.sinergitec.calendar.model.ManTicket;
 import com.sinergitec.calendar.util.DBConexion;
 
 import alvaky.sinergitec.appserver.yacatmto;
@@ -244,15 +245,16 @@ public class InformeEjecutivoDaoImpl {
 			
 			while(rs_tt_ManTicket.next()){
 				
-				CalidadTienda obj = new CalidadTienda();
+				ManTicket obj = new ManTicket();
 				
-				System.out.println("Hey esto es la busqueda de ticket");
-				System.out.println("Ticket: " + rs_tt_ManTicket.getString("cTicket"));
-				System.out.println("Orden de Servicio: " + rs_tt_ManTicket.getString("iOrdenSer"));
-				System.out.println("Tienda: " + rs_tt_ManTicket.getString("cTienda"));
-				System.out.println(rs_tt_ManTicket.getDate("dtFechaR").toString());
-				System.out.println(rs_tt_ManTicket.getDate("dtFechaE").toString());
-				System.out.println("Hey esto es el fin busqueda de ticket");
+				obj.setcTicket(rs_tt_ManTicket.getString("cTicket"));
+				obj.setiOrdenServ(rs_tt_ManTicket.getInt("iOrdenSer"));
+				obj.setcTienda(rs_tt_ManTicket.getString("cTienda"));
+				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
+				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
+				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
+				
+				
 				
 			}
 			
