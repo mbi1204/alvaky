@@ -241,6 +241,7 @@ public class InformeEjecutivoDaoImpl {
 			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
 			
 			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
+			ResultSet rs_tt_OrdFFecha = tt_OrdFFecha.getResultSetValue();
 			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();
 			
 			while(rs_tt_ManTicket.next()){
@@ -253,9 +254,7 @@ public class InformeEjecutivoDaoImpl {
 				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
 				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
 				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
-				
-				
-				
+
 			}
 			
 			while(rs_tt_CalidadParam.next()){
@@ -267,6 +266,15 @@ public class InformeEjecutivoDaoImpl {
 				System.out.println(rs_tt_CalidadParam.getString("deVMinimo"));
 				System.out.println(rs_tt_CalidadParam.getString("deVMaximo"));
 				
+			}
+			
+			while(rs_tt_OrdFFecha.next()){
+				System.out.println(rs_tt_OrdFFecha.getString("cTienda"));
+				System.out.println(rs_tt_OrdFFecha.getString("iOrdenSer"));
+				System.out.println(rs_tt_OrdFFecha.getString("cValidacion"));
+				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEA"));
+				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEP"));
+				System.out.println(rs_tt_OrdFFecha.getString("cTecnico"));
 			}
 			
 		}catch (Exception e) {
