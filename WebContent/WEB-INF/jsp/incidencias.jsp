@@ -14,7 +14,7 @@
 
 <table style="width:30%; heigth:30%" >
 
-
+ 
 <tr>
 	
 	<th> INCIDENCIAS </th>
