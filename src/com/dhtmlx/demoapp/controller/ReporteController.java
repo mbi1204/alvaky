@@ -166,4 +166,15 @@ public class ReporteController {
 			System.out.println(ex);
 		}
 	}
+	
+	//código Adriana
+	
+	@RequestMapping(value = "/incidencias", method = RequestMethod.GET)
+	public String Incidencias() throws Open4GLException, IOException {
+
+		
+		return "incidencias";
+
+	}
+	
 }
