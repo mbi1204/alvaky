@@ -12,34 +12,45 @@
 </head>
 <body>
 
-<table style="width:30%; heigth:30%" >
-
-<tr>
+	<!-- Encabezado -->
+		<div class = "header" id = "header"></div>
+	<!-- Fin Encabezado -->
 	
-	<th> INCIDENCIAS </th>
-</tr>	
-
+	<div class = "content" id = "content">
 	
-	
-		<tr>
-			<td>Tickets</td>
-			<td></td>
-		</tr>	
+		<!-- Titulo de la pantalla -->
+		<div class = "sample" id = "sample" ></div>
+		<div style="text-align:center;">
 		
+	
+		
+<table  border = "1" style="margin-left: 25%; width:30%;">
+		
+			<tr>
+				<th colspan="2" class="text-center" width="15%"> INCIDENCIAS </th>
+		    </tr>	
+			
+		    <tr>
+				<td>Tickets</td>
+				<td></td>
+		   </tr>	
+		
+ 			<tr>
+			    <td>Cumplimiento de fechas</td>
+			    <td></td> 
+		   </tr>
 
-		<tr>
-			<td>Cumplimiento de fechas</td>
-			<td></td> 
-
-		</tr>
-
-		<tr>
-   			<td>Parametros de calidad</td>
-   			<td></td>
-   		</tr>	
+		   <tr>
+   			   <td>Parametros de calidad</td>
+   			   <td></td>
+   		  </tr>	
 
 	
 </table>
+
+</div>
+</div>
+
 
 
 </body>
