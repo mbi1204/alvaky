@@ -281,10 +281,10 @@ public class InformeEjecutivoDaoImpl {
 				
 				obj.setcTienda2(rs_tt_OrdFFecha.getString("cTienda"));
 				obj.setiOrdenSer2(rs_tt_OrdFFecha.getInt("iOrdenSer"));
-				//obj.(rs_tt_OrdFFecha.getString("cValidacion"));
+				obj.setcValidacion(rs_tt_OrdFFecha.getString("cValidacion"));
 				obj.setDtFechaEA(rs_tt_OrdFFecha.getDate("dtFechaEA"));
 				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
-				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
+				obj.setcValidacion(rs_tt_OrdFFecha.getString("cTecnico"));
 				
 			}
 			

@@ -13,7 +13,6 @@ public class ManTicket {
 	private Date    dtFechaE;
 	private Date    dtFechaMax;
 	private String  cTecnico;
-	
 	public String getcTicket() {
 		return cTicket;
 	}
@@ -32,6 +31,12 @@ public class ManTicket {
 	public void setcTienda(String cTienda) {
 		this.cTienda = cTienda;
 	}
+	public String getcPrioridad() {
+		return cPrioridad;
+	}
+	public void setcPrioridad(String cPrioridad) {
+		this.cPrioridad = cPrioridad;
+	}
 	public Date getDtFechaR() {
 		return dtFechaR;
 	}
@@ -43,6 +48,12 @@ public class ManTicket {
 	}
 	public void setDtFechaE(Date dtFechaE) {
 		this.dtFechaE = dtFechaE;
+	}
+	public Date getDtFechaMax() {
+		return dtFechaMax;
+	}
+	public void setDtFechaMax(Date dtFechaMax) {
+		this.dtFechaMax = dtFechaMax;
 	}
 	public String getcTecnico() {
 		return cTecnico;

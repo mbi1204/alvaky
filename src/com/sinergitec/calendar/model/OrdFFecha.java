@@ -24,6 +24,12 @@ public class OrdFFecha {
 	public void setiOrdenSer2(Integer iOrdenSer2) {
 		this.iOrdenSer2 = iOrdenSer2;
 	}
+	public String getcValidacion() {
+		return cValidacion;
+	}
+	public void setcValidacion(String cValidacion) {
+		this.cValidacion = cValidacion;
+	}
 	public Date getDtFechaEA() {
 		return dtFechaEA;
 	}
