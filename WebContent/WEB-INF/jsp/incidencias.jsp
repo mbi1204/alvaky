@@ -21,34 +21,27 @@
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
 		<div style="text-align:center;">
+			<table  border = "1" style="margin-left: 25%; width:30%;">
+				<tr>
+					<th colspan="2" class="text-center" width="15%"> INCIDENCIAS </th>
+				</tr>
+				<tr>
+					<td>Tickets</td>
+					<td></td>
+		   		</tr>	
 		
-	
-		
-<table  border = "1" style="margin-left: 25%; width:30%;">
-		
-			<tr>
-				<th colspan="2" class="text-center" width="15%"> INCIDENCIAS </th>
-		    </tr>	
-			
-		    <tr>
-				<td>Tickets</td>
-				<td></td>
-		   </tr>	
-		
- 			<tr>
-			    <td>Cumplimiento de fechas</td>
-			    <td></td> 
-		   </tr>
+ 				<tr>
+			    	<td>Cumplimiento de fechas</td>
+			    	<td></td> 
+		   		</tr>
 
-		   <tr>
-   			   <td>Parametros de calidad</td>
-   			   <td></td>
-   		  </tr>	
+		   		<tr>
+   			   		<td>Parametros de calidad</td>
+   			   		<td></td>
+   		  		</tr>
+   		  		</table>
 
-	
-</table>
-
-</div>
+	</div>
 </div>
 
 
