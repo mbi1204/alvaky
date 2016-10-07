@@ -1,8 +1,6 @@
 package com.dhtmlx.demoapp.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dhtmlx.planner.DHXPlanner;
 import com.dhtmlx.planner.DHXSkin;
 import com.progress.open4gl.Open4GLException;
-import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.UsuarioDaoImpl;
-import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 
 @Controller
@@ -72,12 +68,6 @@ public class SimpleInitController {
     		@ModelAttribute("usuarioIniciado") CtUsuarioWeb usuarioWebCompania) 
     				throws Exception {
     	// creates and configures scheduler instance
-		
-		CalidadTienda listaP = new CalidadTienda();
-		
-		InformeEjecutivoDaoImpl met = new InformeEjecutivoDaoImpl();  
-		
-		listaP = met.listaCalidad("ALVAKY", "06");
 		
 		Cookie compania = new Cookie("compania", usuarioWebCompania.getCtUsuaCompWeb().getcCveCia());
 		Cookie cliente = new Cookie("cliente", usuarioWebCompania.getcCliente());

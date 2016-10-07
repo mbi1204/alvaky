@@ -27,6 +27,7 @@ import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
+import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.OpOSDocs;
@@ -171,7 +172,12 @@ public class ReporteController {
 	
 	@RequestMapping(value = "/incidencias", method = RequestMethod.GET)
 	public String Incidencias() throws Open4GLException, IOException {
-
+		
+		//Instacia de las incidencias
+		InformeEjecutivoDaoImpl met = new InformeEjecutivoDaoImpl();
+		
+		CalidadTienda listaP = new CalidadTienda();
+		listaP = met.listaCalidad("ALVAKY", "06");
 		
 		return "incidencias";
 
