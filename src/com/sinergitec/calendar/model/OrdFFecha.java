@@ -7,6 +7,7 @@ public class OrdFFecha {
 	//Variables tabla tt_OrdFFecha
 	private String  cTienda2;
 	private Integer iOrdenSer2;
+	private String  cValidacion;
 	private Date    dtFechaEA;
 	private Date    dtFechaEP;
 	private String  cTecnico2;

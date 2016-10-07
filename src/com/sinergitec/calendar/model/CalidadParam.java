@@ -9,7 +9,7 @@ public class CalidadParam {
 	private Integer iOrdenSer3;
 	private String cParametro;
 	private String cDescripcion;
-	private Date dtFechaE2;
+	private Date   dtFechaE2;
 	private Double deLectura;
 	private Double deVMaximo;
 	private Double deVMinimo;

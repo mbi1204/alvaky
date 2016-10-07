@@ -8,8 +8,10 @@ public class ManTicket {
 	private String  cTicket;
 	private Integer iOrdenServ;
 	private String  cTienda;
+	private String  cPrioridad;
 	private Date    dtFechaR;
 	private Date    dtFechaE;
+	private Date    dtFechaMax;
 	private String  cTecnico;
 	
 	public String getcTicket() {

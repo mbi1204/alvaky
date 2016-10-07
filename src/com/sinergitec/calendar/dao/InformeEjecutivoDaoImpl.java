@@ -17,9 +17,11 @@ import com.progress.open4gl.ResultSetHolder;
 import com.progress.open4gl.StringHolder;
 //import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
+import com.sinergitec.calendar.model.CalidadParam;
 import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.ManTicket;
+import com.sinergitec.calendar.model.OrdFFecha;
 import com.sinergitec.calendar.util.DBConexion;
 
 import alvaky.sinergitec.appserver.yacatmto;
@@ -262,22 +264,28 @@ public class InformeEjecutivoDaoImpl {
 			
 			while(rs_tt_CalidadParam.next()){
 				
-				System.out.println(rs_tt_CalidadParam.getString("cTienda"));
-				System.out.println(rs_tt_CalidadParam.getString("iOrdenSer"));
-				System.out.println(rs_tt_CalidadParam.getString("cParametro"));
-				System.out.println(rs_tt_CalidadParam.getString("deLectura"));
-				System.out.println(rs_tt_CalidadParam.getString("deVMinimo"));
-				System.out.println(rs_tt_CalidadParam.getString("deVMaximo"));
+				CalidadParam obj = new CalidadParam();
+				
+				obj.setcTienda3(rs_tt_CalidadParam.getString("cTienda"));
+				obj.setiOrdenSer3(rs_tt_CalidadParam.getInt("iOrdenSer"));
+				obj.setcParametro(rs_tt_CalidadParam.getString("cParametro"));
+				obj.setDeLectura(rs_tt_CalidadParam.getDouble("deLectura"));
+				obj.setDeVMinimo(rs_tt_CalidadParam.getDouble("deVMinimo"));
+				obj.setDeVMaximo(rs_tt_CalidadParam.getDouble("deVMaximo"));
 				
 			}
 			
 			while(rs_tt_OrdFFecha.next()){
-				System.out.println(rs_tt_OrdFFecha.getString("cTienda"));
-				System.out.println(rs_tt_OrdFFecha.getString("iOrdenSer"));
-				System.out.println(rs_tt_OrdFFecha.getString("cValidacion"));
-				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEA"));
-				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEP"));
-				System.out.println(rs_tt_OrdFFecha.getString("cTecnico"));
+				
+				OrdFFecha obj = new OrdFFecha();
+				
+				obj.setcTienda2(rs_tt_OrdFFecha.getString("cTienda"));
+				obj.setiOrdenSer2(rs_tt_OrdFFecha.getInt("iOrdenSer"));
+				//obj.(rs_tt_OrdFFecha.getString("cValidacion"));
+				obj.setDtFechaEA(rs_tt_OrdFFecha.getDate("dtFechaEA"));
+				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
+				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
+				
 			}
 			
 		}catch (Exception e) {
