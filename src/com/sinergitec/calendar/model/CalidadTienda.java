@@ -1,28 +1,30 @@
 package com.sinergitec.calendar.model;
 
+import java.util.List;
+
 public class CalidadTienda {
 	
 	//Objetos
-	private ManTicket manTicket;
-	private OrdFFecha ordFFecha;
-	private CalidadParam calidadParam;
+	private List<ManTicket>    manTicket;
+	private List<OrdFFecha>    ordFFecha;
+	private List<CalidadParam> calidadParam;
 	
-	public ManTicket getManTicket() {
+	public List<ManTicket> getManTicket() {
 		return manTicket;
 	}
-	public void setManTicket(ManTicket manTicket) {
+	public void setManTicket(List<ManTicket> manTicket) {
 		this.manTicket = manTicket;
 	}
-	public OrdFFecha getOrdFFecha() {
+	public List<OrdFFecha> getOrdFFecha() {
 		return ordFFecha;
 	}
-	public void setOrdFFecha(OrdFFecha ordFFecha) {
+	public void setOrdFFecha(List<OrdFFecha> ordFFecha) {
 		this.ordFFecha = ordFFecha;
 	}
-	public CalidadParam getCalidadParam() {
+	public List<CalidadParam> getCalidadParam() {
 		return calidadParam;
 	}
-	public void setCalidadParam(CalidadParam calidadParam) {
+	public void setCalidadParam(List<CalidadParam> calidadParam) {
 		this.calidadParam = calidadParam;
 	}
 	

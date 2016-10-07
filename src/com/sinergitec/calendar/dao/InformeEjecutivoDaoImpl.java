@@ -218,7 +218,7 @@ public class InformeEjecutivoDaoImpl {
 	
 	
 	@SuppressWarnings("static-access")
-	public List<CalidadTienda> listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
+	public CalidadTienda listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
 		
 		//Conexion a la base de datos
 		Connection conexion = new DBConexion().getConnection();
@@ -228,8 +228,14 @@ public class InformeEjecutivoDaoImpl {
 		StringHolder  texto  = new StringHolder();
 		BooleanHolder error  = new BooleanHolder();
 
+		//Lista de Listas
+		CalidadTienda informeCalidad = new CalidadTienda();
+		
 		//Lista que almacena la informacion obtenida
-		List<CalidadTienda> informeCalidad = new ArrayList<CalidadTienda>();
+		List<ManTicket> ticket = new ArrayList<ManTicket>();
+		List<CalidadParam> calidadParam = new ArrayList<CalidadParam>();
+		List<OrdFFecha> ordenFecha = new ArrayList<OrdFFecha>();
+		
 		
 		//Tabla temporal que almacena los resultados
 		ResultSetHolder tt_ManTicket  = new ResultSetHolder();
@@ -259,6 +265,8 @@ public class InformeEjecutivoDaoImpl {
 				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
 				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
 				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
+				
+				ticket.add(obj);
 
 			}
 			
@@ -273,6 +281,8 @@ public class InformeEjecutivoDaoImpl {
 				obj.setDeVMinimo(rs_tt_CalidadParam.getDouble("deVMinimo"));
 				obj.setDeVMaximo(rs_tt_CalidadParam.getDouble("deVMaximo"));
 				
+				calidadParam.add(obj);
+				
 			}
 			
 			while(rs_tt_OrdFFecha.next()){
@@ -286,14 +296,20 @@ public class InformeEjecutivoDaoImpl {
 				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
 				obj.setcValidacion(rs_tt_OrdFFecha.getString("cTecnico"));
 				
+				ordenFecha.add(obj);
+				
 			}
+			
+			informeCalidad.setManTicket(ticket);
+			informeCalidad.setCalidadParam(calidadParam);
+			informeCalidad.setOrdFFecha(ordenFecha);
 			
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		
-		return null;
+		return informeCalidad;
 		
 	}
 

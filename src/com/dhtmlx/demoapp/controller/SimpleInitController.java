@@ -73,7 +73,8 @@ public class SimpleInitController {
     				throws Exception {
     	// creates and configures scheduler instance
 		
-		List<CalidadTienda> listaP = new ArrayList<CalidadTienda>();
+		CalidadTienda listaP = new CalidadTienda();
+		
 		InformeEjecutivoDaoImpl met = new InformeEjecutivoDaoImpl();  
 		
 		listaP = met.listaCalidad("ALVAKY", "06");
