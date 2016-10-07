@@ -209,5 +209,80 @@ public class InformeEjecutivoDaoImpl {
 		
 		return informe_List;
 	}
+	
+	
+	@SuppressWarnings("static-access")
+	public List<CalidadTienda> listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
+		
+		//Conexion a la base de datos
+		Connection conexion = new DBConexion().getConnection();
+		yacatmto app = new yacatmto(conexion);
+
+		//Variables para guardar errores
+		StringHolder  texto  = new StringHolder();
+		BooleanHolder error  = new BooleanHolder();
+
+		//Lista que almacena la informacion obtenida
+		List<CalidadTienda> informeCalidad = new ArrayList<CalidadTienda>();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_ManTicket  = new ResultSetHolder();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_OrdFFecha  = new ResultSetHolder();
+		
+		//Tabla temporal que almacena los resultados
+		ResultSetHolder tt_CalidadParam  = new ResultSetHolder();
+		
+		//Conexion al appServer
+		try{
+			
+			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
+			
+			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
+			ResultSet rs_tt_OrdFFecha = tt_OrdFFecha.getResultSetValue();
+			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();
+			
+			while(rs_tt_ManTicket.next()){
+				
+				ManTicket obj = new ManTicket();
+				
+				obj.setcTicket(rs_tt_ManTicket.getString("cTicket"));
+				obj.setiOrdenServ(rs_tt_ManTicket.getInt("iOrdenSer"));
+				obj.setcTienda(rs_tt_ManTicket.getString("cTienda"));
+				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
+				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
+				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
+
+			}
+			
+			while(rs_tt_CalidadParam.next()){
+				
+				System.out.println(rs_tt_CalidadParam.getString("cTienda"));
+				System.out.println(rs_tt_CalidadParam.getString("iOrdenSer"));
+				System.out.println(rs_tt_CalidadParam.getString("cParametro"));
+				System.out.println(rs_tt_CalidadParam.getString("deLectura"));
+				System.out.println(rs_tt_CalidadParam.getString("deVMinimo"));
+				System.out.println(rs_tt_CalidadParam.getString("deVMaximo"));
+				
+			}
+			
+			while(rs_tt_OrdFFecha.next()){
+				System.out.println(rs_tt_OrdFFecha.getString("cTienda"));
+				System.out.println(rs_tt_OrdFFecha.getString("iOrdenSer"));
+				System.out.println(rs_tt_OrdFFecha.getString("cValidacion"));
+				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEA"));
+				System.out.println(rs_tt_OrdFFecha.getString("dtFechaEP"));
+				System.out.println(rs_tt_OrdFFecha.getString("cTecnico"));
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return null;
+		
+	}
 
 }
