@@ -20,7 +20,7 @@
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
 		<div style = "text-align:center;">
-			<table id="incidencia"  border = "1" style = "margin-left: 25%; width:30%;" >
+			<table id="incidencia" class="incidencia"  border = "1" style = "margin-left: 25%; width:30%;" >
 				<thead>
 					<tr>
 						<th colspan="2" class="text-center" width="15%"> INCIDENCIAS </th>

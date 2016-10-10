@@ -8,56 +8,51 @@
  */
 
 function incidencias(){
-	
+
 	var arreglo = leerCookies(document.cookie);
 	var cCveCia = arreglo[0][1];
 	var cCliente = arreglo[1][1];
-	
+
 	$.ajax({type : "GET",
-			url : "incidencias/datos",
-			dataType : "json",
-			contentType : "application/json",
-			data : {
-				cCveCia   : cCveCia,
-				cCliente  : cCliente,
-			},
-			success : function(data) {
-				
-				console.log(data);
-				
-				if(data != ""){
-					$("#incidencia > tbody").empty();
-					
-					for ( var item in data) {
-						
-						$('#incidencia > tbody').append(
-								
-								'<tr class="text-center">'                            +
-								'<td class="text-center"> Ticket: </td>'              +
-								'<td class="text-center">' + data[item].ticketConteo       + '</td>'  +
-								'</tr>'                                               +
+		url : "incidencias/datos",
+		dataType : "json",
+		contentType : "application/json",
+		data : {
+			cCveCia   : cCveCia,
+			cCliente  : cCliente,
+		},
+		success : function(data) {
 
-								'<tr class="text-center">'                            +
-								'<td class="text-center"> Ordenes Fuera de Fecha: </td>'   +
-								'<td class="text-center">' + data[item].ordFFechaConteo    + '</td>'  +
-								'</tr>'                                               +
+			console.log(data);
 
-								'<tr class="text-center">'                            +
-								'<td class="text-center"> Calidad de Parametros: </td>'    +
-								'<td class="text-center">' + data[item].calidadParamConteo + '</td>'  +
-								'</tr>');
+			if(data != ""){
+				console.log("Entra :)");
+				$("#incidencia > tbody").empty();
 
-					}
-					
-					}else{
-						swal("No Existen Registros");
-					}
-			},
-			error : function(data,status,error) {
-				sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
+				$('#incidencia > tbody').append('<tr class="text-center">'    +
+						'<td class="text-center"> Ticket: </td>'              +
+						'<td class="text-center">' + data.ticketConteo       + '</td>'  +
+						'</tr>'                                               +
+
+						'<tr class="text-center">'                            +
+						'<td class="text-center"> Ordenes Fuera de Fecha: </td>'   +
+						'<td class="text-center">' + data.ordFFechaConteo    + '</td>'  +
+						'</tr>'                                               +
+
+						'<tr class="text-center">'                            +
+						'<td class="text-center"> Calidad de Parametros: </td>'    +
+						'<td class="text-center">' + data.calidadParamConteo + '</td>'  +
+				'</tr>');
+
+			}else{
+				swal("No Existen Registros");
 			}
-			
-		});
+		},
+		error : function(data,status,error) {
+			sweetAlert("Oops...", "Algo salio mal intenta mas tarde o contacta a sistemas", "error");
+		}
+
+	});
 }
 
 function leerCookies(galleta) {
