@@ -22,25 +22,24 @@ function incidencias(){
 			cCliente  : cCliente,
 		},
 		success : function(data) {
-
+			
 			console.log(data);
 
 			if(data != ""){
-				console.log("Entra :)");
 				$("#incidencia > tbody").empty();
 
-				$('#incidencia > tbody').append('<tr class="text-center">'    +
-						'<td class="text-center"> Ticket: </td>'              +
-						'<td class="text-center">' + data.ticketConteo       + '</td>'  +
-						'</tr>'                                               +
+				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle()">' +
+						'<td class="text-center"> Ticket: </td>'             +
+						'<td class="text-center">' + data.ticketConteo       + '</td>'         +
+						'</tr>'                                              +
 
-						'<tr class="text-center">'                            +
-						'<td class="text-center"> Ordenes Fuera de Fecha: </td>'   +
-						'<td class="text-center">' + data.ordFFechaConteo    + '</td>'  +
-						'</tr>'                                               +
+						'<tr class="text-center" onclick="detalle()">'                         +
+						'<td class="text-center"> Ordenes Fuera de Fecha: </td>' +
+						'<td class="text-center">' + data.ordFFechaConteo        + '</td>'     +
+						'</tr>'                                                  +
 
-						'<tr class="text-center">'                            +
-						'<td class="text-center"> Calidad de Parametros: </td>'    +
+						'<tr class="text-center" onclick="detalle()">'                         +
+						'<td class="text-center"> Calidad de Parametros: </td>'         +
 						'<td class="text-center">' + data.calidadParamConteo + '</td>'  +
 				'</tr>');
 
@@ -65,6 +64,10 @@ function leerCookies(galleta) {
 	return final;
 
 }
+
+function detalle(){
+	sweetAlert("Holis");
+} 
 
 $(document).ready(function() {
 	incidencias();

@@ -180,16 +180,11 @@ public class ReporteController {
 	public @ResponseBody String IncidenciasDatos(String cCveCia, 
 			String cCliente) throws Open4GLException, IOException {
 		
-		System.out.println(cCveCia);
-		System.out.println(cCliente);
-		
 		//Instacia de las incidencias
 		InformeEjecutivoDaoImpl incidencia = new InformeEjecutivoDaoImpl();
 		
 		String listaP = "";
 		listaP = new Gson().toJson(incidencia.listaCalidad(cCveCia, cCliente));
-		
-		//System.out.println(listaP);
 		
 		return listaP;
 

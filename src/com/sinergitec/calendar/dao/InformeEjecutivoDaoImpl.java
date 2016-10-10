@@ -220,8 +220,6 @@ public class InformeEjecutivoDaoImpl {
 	@SuppressWarnings("static-access")
 	public CalidadTienda listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
 		
-		System.out.println("Entro en el DAO lista calidad");
-		
 		//Conexion a la base de datos
 		Connection conexion = new DBConexion().getConnection();
 		yacatmto app = new yacatmto(conexion);
@@ -302,22 +300,22 @@ public class InformeEjecutivoDaoImpl {
 				
 			}
 			
-			System.out.println("Holis");
-			System.out.println("Ticket: "+ticket.size());
-			informeCalidad.setTicketConteo(ticket.size());
-			informeCalidad.setManTicket(ticket);
-			
-			System.out.println("Calidad: "+calidadParam.size());
-			informeCalidad.setCalidadParamConteo(calidadParam.size());
-			informeCalidad.setCalidadParam(calidadParam);
-			
-			System.out.println("Fecha: "+ordenFecha.size());
-			informeCalidad.setOrdFFechaConteo(ordenFecha.size());
-			informeCalidad.setOrdFFecha(ordenFecha);
-			
 		}catch (Exception e) {
 			// TODO: handle exception
+		}finally {
+			app._release();
+			conexion.finalize();
 		}
+		
+		informeCalidad.setTicketConteo(ticket.size());
+		informeCalidad.setManTicket(ticket);
+		
+		informeCalidad.setCalidadParamConteo(calidadParam.size());
+		informeCalidad.setCalidadParam(calidadParam);
+		
+		informeCalidad.setOrdFFechaConteo(ordenFecha.size());
+		informeCalidad.setOrdFFecha(ordenFecha);
+		
 
 		return informeCalidad;
 		
