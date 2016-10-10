@@ -7,28 +7,47 @@
  * 
  */
 
-function incidencias (){
+function incidencias(){
+	
+	var arreglo = leerCookies(document.cookie);
+	var cCveCia = arreglo[0][1];
+	var cCliente = arreglo[1][1];
+	
 	$.ajax({type : "GET",
-			url : "incidencias",
+			url : "incidencias/datos",
 			dataType : "json",
 			contentType : "application/json",
 			data : {
 				cCveCia   : cCveCia,
 				cCliente  : cCliente,
-				cSucursal : cSucursal.sucursal
 			},
 			success : function(data) {
 				
-				var cNomSucursal;
+				console.log(data);
+				
 				if(data != ""){
 					$("#incidencia > tbody").empty();
+					
 					for ( var item in data) {
-						cNomSucursal = data[item].cNomSuc;
-						$('#incidencia > tbody').append('<tr class="text-center">'    +
-								 '<td class="text-center">' + data[item].dtFechaV     +   '</td>' +
-								 '</tr>');
-						}
-					document.getElementById("name").innerHTML="Historico de Visitas<br/>"+cNomSucursal+"<br/>Suc. "+cSucursal.sucursal;
+						
+						$('#incidencia > tbody').append(
+								
+								'<tr class="text-center">'                            +
+								'<td class="text-center"> Ticket: </td>'              +
+								'<td class="text-center">' + data[item].ticketConteo       + '</td>'  +
+								'</tr>'                                               +
+
+								'<tr class="text-center">'                            +
+								'<td class="text-center"> Ordenes Fuera de Fecha: </td>'   +
+								'<td class="text-center">' + data[item].ordFFechaConteo    + '</td>'  +
+								'</tr>'                                               +
+
+								'<tr class="text-center">'                            +
+								'<td class="text-center"> Calidad de Parametros: </td>'    +
+								'<td class="text-center">' + data[item].calidadParamConteo + '</td>'  +
+								'</tr>');
+
+					}
 					
 					}else{
 						swal("No Existen Registros");
@@ -40,3 +59,18 @@ function incidencias (){
 			
 		});
 }
+
+function leerCookies(galleta) {
+
+	var arreglo = galleta.split(";");
+	var final = [];
+	for ( var i in arreglo) {
+		final.push(arreglo[i].split("="));
+	}
+	return final;
+
+}
+
+$(document).ready(function() {
+	incidencias();
+});

@@ -17,11 +17,10 @@
 	<!-- Fin Encabezado -->
 	
 	<div class = "content" id = "content">
-	
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
-		<div style="text-align:center;">
-			<table id="incidencia"  border = "1" style="margin-left: 25%; width:30%;">
+		<div style = "text-align:center;">
+			<table id="incidencia"  border = "1" style = "margin-left: 25%; width:30%;" >
 				<thead>
 					<tr>
 						<th colspan="2" class="text-center" width="15%"> INCIDENCIAS </th>
@@ -29,8 +28,8 @@
 				</thead>
    		  		<tbody></tbody>
    		  	</table>
+		</div>
 	</div>
-</div>
 
 	<!-- Script -->
 	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>

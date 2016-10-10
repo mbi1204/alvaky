@@ -300,8 +300,11 @@ public class InformeEjecutivoDaoImpl {
 				
 			}
 			
+			informeCalidad.setTicketConteo(ticket.size());
 			informeCalidad.setManTicket(ticket);
+			informeCalidad.setCalidadParamConteo(calidadParam.size());
 			informeCalidad.setCalidadParam(calidadParam);
+			informeCalidad.setOrdFFechaConteo(ordenFecha.size());
 			informeCalidad.setOrdFFecha(ordenFecha);
 			
 		}catch (Exception e) {
