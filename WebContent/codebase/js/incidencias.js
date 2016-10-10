@@ -28,17 +28,17 @@ function incidencias(){
 			if(data != ""){
 				$("#incidencia > tbody").empty();
 
-				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle()">' +
+				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+')">' +
 						'<td class="text-center"> Ticket: </td>'             +
 						'<td class="text-center">' + data.ticketConteo       + '</td>'         +
 						'</tr>'                                              +
 
-						'<tr class="text-center" onclick="detalle()">'                         +
+						'<tr class="text-center" onclick="detalle('+data.ordFFechaConteo+')">'                      +
 						'<td class="text-center"> Ordenes Fuera de Fecha: </td>' +
 						'<td class="text-center">' + data.ordFFechaConteo        + '</td>'     +
 						'</tr>'                                                  +
 
-						'<tr class="text-center" onclick="detalle()">'                         +
+						'<tr class="text-center" onclick="detalle('+data.calidadParamConteo+')">'                   +
 						'<td class="text-center"> Calidad de Parametros: </td>'         +
 						'<td class="text-center">' + data.calidadParamConteo + '</td>'  +
 				'</tr>');
@@ -65,8 +65,13 @@ function leerCookies(galleta) {
 
 }
 
-function detalle(){
-	sweetAlert("Holis");
+function detalle(valor){
+	if(valor != 0){
+		
+	}
+	else{
+		sweetAlert("Oops...", "No cuenta con detalle este registro", "error");
+	}
 } 
 
 $(document).ready(function() {
