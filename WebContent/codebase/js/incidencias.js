@@ -68,6 +68,8 @@ function leerCookies(galleta) {
 function detalle(valor){
 	if(valor != 0){
 		
+		sweet("AQUI VA LO RESTANTE");
+		
 	}
 	else{
 		sweetAlert("Oops...", "No cuenta con detalle este registro", "error");
