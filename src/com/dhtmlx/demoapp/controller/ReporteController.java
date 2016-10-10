@@ -27,7 +27,6 @@ import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.calendar.dao.InformeEjecutivoDaoImpl;
 import com.sinergitec.calendar.dao.LocalDaoImpl;
 import com.sinergitec.calendar.dao.OpOSDocsDaoImpl;
-import com.sinergitec.calendar.model.CalidadTienda;
 import com.sinergitec.calendar.model.CtUsuarioWeb;
 import com.sinergitec.calendar.model.InfEjecutivo;
 import com.sinergitec.calendar.model.OpOSDocs;
@@ -170,16 +169,23 @@ public class ReporteController {
 	
 	//código Adriana
 	
-	@RequestMapping(value = "/incidencias", method = RequestMethod.GET)
+	@RequestMapping(value = "/incidencias", method=RequestMethod.GET)
 	public String Incidencias() throws Open4GLException, IOException {
+
+		return "incidencias";
+
+	}
+	
+	@RequestMapping(value = "/incidencias/datos", headers = "Accept=application/json")
+	public @ResponseBody String IncidenciasDatos() throws Open4GLException, IOException {
 		
 		//Instacia de las incidencias
 		InformeEjecutivoDaoImpl met = new InformeEjecutivoDaoImpl();
 		
-		CalidadTienda listaP = new CalidadTienda();
-		listaP = met.listaCalidad("ALVAKY", "06");
+		String listaP = "";
+		listaP = new Gson().toJson (met.listaCalidad("ALVAKY", "06"));
 		
-		return "incidencias";
+		return listaP;
 
 	}
 	
