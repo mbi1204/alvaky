@@ -307,6 +307,17 @@ public class InformeEjecutivoDaoImpl {
 			conexion.finalize();
 		}
 		
+		//Borrar en cuanto terminen pruebas
+		ManTicket objP = new ManTicket();
+		objP.setcTicket("3350");
+		objP.setiOrdenServ(1);
+		objP.setcTienda("VERACRUZ");
+		objP.setcTecnico("Pancho Cachondo");
+		ticket.add(objP);
+		
+		System.out.println(ticket);
+		System.out.println(ticket.size());
+		
 		informeCalidad.setTicketConteo(ticket.size());
 		informeCalidad.setManTicket(ticket);
 		

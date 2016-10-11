@@ -28,17 +28,17 @@ function incidencias(){
 			if(data != ""){
 				$("#incidencia > tbody").empty();
 
-				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+')">' +
+				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+','+data.manTicket+');">' +
 						'<td class="text-center"> Ticket: </td>'             +
 						'<td class="text-center">' + data.ticketConteo       + '</td>'         +
 						'</tr>'                                              +
 
-						'<tr class="text-center" onclick="detalle('+data.ordFFechaConteo+')">'                      +
+						'<tr class="text-center" onclick="detalle('+data.ordFFechaConteo+','+data.ordFFecha+');">'                      +
 						'<td class="text-center"> Ordenes Fuera de Fecha: </td>' +
 						'<td class="text-center">' + data.ordFFechaConteo        + '</td>'     +
 						'</tr>'                                                  +
 
-						'<tr class="text-center" onclick="detalle('+data.calidadParamConteo+')">'                   +
+						'<tr class="text-center" onclick="detalle('+data.calidadParamConteo+','+data.calidadParam+');">'                +
 						'<td class="text-center"> Calidad de Parametros: </td>'         +
 						'<td class="text-center">' + data.calidadParamConteo + '</td>'  +
 				'</tr>');
@@ -65,11 +65,12 @@ function leerCookies(galleta) {
 
 }
 
-function detalle(valor){
+function detalle(valor,lectura){
 	if(valor != 0){
 		
-		sweet("AQUI VA LO RESTANTE");
-		
+		if(lectura = "ticket"){
+			swal("HOLIS");
+		}
 	}
 	else{
 		sweetAlert("Oops...", "No cuenta con detalle este registro", "error");
