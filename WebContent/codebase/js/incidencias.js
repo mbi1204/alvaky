@@ -10,6 +10,7 @@
 var manTicket = "manTicket";
 var ordFFecha = "ordFFecha";
 var calidadParam = "calidadParam";
+var datos;
 
 
 function incidencias(){
@@ -32,6 +33,8 @@ function incidencias(){
 
 			if(data != ""){
 				$("#incidencia > tbody").empty();
+				
+				datos = data;
 
 				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+','+manTicket+');">' +
 						'<td class="text-center"> Ticket: </td>'             +
@@ -72,14 +75,28 @@ function leerCookies(galleta) {
 
 function detalle(valor,lectura){
 	if(valor != 0){
-		if(lectura == "manTicket" || lectura == "ordFFecha" || lectura == "calidadParam"){
-			
+		if(lectura == "manTicket"){
+			for ( var item in datos.manTicket) {
+				console.log(datos.manTicket[item]);
+			}
+		}
+		if(lectura == "ordFFecha"){
+			for ( var item in datos.ordFFecha) {
+				console.log(datos.ordFFecha[item]);
+			}
+		}
+		if(lectura == "calidadParam"){
+			for ( var item in datos.calidadParam) {
+				console.log(datos.calidadParam[item]);
+			}
 		}
 	}
 	else{
 		sweetAlert("Oops...", "No cuenta con detalle este registro", "error");
 	}
-} 
+}
+
+
 
 $(document).ready(function() {
 	incidencias();
