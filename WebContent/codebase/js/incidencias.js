@@ -7,6 +7,11 @@
  * 
  */
 
+var manTicket = "manTicket";
+var ordFFecha = "ordFFecha";
+var calidadParam = "calidadParam";
+
+
 function incidencias(){
 
 	var arreglo = leerCookies(document.cookie);
@@ -28,17 +33,17 @@ function incidencias(){
 			if(data != ""){
 				$("#incidencia > tbody").empty();
 
-				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+','+data.manTicket+');">' +
+				$('#incidencia > tbody').append('<tr class="text-center" onclick="detalle('+data.ticketConteo+','+manTicket+');">' +
 						'<td class="text-center"> Ticket: </td>'             +
 						'<td class="text-center">' + data.ticketConteo       + '</td>'         +
 						'</tr>'                                              +
 
-						'<tr class="text-center" onclick="detalle('+data.ordFFechaConteo+','+data.ordFFecha+');">'                      +
+						'<tr class="text-center" onclick="detalle('+data.ordFFechaConteo+','+ordFFecha+');">'                      +
 						'<td class="text-center"> Ordenes Fuera de Fecha: </td>' +
 						'<td class="text-center">' + data.ordFFechaConteo        + '</td>'     +
 						'</tr>'                                                  +
 
-						'<tr class="text-center" onclick="detalle('+data.calidadParamConteo+','+data.calidadParam+');">'                +
+						'<tr class="text-center" onclick="detalle('+data.calidadParamConteo+','+calidadParam+');">'                +
 						'<td class="text-center"> Calidad de Parametros: </td>'         +
 						'<td class="text-center">' + data.calidadParamConteo + '</td>'  +
 				'</tr>');
@@ -67,9 +72,8 @@ function leerCookies(galleta) {
 
 function detalle(valor,lectura){
 	if(valor != 0){
-		
-		if(lectura = "ticket"){
-			swal("HOLIS");
+		if(lectura == "manTicket" || lectura == "ordFFecha" || lectura == "calidadParam"){
+			
 		}
 	}
 	else{
