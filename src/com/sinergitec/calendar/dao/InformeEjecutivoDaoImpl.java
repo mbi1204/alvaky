@@ -313,7 +313,15 @@ public class InformeEjecutivoDaoImpl {
 		objP.setiOrdenServ(1);
 		objP.setcTienda("VERACRUZ");
 		objP.setcTecnico("Pancho Cachondo");
+		
+		ManTicket objP2 = new ManTicket();
+		objP2.setcTicket("3351");
+		objP2.setiOrdenServ(2);
+		objP2.setcTienda("VERACRUZ2");
+		objP2.setcTecnico("Pancho Cachondo2");
+		
 		ticket.add(objP);
+		ticket.add(objP2);
 		
 		System.out.println(ticket);
 		System.out.println(ticket.size());

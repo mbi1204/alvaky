@@ -28,8 +28,6 @@ function incidencias(){
 			cCliente  : cCliente,
 		},
 		success : function(data) {
-			
-			console.log(data);
 
 			if(data != ""){
 				$("#incidencia > tbody").empty();
@@ -76,19 +74,22 @@ function leerCookies(galleta) {
 function detalle(valor,lectura){
 	if(valor != 0){
 		if(lectura == "manTicket"){
-			for ( var item in datos.manTicket) {
-				console.log(datos.manTicket[item]);
-			}
+			var head = ['Ticket','Orden de Servicio',
+			            'Tienda','Prioridad','Fecha de Recepcion','Fecha de Ejecucion',
+			            'Fecha Limite de Atencion' , 'Tecnico'];
+			buildDetalle(datos.manTicket, head);
 		}
 		if(lectura == "ordFFecha"){
-			for ( var item in datos.ordFFecha) {
-				console.log(datos.ordFFecha[item]);
-			}
+			var head = ['Tienda','Orden de Servicio',
+			            'Validacion','Fecha de Recepción','Fecha de Ejecucion',
+			            'Tecnico'];
+			buildDetalle(datos.ordFFecha, head);
 		}
 		if(lectura == "calidadParam"){
-			for ( var item in datos.calidadParam) {
-				console.log(datos.calidadParam[item]);
-			}
+			var head = ['Ticket','Orden de Servicio',
+			            'Parametro','Descripcion','Fecha de Ejecucion',
+			            'Lectura' , 'Valor Maximo','Valor Minimo'];
+			buildDetalle(datos.calidadParam , head);
 		}
 	}
 	else{
@@ -96,7 +97,35 @@ function detalle(valor,lectura){
 	}
 }
 
-
+function buildDetalle(arreglo, head){
+	
+	var cont = 0;
+	
+	console.log(head);
+	
+	//Limpieza de encabezado y cuerpo de la tabla
+	$("#myTable > thead").empty();
+	$("#myTable > tbody").empty();
+	
+	for ( var item in arreglo) {
+		
+		for ( var elemento in arreglo[item]) {
+			
+			console.log(head[cont]);
+			console.log(arreglo[item][elemento]);
+			
+			$('#myTable > thead').append('<tr class="text-center">'   +
+					'<td class="text-center">' + head[cont] + '</td>' +
+					'</tr>');
+			
+			$('#myTable > tbody').append('<tr class="text-center">'   +
+					'<td class="text-center">' + arreglo[item][elemento] + '</td>' +
+					'</tr>');
+			
+			cont = cont + 1;
+		}
+	}	
+}
 
 $(document).ready(function() {
 	incidencias();
