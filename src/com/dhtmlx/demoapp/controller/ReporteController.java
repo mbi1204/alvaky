@@ -190,4 +190,11 @@ public class ReporteController {
 
 	}
 	
+	@RequestMapping(value = "/detalle", method=RequestMethod.GET)
+	public String Detalle() throws Open4GLException, IOException {
+
+		return "detalle";
+
+	}
+	
 }

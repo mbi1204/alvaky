@@ -101,8 +101,6 @@ function buildDetalle(arreglo, head){
 	
 	var cont = 0;
 	
-	console.log(head);
-	
 	//Limpieza de encabezado y cuerpo de la tabla
 	$("#myTable > thead").empty();
 	$("#myTable > tbody").empty();
@@ -110,9 +108,6 @@ function buildDetalle(arreglo, head){
 	for ( var item in arreglo) {
 		
 		for ( var elemento in arreglo[item]) {
-			
-			console.log(head[cont]);
-			console.log(arreglo[item][elemento]);
 			
 			$('#myTable > thead').append('<tr class="text-center">'   +
 					'<td class="text-center">' + head[cont] + '</td>' +
