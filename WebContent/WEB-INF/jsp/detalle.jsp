@@ -5,16 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Detalle</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
+<link type="text/css" rel="stylesheet" href="./codebase/dhtmlxscheduler3.css"/>
+<link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
 </head>
 <body>
 
-	<table id="myTable">
-		<thead>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
+	<!-- Encabezado -->
+		<div class = "header" id = "header"></div>
+	<!-- Fin Encabezado -->
 	
+	<div class = "content" id = "content">
+		<!-- Titulo de la pantalla -->
+		<div class = "sample" id = "sample" ></div>
+		<div style = "text-align:center;">
+			<table id="myTable">
+				<thead>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
 	<!-- Script -->
 	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>

@@ -77,6 +77,9 @@ function detalle(valor,lectura){
 			var head = ['Ticket','Orden de Servicio',
 			            'Tienda','Prioridad','Fecha de Recepcion','Fecha de Ejecucion',
 			            'Fecha Limite de Atencion' , 'Tecnico'];
+			
+			window.open("detalle")
+			
 			buildDetalle(datos.manTicket, head);
 		}
 		if(lectura == "ordFFecha"){
