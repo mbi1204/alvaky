@@ -120,8 +120,6 @@ function buildDetalle(arreglo, head){
 					'<td class="text-center">' + arreglo[item][elemento] + '</td>' +
 					'</tr>');
 			
-			
-			
 			cont = cont + 1;
 		}
 	}	
