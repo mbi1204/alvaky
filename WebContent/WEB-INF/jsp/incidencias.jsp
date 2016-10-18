@@ -29,6 +29,11 @@
    		  		<tbody></tbody>
    		  	</table>
 		</div>
+		
+		<div id="Detalle_Dialog" style="display: none;">
+			<%@ include file="detalle.jsp"%>
+		</div>
+		
 	</div>
 
 	<!-- Script -->

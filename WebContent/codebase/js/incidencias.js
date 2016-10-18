@@ -73,6 +73,7 @@ function leerCookies(galleta) {
 
 function detalle(valor,lectura){
 	if(valor != 0){
+		vistaDetalle();
 		if(lectura == "manTicket"){
 			var head = ['Ticket','Orden de Servicio',
 			            'Tienda','Prioridad','Fecha de Recepcion','Fecha de Ejecucion',
@@ -123,6 +124,15 @@ function buildDetalle(arreglo, head){
 			cont = cont + 1;
 		}
 	}	
+}
+
+function vistaDetalle() {
+	
+	
+	
+	$('#Detalle_Dialog').dialog("option", "title", 'Detalle de Incidencias');
+	$('#Detalle_Dialog').dialog('open');
+
 }
 
 $(document).ready(function() {

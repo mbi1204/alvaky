@@ -1,41 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Detalle</title>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
-<link type="text/css" rel="stylesheet" href="./codebase/dhtmlxscheduler3.css"/>
-<link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
-</head>
-<body>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-	<!-- Encabezado -->
-		<div class = "header" id = "header"></div>
-	<!-- Fin Encabezado -->
-	
-	<div class = "content" id = "content">
-		<!-- Titulo de la pantalla -->
-		<div class = "sample" id = "sample" ></div>
-		<div style = "text-align:center;">
-			<table id="myTable">
-				<thead>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	
-	<!-- Script -->
-	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src = "codebase/js/lib/jquery-ui-1.10.4.custom.js"></script>
-	<script type="text/javascript" src = "codebase/js/lib/jquery.ui.datepicker.js"></script>
-	<script src="codebase/js/lib/sweetalert.min.js"></script> 
-	<script type="text/javascript" src = "codebase/js/incidencias.js"></script>
-	<!-- Fin Script -->
-	
-</body>
-</html>
+
+
+<table id="myTable">
+	<thead>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
