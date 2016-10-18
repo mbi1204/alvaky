@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="./codebase/reporte.css"/>
 <link type="text/css" rel="stylesheet" href="./codebase/dhtmlxscheduler3.css"/>
 <link rel="stylesheet" type="text/css" href="./codebase/sweetalert.css">
+<link rel="stylesheet" href="codebase/js/lib/jquery-ui-1.12.1.custom/jquery-ui.css">
 </head>
 <body>
 
@@ -19,6 +20,11 @@
 	<div class = "content" id = "content">
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
+		
+		<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none;">
+			<%@ include file="detalle.jsp"%>
+		</div>
+		
 		<div style = "text-align:center;">
 			<table id="incidencia" class="incidencia"  border = "1" style = "margin-left: 25%; width:30%;" >
 				<thead>
@@ -29,11 +35,12 @@
    		  		<tbody></tbody>
    		  	</table>
 		</div>
+		
 	</div>
 
 	<!-- Script -->
-	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.0.js"></script>
-	<script type="text/javascript" src = "codebase/js/lib/jquery-ui-1.10.4.custom.js"></script>
+	<script type="text/javascript" src = "codebase/js/lib/jquery-3.1.1.js"></script>
+	<script src="codebase/js/lib/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 	<script type="text/javascript" src = "codebase/js/lib/jquery.ui.datepicker.js"></script>
 	<script src="codebase/js/lib/sweetalert.min.js"></script> 
 	<script type="text/javascript" src = "codebase/js/incidencias.js"></script>
