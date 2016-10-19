@@ -4,9 +4,9 @@
 
 
 
-<table id="myTable">
+<table id="myTable" style="auto 0">
 	<thead>
-	<tr class="text-center"></tr>
+	<tr></tr>
 	</thead>
 	<tbody>
 	</tbody>

@@ -116,18 +116,27 @@ function buildDetalle(arreglo, head){
 	//Arreglo para los datos
 	for ( var item in arreglo) {
 		
+		$('#myTable > tbody').append(
+				'<tr class="text-center"></tr>'); 
+		
 		for ( var elemento in arreglo[item]) {			
-			
-			$('#myTable > tbody').append('<tr class="text-center">'   +
-					'<td class="text-center">' + arreglo[item][elemento] + '</td>'+
-					'</tr>');
+			$('#myTable > tbody').append(
+					'<td class="text-center">' + arreglo[item][elemento] + '</td>');
 		}
+				
+				 
 	}	
 }
 
 function vistaDetalle() {
 
-	$('#Detalle_Dialog').dialog();
+	$('#Detalle_Dialog').dialog({
+        resizable: false,
+        autoOpen: true,
+        width: 'auto',
+        height: 'auto',
+        modal: true,
+        position: ['center', 'middle']});
 
 }
 
