@@ -127,7 +127,6 @@ function buildDetalle(arreglo, head){
 function vistaDetalle() {
 
 	$('#Detalle_Dialog').dialog();
-	$('#Detalle_Dialog').dialog("option", "title", 'Detalle de Incidencias');
 	$('#Detalle_Dialog').dialog('open');
 
 }
