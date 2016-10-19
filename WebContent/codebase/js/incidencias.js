@@ -116,6 +116,9 @@ function buildDetalle(arreglo, head){
 	//Arreglo para los datos
 	for ( var item in arreglo) {
 		
+		$('#myTable > tbody').append(
+				'<tr class="text-center"></tr>'); 
+		
 		for ( var elemento in arreglo[item]) {			
 			$('#myTable > tbody').append(
 					'<td class="text-center">' + arreglo[item][elemento] + '</td>');
