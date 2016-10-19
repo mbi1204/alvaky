@@ -107,19 +107,20 @@ function buildDetalle(arreglo, head){
 	$("#myTable > thead").empty();
 	$("#myTable > tbody").empty();
 	
+	//Creando el encabezado
+	for ( var item in head) {
+		
+		$('#myTable > thead').append('<td class="text-center">' + head[item] + '</td>');
+	}
+	
+	//Arreglo para los datos
 	for ( var item in arreglo) {
 		
-		for ( var elemento in arreglo[item]) {
-			
-			$('#myTable > thead').append('<tr class="text-center">'   +
-					'<td class="text-center">' + head[cont] + '</td>' +
-					'</tr>');
+		for ( var elemento in arreglo[item]) {			
 			
 			$('#myTable > tbody').append('<tr class="text-center">'   +
-					'<td class="text-center">' + arreglo[item][elemento] + '</td>' +
+					'<td class="text-center">' + arreglo[item][elemento] + '</td>'+
 					'</tr>');
-			
-			cont = cont + 1;
 		}
 	}	
 }
@@ -127,7 +128,6 @@ function buildDetalle(arreglo, head){
 function vistaDetalle() {
 
 	$('#Detalle_Dialog').dialog();
-	$('#Detalle_Dialog').dialog('open');
 
 }
 

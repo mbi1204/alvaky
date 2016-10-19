@@ -6,6 +6,7 @@
 
 <table id="myTable">
 	<thead>
+	<tr class="text-center"></tr>
 	</thead>
 	<tbody>
 	</tbody>
