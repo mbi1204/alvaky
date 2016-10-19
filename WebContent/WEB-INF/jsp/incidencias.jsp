@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none; margin: auto 0">
+	<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none; margin: 0 auto">
 			<%@ include file="detalle.jsp"%>
 	</div>
 
