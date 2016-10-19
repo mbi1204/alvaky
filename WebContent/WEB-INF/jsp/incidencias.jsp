@@ -13,6 +13,10 @@
 </head>
 <body>
 
+	<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none; margin: auto 0">
+			<%@ include file="detalle.jsp"%>
+	</div>
+
 	<!-- Encabezado -->
 		<div class = "header" id = "header"></div>
 	<!-- Fin Encabezado -->
@@ -20,10 +24,6 @@
 	<div class = "content" id = "content">
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
-		
-		<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none;">
-			<%@ include file="detalle.jsp"%>
-		</div>
 		
 		<div style = "text-align:center;">
 			<table id="incidencia" class="incidencia"  border = "1" style = "margin-left: 25%; width:30%;" >
@@ -34,11 +34,6 @@
 				</thead>
    		  		<tbody></tbody>
    		  	</table>
-		</div>
-		
-
-		<div id="Detalle_Dialog" style="display: none;">
-			<%@ include file="detalle.jsp"%>
 		</div>
 
 	</div>
