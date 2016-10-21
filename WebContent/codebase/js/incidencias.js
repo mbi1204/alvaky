@@ -132,7 +132,7 @@ function vistaDetalle() {
         resizable: false,
         autoOpen: true,
         autoReposition: true,
-        width: '100%',
+        width: '80%',
         height: 'auto',
         modal: true});
 	
