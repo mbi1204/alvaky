@@ -167,7 +167,7 @@ public class ReporteController {
 		}
 	}
 	
-	//código Adriana
+	/*código Adriana*/
 	
 	@RequestMapping(value = "/incidencias", method=RequestMethod.GET)
 	public String Incidencias() throws Open4GLException, IOException {
@@ -175,6 +175,8 @@ public class ReporteController {
 		return "incidencias";
 
 	}
+	
+	/* end código Adriana*/
 	
 	@RequestMapping(value = "/incidencias/datos", headers = "Accept=application/json")
 	public @ResponseBody String IncidenciasDatos(String cCveCia, 
@@ -190,6 +192,7 @@ public class ReporteController {
 
 	}
 	
+	/*Este metodo ya no es necesario*/
 	@RequestMapping(value = "/detalle", method=RequestMethod.GET)
 	public String Detalle() throws Open4GLException, IOException {
 

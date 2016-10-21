@@ -58,6 +58,8 @@ public class SimpleInitController {
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("usuarioIniciado");
+		/*Se agrega esta linea para comprobar la eliminacion de la session*/
+		session.invalidate();
 		
 		return "login";
 	}
