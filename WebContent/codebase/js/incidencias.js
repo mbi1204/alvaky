@@ -131,11 +131,10 @@ function vistaDetalle() {
 	$('#Detalle_Dialog').dialog({
         resizable: false,
         autoOpen: true,
-        autoReposition: true,
+        autoReposition: false,
         width: '80%',
         height: 'auto',
         modal: true});
-	
 
 }
 
