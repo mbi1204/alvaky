@@ -126,6 +126,7 @@ function buildDetalle(arreglo, head){
 	}	
 }
 
+
 function vistaDetalle() {
 
 	$('#Detalle_Dialog').dialog({
