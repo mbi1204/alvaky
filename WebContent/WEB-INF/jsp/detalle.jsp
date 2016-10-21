@@ -4,10 +4,3 @@
 
 
 
-<table id="myTable" style="auto 0">
-	<thead>
-	<tr></tr>
-	</thead>
-	<tbody>
-	</tbody>
-</table>

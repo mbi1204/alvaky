@@ -13,15 +13,12 @@
 </head>
 <body>
 
-	<div id="Detalle_Dialog" title="Detalle de Incidencias" style="display: none; margin: 0 auto">
-			<%@ include file="detalle.jsp"%>
-	</div>
-
 	<!-- Encabezado -->
 		<div class = "header" id = "header"></div>
 	<!-- Fin Encabezado -->
 	
 	<div class = "content" id = "content">
+	
 		<!-- Titulo de la pantalla -->
 		<div class = "sample" id = "sample" ></div>
 		
@@ -36,6 +33,15 @@
    		  	</table>
 		</div>
 
+		<div id="Detalle_Dialog" title="Detalle de Incidencias" >
+			<table id="myTable" style="margin: 0 auto;">
+				<thead>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		
 	</div>
 
 	<!-- Script -->
