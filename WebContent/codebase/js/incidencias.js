@@ -110,19 +110,21 @@ function buildDetalle(arreglo, head){
 	//Creando el encabezado
 	for ( var item in head) {
 		
-		$('#myTable > thead').append('<td class="text-center" border = "1">' + head[item] + '</td>');
+		$('#myTable > thead').append('<th class="text-center">' + head[item] + '</th>');
 	}
 	
 	//Arreglo para los datos
 	for ( var item in arreglo) {
 		
 		$('#myTable > tbody').append(
-				'<tr class="text-center" border = "1" ></tr>'); 
+				'<tr class="text-center">'); 
 		
 		for ( var elemento in arreglo[item]) {			
 			$('#myTable > tbody').append(
-					'<td class="text-center" border = "1">' + arreglo[item][elemento] + '</td>');
+					'<td class="text-center">' + arreglo[item][elemento] + '</td>');
 		}
+		
+		$('#myTable > tbody').append('</tr>');
 	}	
 }
 
