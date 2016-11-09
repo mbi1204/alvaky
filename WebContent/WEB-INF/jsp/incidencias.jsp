@@ -17,6 +17,10 @@
 		<div class = "header" id = "header"></div>
 	<!-- Fin Encabezado -->
 	
+	<!-- Menu -->
+	<div class = "menu" id = "menu"><%@ include file="menu.jsp" %></div>
+	<!-- Fin Menu -->
+	
 	<div class = "content" id = "content">
 	
 		<!-- Titulo de la pantalla -->
