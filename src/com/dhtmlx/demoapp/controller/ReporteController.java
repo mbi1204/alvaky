@@ -170,7 +170,8 @@ public class ReporteController {
 	/*código Adriana*/
 	
 	@RequestMapping(value = "/incidencias", method=RequestMethod.GET)
-	public String Incidencias() throws Open4GLException, IOException {
+	public String Incidencias(@ModelAttribute("usuarioIniciado") 
+	CtUsuarioWeb usuarioWebCompania) throws Open4GLException, IOException {
 
 		return "incidencias";
 
