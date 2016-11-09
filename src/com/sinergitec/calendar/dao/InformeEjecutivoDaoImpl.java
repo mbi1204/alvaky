@@ -307,6 +307,7 @@ public class InformeEjecutivoDaoImpl {
 			conexion.finalize();
 		}
 		
+		/*
 		//Borrar en cuanto terminen pruebas
 		ManTicket objP = new ManTicket();
 		objP.setcTicket("3350");
@@ -321,7 +322,7 @@ public class InformeEjecutivoDaoImpl {
 		objP2.setcTecnico("Pancho Cachondo2");
 		
 		ticket.add(objP);
-		ticket.add(objP2);
+		ticket.add(objP2);*/
 		
 		System.out.println(ticket);
 		System.out.println(ticket.size());
