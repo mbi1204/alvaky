@@ -193,12 +193,12 @@ public class ReporteController {
 
 	}
 	
-	/*Este metodo ya no es necesario*/
+	/*Este metodo ya no es necesario
 	@RequestMapping(value = "/detalle", method=RequestMethod.GET)
 	public String Detalle() throws Open4GLException, IOException {
 
 		return "detalle";
 
-	}
+	}*/
 	
 }
