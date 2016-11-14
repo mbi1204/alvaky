@@ -262,8 +262,10 @@ public class InformeEjecutivoDaoImpl {
 				obj.setcTicket(rs_tt_ManTicket.getString("cTicket"));
 				obj.setiOrdenServ(rs_tt_ManTicket.getInt("iOrdenSer"));
 				obj.setcTienda(rs_tt_ManTicket.getString("cTienda"));
+				obj.setcPrioridad(rs_tt_ManTicket.getString("cPrioridad"));
 				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
 				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
+				obj.setDtFechaMax(rs_tt_ManTicket.getDate("dtFechaMax"));
 				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
 				
 				ticket.add(obj);
