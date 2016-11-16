@@ -101,6 +101,8 @@ function detalle(valor,lectura){
 
 function buildDetalle(arreglo, head){
 	
+	console.log(datos);
+	
 	var cont = 0;
 	
 	//Limpieza de encabezado y cuerpo de la tabla
@@ -137,6 +139,7 @@ function vistaDetalle() {
         autoReposition: false,
         width: '80%',
         height: 'auto',
+        scrollTop: 0,
         modal: true});
 
 }
