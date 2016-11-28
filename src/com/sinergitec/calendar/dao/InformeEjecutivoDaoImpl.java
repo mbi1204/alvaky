@@ -326,9 +326,6 @@ public class InformeEjecutivoDaoImpl {
 		ticket.add(objP);
 		ticket.add(objP2);*/
 		
-		System.out.println(ticket);
-		System.out.println(ticket.size());
-		
 		informeCalidad.setTicketConteo(ticket.size());
 		informeCalidad.setManTicket(ticket);
 		
