@@ -137,9 +137,8 @@ function vistaDetalle() {
         resizable: false,
         autoOpen: true,
         autoReposition: false,
-        width: '80%',
+        width: '50%',
         height: 'auto',
-        scrollTop: 0,
         modal: true});
 
 }
