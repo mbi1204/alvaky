@@ -37,7 +37,7 @@
    		  	</table>
 		</div>
 
-		<div id="Detalle_Dialog" title="Detalle de Incidencias" style="overflow-y: scroll;  height: 100%;">
+		<div id="Detalle_Dialog" title="Detalle de Incidencias" style="overflow: scroll; height: 450px; width: 450px;">
 			<table id="myTable" style="margin: 0 auto;">
 				<thead>
 				</thead>
