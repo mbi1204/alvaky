@@ -83,7 +83,7 @@ function detalle(valor,lectura){
 		}
 		if(lectura == "ordFFecha"){
 			var head = ['Tienda','Orden de Servicio',
-			            'Validacion','Fecha de Recepcion','Fecha de Ejecucion',
+			            'Validacion','Fecha de Planeacion','Fecha de Ejecucion',
 			            ];
 			buildDetalle(datos.ordFFecha, head);
 		}
