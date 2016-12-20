@@ -138,7 +138,7 @@ function vistaDetalle() {
         autoOpen: true,
         autoReposition: false,
         width: '50%',
-        height: 'auto',
+        height: '150px',
         modal: true});
 
 }
