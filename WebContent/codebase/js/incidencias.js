@@ -77,14 +77,14 @@ function detalle(valor,lectura){
 		if(lectura == "manTicket"){
 			var head = ['Ticket','Orden de Servicio',
 			            'Tienda','Prioridad','Fecha de Recepcion','Fecha de Ejecucion',
-			            'Fecha Limite de Atencion' , 'Tecnico'];
+			            'Fecha Limite de Atencion'];
 			
 			buildDetalle(datos.manTicket, head);
 		}
 		if(lectura == "ordFFecha"){
 			var head = ['Tienda','Orden de Servicio',
-			            'Validacion','Fecha de Recepción','Fecha de Ejecucion',
-			            'Tecnico'];
+			            'Validacion','Fecha de Recepcion','Fecha de Ejecucion',
+			            ];
 			buildDetalle(datos.ordFFecha, head);
 		}
 		if(lectura == "calidadParam"){

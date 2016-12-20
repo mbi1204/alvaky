@@ -249,11 +249,12 @@ public class InformeEjecutivoDaoImpl {
 		//Conexion al appServer
 		try{
 			
-			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_OrdFFecha, tt_CalidadParam, error, texto);
+			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_CalidadParam, tt_OrdFFecha, error, texto);
 			
 			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
-			ResultSet rs_tt_OrdFFecha = tt_OrdFFecha.getResultSetValue();
 			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();
+			ResultSet rs_tt_OrdFFecha = tt_OrdFFecha.getResultSetValue();
+			
 			
 			while(rs_tt_ManTicket.next()){
 				
@@ -266,22 +267,25 @@ public class InformeEjecutivoDaoImpl {
 				obj.setDtFechaR(rs_tt_ManTicket.getDate("dtFechaR"));
 				obj.setDtFechaE(rs_tt_ManTicket.getDate("dtFechaE"));
 				obj.setDtFechaMax(rs_tt_ManTicket.getDate("dtFechaMax"));
-				obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
+				//obj.setcTecnico(rs_tt_ManTicket.getString("cTecnico"));
 				
 				ticket.add(obj);
 
 			}
 			
+			
 			while(rs_tt_CalidadParam.next()){
-				
+
 				CalidadParam obj = new CalidadParam();
 				
 				obj.setcTienda3(rs_tt_CalidadParam.getString("cTienda"));
 				obj.setiOrdenSer3(rs_tt_CalidadParam.getInt("iOrdenSer"));
 				obj.setcParametro(rs_tt_CalidadParam.getString("cParametro"));
+				obj.setcDescripcion(rs_tt_CalidadParam.getString("cDescripcion"));
+				obj.setDtFechaE2(rs_tt_CalidadParam.getDate("dtFechaE"));
 				obj.setDeLectura(rs_tt_CalidadParam.getDouble("deLectura"));
-				obj.setDeVMinimo(rs_tt_CalidadParam.getDouble("deVMinimo"));
 				obj.setDeVMaximo(rs_tt_CalidadParam.getDouble("deVMaximo"));
+				obj.setDeVMinimo(rs_tt_CalidadParam.getDouble("deVMinimo"));
 				
 				calidadParam.add(obj);
 				
@@ -296,7 +300,7 @@ public class InformeEjecutivoDaoImpl {
 				obj.setcValidacion(rs_tt_OrdFFecha.getString("cValidacion"));
 				obj.setDtFechaEA(rs_tt_OrdFFecha.getDate("dtFechaEA"));
 				obj.setDtFechaEP(rs_tt_OrdFFecha.getDate("dtFechaEP"));
-				obj.setcValidacion(rs_tt_OrdFFecha.getString("cTecnico"));
+				//obj.setcValidacion(rs_tt_OrdFFecha.getString("cTecnico"));
 				
 				ordenFecha.add(obj);
 				
@@ -309,22 +313,6 @@ public class InformeEjecutivoDaoImpl {
 			conexion.finalize();
 		}
 		
-		/*
-		//Borrar en cuanto terminen pruebas
-		ManTicket objP = new ManTicket();
-		objP.setcTicket("3350");
-		objP.setiOrdenServ(1);
-		objP.setcTienda("VERACRUZ");
-		objP.setcTecnico("Pancho Cachondo");
-		
-		ManTicket objP2 = new ManTicket();
-		objP2.setcTicket("3351");
-		objP2.setiOrdenServ(2);
-		objP2.setcTienda("VERACRUZ2");
-		objP2.setcTecnico("Pancho Cachondo2");
-		
-		ticket.add(objP);
-		ticket.add(objP2);*/
 		
 		informeCalidad.setTicketConteo(ticket.size());
 		informeCalidad.setManTicket(ticket);
