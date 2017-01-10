@@ -13,7 +13,7 @@ var calidadParam = "calidadParam";
 var datos;
 
 
-function incidencias(){
+function incidencias(cFechaInicio, cFechaFin){
 
 	var arreglo = leerCookies(document.cookie);
 	var cCveCia = arreglo[0][1];
@@ -24,8 +24,10 @@ function incidencias(){
 		dataType : "json",
 		contentType : "application/json",
 		data : {
-			cCveCia   : cCveCia,
-			cCliente  : cCliente,
+			cCveCia      : cCveCia,
+			cCliente     : cCliente,
+			cFechaInicio : cFechaInicio,
+			cFechaFin    : cFechaFin
 		},
 		success : function(data) {
 
@@ -143,6 +145,15 @@ function vistaDetalle() {
 
 }
 
+function buscarIncidencia(){
+	
+	var fechaInicio = $('#from').val();
+	var fechaFin = $('#to').val();
+	
+	incidencias(fechaInicio, fechaFin);
+	
+}
+
 $(document).ready(function() {
-	incidencias();
+	//incidencias();
 });

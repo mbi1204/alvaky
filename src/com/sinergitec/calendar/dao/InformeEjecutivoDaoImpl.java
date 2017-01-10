@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -218,7 +219,8 @@ public class InformeEjecutivoDaoImpl {
 	
 	
 	@SuppressWarnings("static-access")
-	public CalidadTienda listaCalidad (String cCveCia, String cCliente) throws Open4GLException, IOException{
+	public CalidadTienda listaCalidad (String cCveCia, String cCliente, String cFechaIncio, String cFechaFin) throws Open4GLException, IOException{
+		
 		
 		//Conexion a la base de datos
 		Connection conexion = new DBConexion().getConnection();
@@ -249,7 +251,7 @@ public class InformeEjecutivoDaoImpl {
 		//Conexion al appServer
 		try{
 			
-			app.as_CalidadTiendas_Busca(cCveCia, cCliente, tt_ManTicket, tt_CalidadParam, tt_OrdFFecha, error, texto);
+			app.as_CalidadTiendas_Busca(cCveCia, cCliente, cFechaIncio, cFechaFin, tt_ManTicket, tt_CalidadParam, tt_OrdFFecha, error, texto);
 			
 			ResultSet rs_tt_ManTicket = tt_ManTicket.getResultSetValue();
 			ResultSet rs_tt_CalidadParam = tt_CalidadParam.getResultSetValue();

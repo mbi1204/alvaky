@@ -181,13 +181,15 @@ public class ReporteController {
 	
 	@RequestMapping(value = "/incidencias/datos", headers = "Accept=application/json")
 	public @ResponseBody String IncidenciasDatos(String cCveCia, 
-			String cCliente) throws Open4GLException, IOException {
+			String cCliente, String cFechaInicio, String cFechaFin) throws Open4GLException, IOException {
+		
+		System.out.println("DE: " + cFechaInicio + " A: " + cFechaFin);
 		
 		//Instacia de las incidencias
 		InformeEjecutivoDaoImpl incidencia = new InformeEjecutivoDaoImpl();
 		
 		String listaP = "";
-		listaP = new Gson().toJson(incidencia.listaCalidad(cCveCia, cCliente));
+		listaP = new Gson().toJson(incidencia.listaCalidad(cCveCia, cCliente, cFechaInicio, cFechaFin));
 		
 		return listaP;
 
