@@ -91,28 +91,36 @@ function detalle(valor,lectura){
 		}
 		if(lectura == "calidadParam"){
 			
-			console.log(datos.calidadParam);
+			var sucursal = "";
 			
-			var sucursal = datos.calidadParam[0].cTienda3;
-			
-			console.log(sucursal);
+			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
+			$('#myTable > tbody').append('<tr class="text-center">');
 			
 			for ( var item in datos.calidadParam) {
 				
 				console.log(datos.calidadParam[item].cTienda3);
 				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
+					//Limpieza de encabezado y cuerpo de la tabla
+					$("#myTable > thead").empty();
+					$("#myTable > tbody").empty();
+					
 					sucursal = datos.calidadParam[item].cTienda3;
-					console.log("sucursal cambia: " + sucursal);
+					
+					$('#myTable > tbody').append(
+							'<td class="text-center">' + datos.calidadParam[item].cTienda3 + '</td>');
+
 				}
 				
 			}
 			
-			var head = ['Ticket','Orden de Servicio',
+			$('#myTable > tbody').append('</tr>');
+			
+			/*var head = ['Ticket','Orden de Servicio',
 			            'Parametro','Descripcion','Fecha de Ejecucion',
 			            'Lectura' , 'Valor Maximo','Valor Minimo'];
 			
-			buildDetalle(datos.calidadParam , head);
+			buildDetalle(datos.calidadParam , head);*/
 		}
 	}
 	else{
@@ -147,6 +155,13 @@ function buildDetalle(arreglo, head){
 		
 		$('#myTable > tbody').append('</tr>');
 	}	
+}
+
+function buildTienda(){
+	
+	//Construccion de la pantalla de tiendas
+	
+	
 }
 
 
