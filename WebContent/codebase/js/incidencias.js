@@ -96,7 +96,7 @@ function detalle(valor,lectura){
 			$("#myTable > tbody").empty();
 			
 			var sucursal = "";
-			var contador = 0;
+			var contador = 1;
 			
 			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
 			$('#myTable > thead').append('<th class="text-center"> Cantidad </th>');
@@ -107,13 +107,16 @@ function detalle(valor,lectura){
 				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
 					
-					contador = 1;
 					sucursal = datos.calidadParam[item].cTienda3;
 					
 					$('#myTable > tbody').append('<tr class="text-center">');
 					$('#myTable > tbody').append(
 							'<td class="text-center">' + datos.calidadParam[item].cTienda3 + '</td>');
+					$('#myTable > tbody').append(
+							'<td class="text-center">' + contador + '</td>');
 					$('#myTable > tbody').append('</tr>');
+					
+					contador = 1;
 
 				}
 				
