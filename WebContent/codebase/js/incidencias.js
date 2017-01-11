@@ -98,36 +98,24 @@ function detalle(valor,lectura){
 			var sucursal = "";
 			var contador = 0;
 			
+			var head = ['Ticket','Orden de Servicio',
+			            'Parametro','Descripcion','Fecha de Ejecucion',
+			            'Lectura' , 'Valor Maximo','Valor Minimo'];
+			
 			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
-			$('#myTable > thead').append('<th class="text-center"> Cantidad </th>');
 			
 			for ( var item in datos.calidadParam) {
 				
-				console.log(datos.calidadParam[item].cTienda3);
-				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
-					
-					$('#myTable > tbody').append('<tr class="text-center">');
-					$('#myTable > tbody').append(
-							'<td class="text-center">' + datos.calidadParam[item].cTienda3 + '</td>');
-					
-					for (var item in datos.calidadParam){
-						
-					}
-					
-					if(sucursal != sucursal){
-						$('#myTable > tbody').append(
-								'<td class="text-center">' + contador + '</td>');
-					}
 					
 					sucursal = datos.calidadParam[item].cTienda3;
 					
-					contador = 1;
-					
+					$('#myTable > tbody').append('<tr class="text-center">');
+					$('#myTable > tbody').append(
+							'<td class="text-center" onclick="buildTienda();" >' + datos.calidadParam[item].cTienda3 + '</td>');
 					$('#myTable > tbody').append('</tr>');
 					
 				}
-				
 			}
 			
 			/*var head = ['Ticket','Orden de Servicio',
@@ -174,7 +162,7 @@ function buildDetalle(arreglo, head){
 function buildTienda(){
 	
 	//Construccion de la pantalla de tiendas
-	
+	alert("HOLA");
 	
 }
 
