@@ -91,6 +91,10 @@ function detalle(valor,lectura){
 		}
 		if(lectura == "calidadParam"){
 			
+			//Limpieza de encabezado y cuerpo de la tabla
+			$("#myTable > thead").empty();
+			$("#myTable > tbody").empty();
+			
 			var sucursal = "";
 			
 			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
@@ -101,9 +105,6 @@ function detalle(valor,lectura){
 				console.log(datos.calidadParam[item].cTienda3);
 				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
-					//Limpieza de encabezado y cuerpo de la tabla
-					$("#myTable > thead").empty();
-					$("#myTable > tbody").empty();
 					
 					sucursal = datos.calidadParam[item].cTienda3;
 					
