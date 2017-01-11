@@ -98,7 +98,6 @@ function detalle(valor,lectura){
 			var sucursal = "";
 			
 			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
-			$('#myTable > tbody').append('<tr class="text-center">');
 			
 			for ( var item in datos.calidadParam) {
 				
@@ -108,14 +107,14 @@ function detalle(valor,lectura){
 					
 					sucursal = datos.calidadParam[item].cTienda3;
 					
+					$('#myTable > tbody').append('<tr class="text-center">');
 					$('#myTable > tbody').append(
 							'<td class="text-center">' + datos.calidadParam[item].cTienda3 + '</td>');
+					$('#myTable > tbody').append('</tr>');
 
 				}
 				
 			}
-			
-			$('#myTable > tbody').append('</tr>');
 			
 			/*var head = ['Ticket','Orden de Servicio',
 			            'Parametro','Descripcion','Fecha de Ejecucion',
