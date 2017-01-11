@@ -90,9 +90,28 @@ function detalle(valor,lectura){
 			buildDetalle(datos.ordFFecha, head);
 		}
 		if(lectura == "calidadParam"){
+			
+			console.log(datos.calidadParam);
+			
+			var sucursal = datos.calidadParam[0].cTienda3;
+			
+			console.log(sucursal);
+			
+			for ( var item in datos.calidadParam) {
+				
+				console.log(datos.calidadParam.item.cTienda3);
+				
+				if (item.cTienda3 != sucursal){
+					sucursal = item.cTienda3;
+					console.log("sucursal cambia: " + sucursal)
+				}
+				
+			}
+			
 			var head = ['Ticket','Orden de Servicio',
 			            'Parametro','Descripcion','Fecha de Ejecucion',
 			            'Lectura' , 'Valor Maximo','Valor Minimo'];
+			
 			buildDetalle(datos.calidadParam , head);
 		}
 	}
@@ -102,8 +121,6 @@ function detalle(valor,lectura){
 }
 
 function buildDetalle(arreglo, head){
-	
-	console.log(datos);
 	
 	var cont = 0;
 	
