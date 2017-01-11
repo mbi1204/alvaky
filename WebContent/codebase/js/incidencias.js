@@ -147,8 +147,6 @@ function vistaDetalle() {
 
 function buscarIncidencia(){
 	
-	console.log("Hola estoy del lado del script");
-	
 	var fechaInicio = $('#from').val();
 	var fechaFin = $('#to').val();
 	
