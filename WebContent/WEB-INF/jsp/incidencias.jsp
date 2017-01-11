@@ -33,7 +33,7 @@
 			<label for="to">A:</label>
 			<input type="text" id="to" name="to">
 			
-			<button id="buscar" onclick='buscarIncidencia();'>Buscar</button>
+			<input type="button" value="Buscar" onclick="buscarIncidencia();"/>
 		</div>
 		
 		<br>
