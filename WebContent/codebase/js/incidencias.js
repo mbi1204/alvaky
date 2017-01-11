@@ -99,10 +99,10 @@ function detalle(valor,lectura){
 			
 			for ( var item in datos.calidadParam) {
 				
-				console.log(datos.calidadParam.item.cTienda3);
+				console.log(datos.calidadParam[item].cTienda3);
 				
-				if (item.cTienda3 != sucursal){
-					sucursal = item.cTienda3;
+				if (datos.calidadParam[item].cTienda3 != sucursal){
+					sucursal = datos.calidadParam[item].cTienda3;
 					console.log("sucursal cambia: " + sucursal)
 				}
 				
