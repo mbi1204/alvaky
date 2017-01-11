@@ -103,7 +103,7 @@ function detalle(valor,lectura){
 				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
 					sucursal = datos.calidadParam[item].cTienda3;
-					console.log("sucursal cambia: " + sucursal)
+					console.log("sucursal cambia: " + sucursal);
 				}
 				
 			}
