@@ -59,15 +59,6 @@
 			</table>
 		</div>
 		
-		<div id="Detalle_Dialog2" title="Detalle de Incidencias" style="overflow: scroll; height: 450px; width: 450px;">
-			<table id="myTable" style="margin: 0 auto;">
-				<thead>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
-		
 		
 	</div>
 
