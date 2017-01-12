@@ -112,17 +112,11 @@ function detalle(valor,lectura){
 					
 					$('#myTable > tbody').append('<tr class="text-center">');
 					$('#myTable > tbody').append(
-							'<td class="text-center" onclick="buildTienda();" >' + datos.calidadParam[item].cTienda3 + '</td>');
+							'<td class="text-center" onclick="buildTienda('+datos.calidadParam+','+head+','+sucursal+');" >' + datos.calidadParam[item].cTienda3 + '</td>');
 					$('#myTable > tbody').append('</tr>');
 					
 				}
 			}
-			
-			/*var head = ['Ticket','Orden de Servicio',
-			            'Parametro','Descripcion','Fecha de Ejecucion',
-			            'Lectura' , 'Valor Maximo','Valor Minimo'];
-			
-			buildDetalle(datos.calidadParam , head);*/
 		}
 	}
 	else{
@@ -131,8 +125,6 @@ function detalle(valor,lectura){
 }
 
 function buildDetalle(arreglo, head){
-	
-	var cont = 0;
 	
 	//Limpieza de encabezado y cuerpo de la tabla
 	$("#myTable > thead").empty();
@@ -159,10 +151,39 @@ function buildDetalle(arreglo, head){
 	}	
 }
 
-function buildTienda(){
+function buildTienda(tabla, header, tienda){
+	
+	vistaDetalle2();
+	
+	console.log("Entre en el construir tienda");
 	
 	//Construccion de la pantalla de tiendas
-	alert("HOLA");
+	//Limpieza de encabezado y cuerpo de la tabla
+	$("#myTable > thead").empty();
+	$("#myTable > tbody").empty();
+	
+	//Creando el encabezado
+	for ( var item in header) {
+		
+		$('#myTable > thead').append('<th class="text-center">' + header[item] + '</th>');
+	}
+	
+	//Arreglo para los datos
+	for ( var item in tabla) {
+		
+		if (tabla[item].cTienda3 ==  tienda){
+			$('#myTable > tbody').append(
+			'<tr class="text-center">'); 
+	
+			for ( var elemento in tabla[item]) {			
+				$('#myTable > tbody').append(
+						'<td class="text-center">' + tabla[item][elemento] + '</td>');
+			}
+			
+			$('#myTable > tbody').append('</tr>');
+		}
+	
+	}
 	
 }
 
@@ -170,6 +191,18 @@ function buildTienda(){
 function vistaDetalle() {
 
 	$('#Detalle_Dialog').dialog({
+        resizable: false,
+        autoOpen: true,
+        autoReposition: false,
+        height: 500,
+        width: 950,
+        modal: true});
+
+}
+
+function vistaDetalle2() {
+
+	$('#Detalle_Dialog2').dialog({
         resizable: false,
         autoOpen: true,
         autoReposition: false,
