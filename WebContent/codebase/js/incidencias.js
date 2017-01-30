@@ -155,8 +155,6 @@ function buildTienda(tabla, header, tienda){
 	
 	vistaDetalle2();
 	
-	console.log("Entre en el construir tienda");
-	
 	//Construccion de la pantalla de tiendas
 	//Limpieza de encabezado y cuerpo de la tabla
 	$("#myTable > thead").empty();
