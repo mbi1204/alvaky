@@ -59,6 +59,15 @@
 			</table>
 		</div>
 		
+		<div id="Detalle_Dialog2" title="Detalle de Incidencias" style="overflow: scroll; height: 450px; width: 450px;">
+			<table id="myTable2" style="margin: 0 auto;">
+				<thead>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		
 		
 	</div>
 
@@ -92,6 +101,12 @@
 	    $( "#from" ).datepicker( $.datepicker.regional['es'] );
 	    $( "#to" ).datepicker( $.datepicker.regional['es'] );
 	  } );
+	  
+	  
+	  $("#tienda").dblclick(function() {
+		    $("#Detalle_Dialog2").dialog("open");
+		});
+	  
 	</script>
 	
 	<!-- Fin Script -->

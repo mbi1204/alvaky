@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -82,6 +84,9 @@ public class SimpleInitController {
 			cSucursal = request.getParameter("sucursal");
 		}
 		
+		Log LOG = LogFactory.getLog(SimpleInitController.class);
+		long tiempo = System.currentTimeMillis();
+		
     	DHXPlanner s = new DHXPlanner("./codebase/", DHXSkin.TERRACE);
     	
     	s.localizations.set("es");
@@ -90,7 +95,7 @@ public class SimpleInitController {
     	s.templates.getEventText();
     	s.config.setHourSizePx(25);
     	s.config.setDetailsOnDblClick(true);
-
+    	
     	// calendario de mantenimientos
     	CustomEventsManager evs = new CustomEventsManager(request);
     	s.parse(evs.getEvents(usuarioWebCompania.getCtUsuaCompWeb().getcCveCia(),
@@ -108,6 +113,8 @@ public class SimpleInitController {
     	// puts scheduler code in view
     	
 		mnv.addObject("body", s.render());
+		
+		LOG.info(" TIEMPO: " + (System.currentTimeMillis() - tiempo + " ms" ));
 
         return mnv;
     }

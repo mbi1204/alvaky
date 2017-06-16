@@ -11,6 +11,8 @@ var manTicket = "manTicket";
 var ordFFecha = "ordFFecha";
 var calidadParam = "calidadParam";
 var datos;
+var datosAgua;
+var headAgua;
 
 
 function incidencias(cFechaInicio, cFechaFin){
@@ -98,22 +100,24 @@ function detalle(valor,lectura){
 			var sucursal = "";
 			var contador = 0;
 			
-			var head = ['Ticket','Orden de Servicio',
+			headAgua = ['Ticket','Orden de Servicio',
 			            'Parametro','Descripcion','Fecha de Ejecucion',
 			            'Lectura' , 'Valor Maximo','Valor Minimo'];
 			
 			$('#myTable > thead').append('<th class="text-center"> Tiendas </th>');
 			
 			for ( var item in datos.calidadParam) {
+
+				datosAgua = datos.calidadParam;
 				
 				if (datos.calidadParam[item].cTienda3 != sucursal){
 					
 					sucursal = datos.calidadParam[item].cTienda3;
+					//sucursal = sucursal.split(",");
 					
-					$('#myTable > tbody').append('<tr class="text-center">');
-					$('#myTable > tbody').append(
-							'<td class="text-center" onclick="buildTienda('+datos.calidadParam+','+head+','+sucursal+');" >' + datos.calidadParam[item].cTienda3 + '</td>');
-					$('#myTable > tbody').append('</tr>');
+					$('#myTable > tbody').append('<tr class="text-center">'
+					+ '<td class="text-center" onclick="buildTienda(\''+sucursal+'\');" >' + datos.calidadParam[item].cTienda3 + '</td>' +
+					+ '</tr>');
 					
 				}
 			}
@@ -125,6 +129,9 @@ function detalle(valor,lectura){
 }
 
 function buildDetalle(arreglo, head){
+	
+	console.log(head);
+	console.log(arreglo);
 	
 	//Limpieza de encabezado y cuerpo de la tabla
 	$("#myTable > thead").empty();
@@ -151,37 +158,40 @@ function buildDetalle(arreglo, head){
 	}	
 }
 
-function buildTienda(tabla, header, tienda){
+function buildTienda(tienda){
 	
-	vistaDetalle2();
+	console.log(tienda);
 	
 	//Construccion de la pantalla de tiendas
 	//Limpieza de encabezado y cuerpo de la tabla
-	$("#myTable > thead").empty();
-	$("#myTable > tbody").empty();
+	$("#myTable2 > thead").empty();
+	$("#myTable2 > tbody").empty();
 	
+	console.log(headAgua);
 	//Creando el encabezado
-	for ( var item in header) {
+	for ( var item in headAgua) {
 		
-		$('#myTable > thead').append('<th class="text-center">' + header[item] + '</th>');
+		$('#myTable2 > thead').append('<th class="text-center">' + headAgua[item] + '</th>');
 	}
 	
+	console.log(datosAgua);
 	//Arreglo para los datos
-	for ( var item in tabla) {
+	for ( var item in datosAgua) {
 		
-		if (tabla[item].cTienda3 ==  tienda){
-			$('#myTable > tbody').append(
-			'<tr class="text-center">'); 
+		if (datosAgua[item].cTienda3 ==  tienda){
+			$('#myTable2 > tbody').append('<tr class="text-center">'); 
 	
-			for ( var elemento in tabla[item]) {			
-				$('#myTable > tbody').append(
-						'<td class="text-center">' + tabla[item][elemento] + '</td>');
+			for ( var elemento in datosAgua[item]) {			
+				$('#myTable2 > tbody').append(
+						'<td class="text-center">' + datosAgua[item][elemento] + '</td>');
 			}
 			
-			$('#myTable > tbody').append('</tr>');
+			$('#myTable2 > tbody').append('</tr>');
 		}
 	
 	}
+	
+	vistaDetalle2();
 	
 }
 

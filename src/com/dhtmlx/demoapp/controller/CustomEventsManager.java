@@ -1,6 +1,9 @@
 package com.dhtmlx.demoapp.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 
 
@@ -37,6 +40,9 @@ public class CustomEventsManager extends DHXEventsManager {
 		
 		try {
 			
+			Log LOG = LogFactory.getLog(CustomEventsManager.class);
+			long tiempo = System.currentTimeMillis();
+			
 			Connection conexion = new DBConexion().getConnection();
 			yacatmto app = new yacatmto(conexion);
 			
@@ -46,11 +52,13 @@ public class CustomEventsManager extends DHXEventsManager {
 			BooleanHolder error  = new BooleanHolder();
 			
 			app.as_calendario_cargaV3(cCveCia, cCliente, tt_opCalmnto, error, texto);
-			System.out.println(texto.getValue().toString());
+			//System.out.println(texto.getValue().toString());
 			
 			ResultSet rs_tt_opCalmnto = tt_opCalmnto.getResultSetValue();
 			
 			while (rs_tt_opCalmnto.next()) { 
+				
+				
 				
 				Event e = new Event();
 				StringBuilder fechaVisita = new StringBuilder();
@@ -85,6 +93,7 @@ public class CustomEventsManager extends DHXEventsManager {
 				}
 			app._release();
 			conexion.finalize();
+			LOG.info(" TIEMPO: " + (System.currentTimeMillis() - tiempo + " ms" ));
 		} catch (Open4GLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -107,6 +116,9 @@ public class CustomEventsManager extends DHXEventsManager {
 		List<DHXEv> evs = new ArrayList<DHXEv>();
 		
 		try {
+			
+			Log LOG = LogFactory.getLog(CustomEventsManager.class);
+			long tiempo = System.currentTimeMillis();
 			
 			Connection conexion = new DBConexion().getConnection();
 			yacatmto app = new yacatmto(conexion);
@@ -157,6 +169,9 @@ public class CustomEventsManager extends DHXEventsManager {
 				}
 			app._release();
 			conexion.finalize();
+			
+			LOG.info("TIEMPO EN CORRECTIVO: " + (System.currentTimeMillis() - tiempo + " ms" ));
+			
 		} catch (Open4GLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
